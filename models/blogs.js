@@ -30,8 +30,31 @@ var BlogsSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "blogs"
         }
+    ],
+
+    // Posts by this blog
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "posts"
+        }
+    ],
+
+    // Notifications for this blog
+    notifications: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "notifications"
+        }
+    ],
+
+    // Messages for this blog
+    messages: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "messages"
+        }
     ]
-    
 });
 
 var blogs = mongoose.model("blogs", BlogsSchema);
