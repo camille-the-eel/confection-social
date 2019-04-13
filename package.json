@@ -23,6 +23,7 @@
     "if-env": "^1.0.4",
     "mongo": "^0.1.0",
     "mongoose": "^5.5.1",
+    "npm-install-peers": "^1.2.1",
     "react-router": "^5.0.0"
   }
 }
