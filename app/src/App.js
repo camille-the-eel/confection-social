@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+//REQUIRE STREAM DEPENDENCY
+var stream = require('getstream');
+
 class App extends Component {
   render() {
     return (
