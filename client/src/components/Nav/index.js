@@ -1,3 +1,9 @@
+//components to call
+//avatar
+
+//includes blog name in jsx
+//search button in jsx
+
 import React, { Component } from "react"
 import { Redirect, Route, Link } from "react-router-dom"
 import axios from "axios";
