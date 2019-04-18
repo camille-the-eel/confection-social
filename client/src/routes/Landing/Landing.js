@@ -5,9 +5,6 @@ import LoginForm from "./LoginForm";
 class LandingPage extends Component {
     constructor() {
         super()
-
-        
-
     }
 
     render() {
