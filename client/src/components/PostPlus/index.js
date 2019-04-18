@@ -1,0 +1,1 @@
+//container for post and postDetails
