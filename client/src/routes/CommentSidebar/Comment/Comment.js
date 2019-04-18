@@ -1,0 +1,1 @@
+//avatar/blog name/comment text/time ago
