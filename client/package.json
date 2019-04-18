@@ -6,6 +6,7 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "getstream": "^4.2.1",
+    "moment": "^2.24.0",
     "npm-install-peers": "^1.2.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
