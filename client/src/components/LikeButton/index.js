@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { User as UserActions } from 'actions';
-import likeButton from '../../../public/img/likeButton.svg';
-import likeButtonClicked from '../../../public/img/likeButtonClicked.svg';
+import likeButton from '../../img/likeButton.svg';
+import likeButtonClicked from '../../img/likeButtonClicked.svg';
 
 class LikeButton extends Component {
 
@@ -27,5 +27,6 @@ class LikeButton extends Component {
 
 export default LikeButton;
 
-//still need to connect the User/state.User to this action
-//still need to complete action in the Activity component
+//TO DO:
+//connect the User/state.User to this action
+//complete action in the Activity component

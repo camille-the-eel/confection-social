@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { User as UserActions } from 'actions';
-import reblogButton from '../../../public/img/reblogButton.svg';
-import reblogButtonClicked from '../../../public/img/reblogButtonClicked.svg';
+import reblogButton from '../../img/reblogButton.svg';
+import reblogButtonClicked from '../../img/reblogButtonClicked.svg';
 
 class ReblogButton extends Component {
 
@@ -25,5 +25,7 @@ class ReblogButton extends Component {
 
 export default ReblogButton;
 
-//still need to connect the User/state.User to this action
-//still need to complete action in the Activity component
+
+//TO DO:
+//connect the User/state.User to this action
+//complete action in the Activity component

@@ -1,7 +1,10 @@
 import React, { Component }  from "react";
 import Navbar from "../../components/Nav";
+import CommentSidebar from '../CommentSidebar/CommentSidebar.js';
+import HomeSidebar from '../HomeSidebar/HomeSidebar.js';
+import PostFull from '../../components/PostFull';
 
-class Homepage extends Component {
+class Home extends Component {
     constructor() {
         super()
     }
@@ -11,9 +14,10 @@ class Homepage extends Component {
             <div>
                 <Navbar />
                 <h2>Welcome to your homepage</h2>
+                <HomeSidebar />
             </div>
         )
     }
 }
 
-export default Homepage;
+export default Home;

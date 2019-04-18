@@ -35,3 +35,6 @@ class HomeButton extends Component {
 }
 
 export default HomeButton;
+
+//TO DO:
+//check functionalility on page
