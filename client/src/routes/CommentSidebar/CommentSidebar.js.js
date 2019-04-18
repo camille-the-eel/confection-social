@@ -1,11 +1,22 @@
-//this acts as container to 
-//comment component
+import React, { Component } from 'react';
+import Avatar from '../../components/Avatar';
+import Caption from '../../components/Caption';
+import Sources from '../../components/Sources';
+import TimeAgo from '../../components/TimeAgo';
+import Comment from './Comment';
 
-//also calls avatar, caption, sources, timeago
+import commentButton from '../../img/commentButton.svg';
+import closeButton from '../../img/closeButton.svg';
 
-//includes image buttons
-//close
-//add comment
+class CommentSidebar extends Component {
+
+    render () {
+        return
+    }
+
+}
+
+export default CommentSidebar;
 
 //jsx for original avatar/blogname/caption/sources/timeago
 
