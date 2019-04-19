@@ -5,7 +5,7 @@ import TimeAgo from '../../../components/TimeAgo';
 class Comment extends Component {
 
     render () {
-        return
+        return <p>test.</p>
     }
 
 }

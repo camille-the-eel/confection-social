@@ -11,7 +11,7 @@ import closeButton from '../../img/closeButton.svg';
 class CommentSidebar extends Component {
 
     render () {
-        return
+        return <img src={closeButton} alt="closeButton"/>
     }
 
 }

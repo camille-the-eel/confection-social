@@ -4,7 +4,7 @@ import { Route, Link } from "react-router-dom"
 class NavAvatar extends Component {
 
     render () {
-        return
+        return <p>test.</p>
     }
 
 }

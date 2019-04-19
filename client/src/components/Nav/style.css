@@ -1,0 +1,17 @@
+.nav {
+    box-shadow: none !important;
+    border-bottom: 5px solid #9B1A30;
+}
+
+.nav-wrapper {
+    background-color: #FDFCFB;
+}
+
+.app-name {
+    color: #3B3A3A;
+}
+
+.searchButton {
+    width: 45px;
+}
+

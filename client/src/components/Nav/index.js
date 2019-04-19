@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { Redirect, Route, Link } from "react-router-dom"
 import axios from "axios";
 import NavAvatar from "../NavAvatar";
-import { ReactComponent as SearchButton } from '../../img/searchButton.svg';
+import searchButton, { ReactComponent as SearchButton } from '../../img/searchButton.svg';
+import './style.css';
 
 class Navbar extends Component {
     constructor() {
@@ -15,11 +16,17 @@ class Navbar extends Component {
         console.log(this.props);
 
         return (
-            <div>
-                <header className="navbar App-header" id="nav-container">
-                confection
-                </header>
-                <SearchButton className="searchButton" alt="searchIcon"/>
+            <div className="navbar-fixed">
+                <nav className="nav">
+                    <div className="nav-wrapper">
+                        <Link to="/home" className="app-name left">
+                            confection
+                        </Link>
+                        <Link to="/explore" className="right">
+                             <SearchButton className="searchButton" alt="searchIcon"/>
+                        </Link>
+                    </div>
+                </nav>
             </div>
         )
     }

@@ -6,7 +6,7 @@ import PostDetails from '../PostDetails';
 class PostPlus extends Component {
 
     render () {
-        return
+        return <PostDetails/>
     }
 
 }

@@ -5,7 +5,7 @@ import PostPlus from '../PostPlus';
 class PostFull extends Component {
 
     render () {
-        return
+        return <PostPlus/>
     }
 
 }

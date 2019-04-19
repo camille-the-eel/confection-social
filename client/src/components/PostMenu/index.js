@@ -6,7 +6,7 @@ import LikeButton from '../LikeButton';
 class PostMenu extends Component {
 
     render () {
-        return
+        return <img src={LikeButton} alt="likeButton"/>
     }
 
 }

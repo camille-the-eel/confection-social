@@ -6,7 +6,7 @@ import CommentButton from '../CommentButton';
 class PostDetails extends Component {
 
     render () {
-        return
+        return <CommentButton/>
     }
 
 }
