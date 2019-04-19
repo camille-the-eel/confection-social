@@ -71,7 +71,7 @@ class App extends Component {
                           />} 
                   />
                   <Route 
-                      exact path="/homepage"
+                      exact path="/home"
                       component={Homepage}
                   />
                   <Route 

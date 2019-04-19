@@ -7,7 +7,7 @@ import { ReactComponent as CreateButton } from '../../img/createButton.svg';
 class HomeSidebar extends Component {
 
     render () {
-        return
+        return <CreateButton/>
     }
 
 }

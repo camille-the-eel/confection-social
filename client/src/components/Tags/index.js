@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Tags extends Component {
 
     render () {
-        return
+        return <p>test.</p>
     }
 
 }

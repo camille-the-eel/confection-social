@@ -42,7 +42,7 @@ class LoginForm extends Component {
                     })
                     // update the state to redirct to homepage
                     this.setState({
-                        redirectTo: "/homepage"
+                        redirectTo: "/home"
                     })
                 }
             }).catch(error => {

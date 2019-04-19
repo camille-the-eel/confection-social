@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PhotoItem extends Component {
 
     render () {
-        return
+        return <p> Photo test.</p>
     }
 
 }

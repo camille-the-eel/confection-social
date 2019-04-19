@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Caption extends Component {
 
     render () {
-        return
+        return <p>test.</p>
     }
 
 }

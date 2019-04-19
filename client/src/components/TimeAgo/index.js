@@ -4,7 +4,7 @@ import moment from 'moment';
 class TimeAgo extends Component {
 
     render () {
-        return
+        return <p>test.</p>
     }
 
 }
