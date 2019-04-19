@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const session = require("express-session");
+const dotenv = require("dotenv").config();
 const dbConnection = require("./server/database");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("./server/passport");

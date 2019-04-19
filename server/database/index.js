@@ -1,10 +1,10 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-const config = require("../../config");
 
-const uri = "mongodb://localhost:27017/authTest3"
 
-mongoose.connect(uri).then(
+const db = "mongodb+srv://" + process.env.MONGO_UN + ":" + process.env.MONGO_PW + "@confection-db-npp3q.mongodb.net/test?retryWrites=true";
+
+mongoose.connect(db).then(
     () => {
         console.log("Connected to Mongo");
         console.log(config);
@@ -12,7 +12,6 @@ mongoose.connect(uri).then(
     err => {
         console.log("error connecting to Mongo: ");
         console.log(err);
-        console.log(config);
     }
 )
 
