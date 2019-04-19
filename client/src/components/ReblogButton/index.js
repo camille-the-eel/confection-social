@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { User as UserActions } from 'actions';
-import reblogButton from '../../../public/img/reblogButton.svg';
-import reblogButtonClicked from '../../../public/img/reblogButtonClicked.svg';
+// import { User as UserActions } from 'actions';
+import reblogButton from '../../img/reblogButton.svg';
+import reblogButtonClicked from '../../img/reblogButtonClicked.svg';
 
 class ReblogButton extends Component {
 
@@ -14,16 +14,18 @@ class ReblogButton extends Component {
     handleClick = e => {
         if (!this.props.reblogged) {
             this.props.onReblog({ id: this.props.id, reblogged: this.props.reblogged, src: reblogButtonClicked });
-            reblogPost(this.props.user.id, this.props.id);
+            // reblogPost(this.props.user.id, this.props.id);
         }
     };
 
     render() {
-        return <img src={this.props.src} className="reblogButton" onClick={this.handleClick} />;
+        return <img src={this.props.src} alt="reblogButton" className="reblogButton" onClick={this.handleClick} />;
     }
 }
 
 export default ReblogButton;
 
-//still need to connect the User/state.User to this action
-//still need to complete action in the Activity component
+
+//TO DO:
+//connect the User/state.User to this action
+//complete action in the Activity component
