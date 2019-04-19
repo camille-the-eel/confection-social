@@ -6,6 +6,7 @@ import PostFull from '../../components/PostFull';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import './style.css';
 
 class Home extends Component {
     constructor() {
@@ -14,9 +15,8 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="body">
                 <Navbar />
-                <h2 className="waves-effect waves-light btn">Welcome to your homepage</h2>
                 <HomeSidebar />
             </div>
         )

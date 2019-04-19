@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Redirect, Route, Link } from "react-router-dom"
 import axios from "axios";
 import NavAvatar from "../NavAvatar";
-import searchButton, { ReactComponent as SearchButton } from '../../img/searchButton.svg';
+import { ReactComponent as SearchButton } from '../../img/searchButton.svg';
 import './style.css';
 
 class Navbar extends Component {
@@ -22,6 +22,11 @@ class Navbar extends Component {
                         <Link to="/home" className="app-name left">
                             confection
                         </Link>
+                        <ul>
+                            <li>
+                                <NavAvatar/>
+                            </li>
+                        </ul>
                         <Link to="/explore" className="right">
                              <SearchButton className="searchButton" alt="searchIcon"/>
                         </Link>
@@ -35,5 +40,4 @@ class Navbar extends Component {
 export default Navbar;
 
 //TO DO:
-//link search button to explore page
-//display NavAvatar component(s) (link in the NavAv component)
+//display NavAvatar component(s) --link in the NavAv component?

@@ -1,17 +1,38 @@
 .nav {
+    height: 95px;
     box-shadow: none !important;
-    border-bottom: 5px solid #9B1A30;
+    border-bottom: 10px solid #991A2A;
 }
 
 .nav-wrapper {
-    background-color: #FDFCFB;
+    background-color:#FDFCFB;
 }
 
 .app-name {
     color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .searchButton {
-    width: 45px;
+    width: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-right: 30px;
 }
 
+@media screen and (max-width: 400px) {
+    .app-name {
+        font-size: 45px;
+    }
+
+    .searchButton {
+        width: 40px;
+        margin: 20px;
+    }
+}
