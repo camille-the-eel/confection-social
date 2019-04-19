@@ -8,5 +8,9 @@ module.exports = {
         appId: process.env.STREAM_APP_ID,
         key: process.env.STREAM_KEY,
         secret: process.env.STREAM_SECRET
+    },
+    mongo: {
+        username: process.env.MONGO_UN,
+        password: process.env.MONGO_PW
     }
 }
