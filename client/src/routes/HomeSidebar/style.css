@@ -1,0 +1,31 @@
+.homeSidebarContainer {
+    margin-top: 60px;
+    width: 250px;
+    height: 100vh;
+    position: relative;
+}
+
+.homeSidebar {
+    text-align: center;
+    width: 125px;
+    margin-left: 30px;
+}
+
+.centeredButtons {
+    position: fixed;
+}
+
+.customButton {
+    width: 40px;
+    margin: 4px;
+
+}
+
+.buttonCreate {
+    position: fixed;
+    bottom: 20px;
+}
+
+#createButton {
+    width: 70px;
+}

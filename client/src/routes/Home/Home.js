@@ -18,6 +18,8 @@ class Home extends Component {
             <div className="body">
                 <Navbar />
                 <HomeSidebar />
+                <CommentSidebar />
+                <PostFull />
             </div>
         )
     }
