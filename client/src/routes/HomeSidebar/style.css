@@ -1,8 +1,15 @@
 .homeSidebarContainer {
-    margin-top: 60px;
+    margin-top: 50px;
     width: 250px;
     height: 100vh;
     position: relative;
+    float: left;
+}
+
+.clearfix::after {
+    content: “”;
+    display: block;
+    clear: both;
 }
 
 .homeSidebar {

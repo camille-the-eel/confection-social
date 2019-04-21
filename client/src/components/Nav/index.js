@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios";
-import NavAvatar from "../NavAvatar";
+import AvatarNav from "../AvatarNav";
 import { ReactComponent as SearchButton } from '../../img/searchButton.svg';
 import './style.css';
 
@@ -24,7 +24,7 @@ class Navbar extends Component {
                         </Link>
                         <ul>
                             <li>
-                                <NavAvatar/>
+                                <AvatarNav/>
                             </li>
                         </ul>
                         <Link to="/explore" className="right">

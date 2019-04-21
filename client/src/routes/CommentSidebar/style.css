@@ -1,0 +1,144 @@
+.fixedDiv {
+    position: fixed;
+    width: 100%;
+}
+
+.commentSidebarContainer {
+    background-color: #FDFCFB;
+    width: 400px;
+    height: 100vh;
+    float: right;
+    z-index: 1;
+    border-left: 7px solid #991A2A;
+}
+
+.clearfix::after {
+    content: “”;
+    display: block;
+    clear: both;
+}
+
+.commentSidebar {
+    margin-left: 30px;
+}
+
+.centeredDiv {
+   width: 375px;
+}
+
+.closeButton {
+    position: relative;
+    left: 350px;
+    top: 50px;
+    z-index: 2;
+    width: 25px;
+}
+
+p {
+    margin-top: 7px;
+}
+
+.creatorAvatar {
+    width: 50px;
+}
+
+.blogName {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.blogLink {
+    margin-top: 20px;
+}
+
+.caption {
+    padding-right: 30px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.source {
+    display: inline;
+    padding-right: 7px;
+    font-size: 14px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.sourceContent {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.credit {
+    display: inline;
+    padding-right: 7px;
+    font-size: 14px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.creditContent {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.activeBlogName {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.addComment {
+    position: relative;
+    left: 165px;
+}
+
+.comment {
+    display: inline-block;
+    font-size: 20px;
+    padding-right: 7px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+    
+}
+
+.commentButton {
+    display: inline-block;
+    width: 15px;
+}
+
+#commentInput {
+    padding-right: 35px;
+}
