@@ -3,32 +3,37 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./setAuthToken";
 
 // Register User
-export const registerUser = (userData, history) => {
+export const registerUser = (userData, cb) => {
     axios
         .post("/api/users/register", userData)
         // Redirect on successful login
-        .then(res => history.push("/"))
+        .then(res => {
+            if (res) {
+                cb()
+            }
+        })
         .catch(error => {
             console.error(error);
         });
 };
 
 // Login User
-export const loginUser = (userData, done) => {
+export const loginUser = (userData, cb) => {
     axios
         .post("/api/users/login", userData)
         .then(res => {
             // Save to session storage
             const { token } = res.data;
-            sessionStorage.setItem("jwttoken", token);
+            sessionStorage.setItem("jwtToken", token);
             // Set token to Auth header
             setAuthToken(token);
+            console.log(token);
             // Decode token to get user's data
             const decoded = jwt_decode(token);
             // Set decoded id
-            sessionStorage.setItem("email", decoded.id);
+            sessionStorage.setItem("id", decoded.id);
             console.log(decoded);
-            done();
+            cb();
         })
         .catch(error => {
             console.error(error);

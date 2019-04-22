@@ -32,13 +32,15 @@ class LoginForm extends Component {
 
         loginUser(userData, () => {
             let context = this.context;
-            context.login()
-        });
-    };
+            console.log(this.context.isUser);
+            context.logIn();
+            console.log(this.context.isUser);
+        })
+    }
     
     render() {
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        if (this.context.isUser) {
+            return <Redirect to={{ pathname: "/home" }} />
         } else {
             return (
                 <div>
@@ -53,7 +55,7 @@ class LoginForm extends Component {
                                     type="text"
                                     id="email"
                                     name="email"
-                                    placeholder="johndoe@gmail.com"
+                                    placeholder="example@gmail.com"
                                     value={this.state.email}
                                     onChange={this.handleChange}
                                 />

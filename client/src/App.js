@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./routes/NewUser/NewUser";
 import LandingPage from "./routes/Landing/Landing";
-import Homepage from "./routes/Home/Home";
+import Home from "./routes/Home/Home";
 
 import setAuthToken from "./utils/setAuthToken";
 import CurrentUser from "./AppContext";
@@ -24,7 +24,7 @@ class App extends Component {
           user: null,
           setUser: this.setUser,
           logOut: this.logoutUser,
-          logIn: this.logInUser
+          logIn: this.logIn
       };
   };
 
@@ -37,7 +37,9 @@ class App extends Component {
   };
 
   checkIfUser = () => {
-      const isToken = sessionStorage.getItem("jwtToken");
+      console.log("check user firing")
+      console.log(sessionStorage)
+      const isToken = sessionStorage.getItem("jwttoken");
       if (isToken) {
           this.setState({ isUser: true })
       } else {
@@ -45,40 +47,42 @@ class App extends Component {
       }
   };
 
-  login = () => {
+  logIn = () => {
       this.checkIfUser()
   };
 
   logoutUser = () => {
-      sessionStorage.removeItem("jwtToken");
+      sessionStorage.removeItem("jwttoken");
       setAuthToken(false);
       this.checkIfUser();
   }
 
   render() {
       return (
-          <Router>
-              <div className="App">
-                  <Switch>
-                  <Route 
-                      exact path="/"
-                      render={() => 
-                          <LandingPage 
-                              updateUser={this.updateUser}
-                          />} 
-                  />
-                  <Route 
-                      exact path="/homepage"
-                      component={Homepage}
-                  />
-                  <Route 
-                      path="/signup"
-                      render={() => 
-                          <Signup />}
-                  />
-                  </Switch>
-              </div>
-          </Router>
+          <CurrentUser.Provider value={this.state}>
+            <Router>
+                <div className="App">
+                    <Switch>
+                    <Route 
+                        exact path="/"
+                        render={() => 
+                            <LandingPage 
+                                updateUser={this.updateUser}
+                            />} 
+                    />
+                    <Route 
+                        exact path="/home"
+                        component={Home}
+                    />
+                    <Route 
+                        path="/signup"
+                        render={() => 
+                            <Signup />}
+                    />
+                    </Switch>
+                </div>
+            </Router>
+          </CurrentUser.Provider>
       );
   }
 }

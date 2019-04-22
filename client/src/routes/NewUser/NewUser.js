@@ -34,10 +34,10 @@ class Register extends Component {
             password2: this.state.password2
         };
 
-        registerUser(newUser, target => {
-            this.setState({
-                redirectTo: target
-            })
+        console.log(this);
+
+        registerUser(newUser, () => {
+            this.setState({ redirectTo: "/" })
         });
     };
 
