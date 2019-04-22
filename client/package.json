@@ -5,6 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.18.0",
     "getstream": "^4.2.1",
     "npm-install-peers": "^1.2.1",
     "react": "^16.6.3",

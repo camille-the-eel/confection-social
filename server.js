@@ -1,57 +1,33 @@
 // Setting requires
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const session = require("express-session");
-const dbConnection = require("./server/database");
-const MongoStore = require("connect-mongo")(session);
-const passport = require("./server/passport");
-const path = require("path");
+const express       = require("express");
+                      require("dotenv").config();
+                      require("./server/database");
 
-// Setting app parameters
-const PORT = process.env.PORT || 3001;
-const app = express();
+const path          = require("path");
+const mongoose      = require("mongoose");
+const bodyParser    = require("body-parser");
+const passport      = require("passport");
 
-// Define middleware here
-app.use(morgan("dev"));
+const users         = require("./server/routes/api/users");
+
+const PORT          = process.env.PORT || 3001;
+const app           = express();
+
+// Bodyparser middleware
 app.use(
-    bodyParser.urlencoded({
-        extended: false
-    })
+  bodyParser.urlencoded({
+    extended: false
+  })
 );
 app.use(bodyParser.json());
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
-}
-
-// Sessions
-app.use(
-  session({
-      secret: "vanilla-shakespeare",
-      store: new MongoStore({ mongooseConnection: dbConnection }),
-      resave: false,
-      saveUninitialized: false
-  })
-);
-
-// Passport
+// Passport middleware
 app.use(passport.initialize());
-app.use(passport.session());
 
-// Setting required database routes
-const user = require("./server/routes/user");
+// Passport config
+require("./server/config/passport")(passport);
 
-// Using routes
-app.use("/user", user);
+// Routes
+app.use("./server/routes/api/users", users);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
-
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+app.listen(PORT, () => console.log(`Server up and running on port ${PORT}`));
