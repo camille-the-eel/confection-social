@@ -1,14 +1,13 @@
 // Setting requires
 const express       = require("express");
                       require("dotenv").config();
-                      require("./server/database");
 
 const path          = require("path");
 const mongoose      = require("mongoose");
 const bodyParser    = require("body-parser");
 const passport      = require("passport");
 
-const users         = require("./server/routes/api/users");
+const users         = require("./server/routes/api/user");
 
 const PORT          = process.env.PORT || 3001;
 const app           = express();
@@ -21,6 +20,18 @@ app.use(
 );
 app.use(bodyParser.json());
 
+// DB Config
+const db = `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true`
+
+// Connect to MongoDB
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true}
+  )
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.log(err));
+
 // Passport middleware
 app.use(passport.initialize());
 
@@ -28,6 +39,6 @@ app.use(passport.initialize());
 require("./server/config/passport")(passport);
 
 // Routes
-app.use("./server/routes/api/users", users);
+app.use("/api/users", users);
 
 app.listen(PORT, () => console.log(`Server up and running on port ${PORT}`));

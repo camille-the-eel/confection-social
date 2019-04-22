@@ -6,21 +6,21 @@ module.exports  =   function validateRegisterInput(data) {
     let errors = {};
 
     // Convert empty fields to an empty string so we can use validator
-    data.name       =   !isEmpty(data.name)         ?   data.name       :   "";
-    data.email      =   !isEmpty(data.email)        ?   data.email      :   "";
-    data.password   =   !isEmpty(data.password)     ?   data.password   :   "";
-    data.password2  =   !isEmpty(data.password2)    ?   data.password2  :   "";
-
-    // Name Checks
-    if (Validator.isEmpty(data.name)) {
-        errors.name = "Name field is required";
-    }
+    data.email          =   !isEmpty(data.email)        ?   data.email          :   "";
+    data.primaryBlog    =   !isEmpty(data.primaryBlog)  ?   data.primaryBlog    :   "";
+    data.password       =   !isEmpty(data.password)     ?   data.password       :   "";
+    data.password2      =   !isEmpty(data.password2)    ?   data.password2      :   "";
 
     // Email Checks
     if (Validator.isEmpty(data.email)) {
         errors.email = "Email field is required";
     } else if (!Validator.isEmail(data.email)) {
         errors.email = "Email is invalid";
+    }
+
+    // Primary Blog Checks
+    if (Validator.isEmpty(data.primaryBlog)) {
+        errors.name = "Primary Blog field is required";
     }
 
     // Password checks

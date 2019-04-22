@@ -3,7 +3,6 @@ const express   =   require("express");
 const router    =   express.Router();
 const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
-const passport  =   require("passport");
 
 // Load input validation
 const validateRegisterInput =   require("../../validation/register");
@@ -79,7 +78,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    name: user.name
+                    email: user.email
                 };
 
                 jwt.sign(
