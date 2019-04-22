@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import axios from "axios"
+import CurrentUser from "../../AppContext";
+
+import { loginUser } from "../../utils/authController";
 
 class LoginForm extends Component {
     constructor() {
@@ -8,7 +10,8 @@ class LoginForm extends Component {
         this.state = {
             email: "",
             password: "",
-            redirectTo: null
+            redirectTo: null,
+            token: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -22,34 +25,16 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log("handleSubmit");
-        console.log(this.state);
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        };
 
-        axios
-            .post("/user/login", {
-                email: this.state.email,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log("login response: ");
-                console.log(response);
-                console.log(this);
-                if (response.status === 200) {
-                    // upsate App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        email: response.data.email
-                    })
-                    // update the state to redirct to homepage
-                    this.setState({
-                        redirectTo: "/homepage"
-                    })
-                }
-            }).catch(error => {
-                console.log("login error: ");
-                console.log(error);
-            })
-    }
+        loginUser(userData, () => {
+            let context = this.context;
+            context.login()
+        });
+    };
     
     render() {
         if (this.state.redirectTo) {
@@ -102,4 +87,5 @@ class LoginForm extends Component {
     }
 }
 
+LoginForm.contextType = CurrentUser;
 export default LoginForm
