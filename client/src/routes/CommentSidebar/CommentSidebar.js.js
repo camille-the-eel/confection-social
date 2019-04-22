@@ -24,12 +24,8 @@ class CommentSidebar extends Component {
                                 <p className="blogName">props.blogName</p>
                             </div>
                             <div className="pContent">
-                                <p className="caption">props.caption  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
-                                <p className="source">SOURCE</p>
-                                <p className="sourceContent">props.source</p>
-                                <br/>
-                                <p className="credit">CREDIT</p>
-                                <p className="creditContent">props.credit</p>
+                                <Caption/>
+                                <Sources/>
                             </div>
                         </div>
                         <div className="commentsDiv">
@@ -56,9 +52,3 @@ class CommentSidebar extends Component {
 }
 
 export default CommentSidebar;
-
-//jsx for original avatar/blogname/caption/sources/timeago
-
-//comment components
-
-//jsx for comment input with avatar/blogname/input/addcomment button
