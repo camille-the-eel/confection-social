@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AvatarPost from '../AvatarPost';
+import AvatarSidebar from '../AvatarSidebar';
 import ReblogButton from '../ReblogButton';
 import LikeButton from '../LikeButton';
 

@@ -3,7 +3,7 @@ import AvatarSidebar from '../../components/AvatarSidebar';
 import Caption from '../../components/Caption';
 import Sources from '../../components/Sources';
 import TimeAgo from '../../components/TimeAgo';
-import Comment from './Comment';
+import Comment from './Comment/Comment';
 import './style.css';
 
 import commentButton from '../../img/commentButton.svg';
@@ -33,17 +33,14 @@ class CommentSidebar extends Component {
                             </div>
                         </div>
                         <div className="commentsDiv">
-                           
+                           <Comment/>
                         </div>
                         <div className="inputCommentDiv">
                             <div className="blogLink" onClick="">
                                 <AvatarSidebar className="commentorAvator"/>
                                 <p className="activeBlogName">props.activeBlogName</p>
                             </div>
-                            <div class="input-field col s12">
-                                <textarea id="commentInput" className="materialize-textarea"></textarea>
-                                <label for="commentInput">Comment</label>
-                            </div>
+                            <textarea className="commentInput"/>
                             <div className="addComment" onClick="">
                                 <p className="comment">ADD COMMENT</p>
                                 <img src={commentButton} alt="commentButton" className="commentButton"/>

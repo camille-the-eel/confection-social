@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from "react-router-dom"
 
-class NavAvatar extends Component {
+class AvatarNav extends Component {
 
     render () {
         return <p>test.</p>
@@ -9,7 +9,7 @@ class NavAvatar extends Component {
 
 }
 
-export default NavAvatar;
+export default AvatarNav;
 
 //TO DO:
 //display avatar(s) from database

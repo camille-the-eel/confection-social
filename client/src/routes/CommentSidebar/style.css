@@ -69,8 +69,8 @@ p {
 
 .source {
     display: inline;
-    padding-right: 7px;
-    font-size: 14px;
+    padding-right: 6px;
+    font-size: 13px;
     font-family: acumin-pro, sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -80,7 +80,7 @@ p {
 .sourceContent {
     display: inline;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-family: acumin-pro, sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -89,8 +89,8 @@ p {
 
 .credit {
     display: inline;
-    padding-right: 7px;
-    font-size: 14px;
+    padding-right: 6px;
+    font-size: 13px;
     font-family: acumin-pro, sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -100,7 +100,7 @@ p {
 .creditContent {
     display: inline;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-family: acumin-pro, sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -118,27 +118,45 @@ p {
     color: #3B3A3A;
 }
 
+.commentsDiv {
+    margin-top: 30px;
+}
+
 .addComment {
     position: relative;
-    left: 165px;
+    left: 180px;
 }
 
 .comment {
     display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
     padding-right: 7px;
     font-family: acumin-pro, sans-serif;
     font-weight: 700;
     font-style: normal;
     color: #3B3A3A;
-    
 }
 
 .commentButton {
     display: inline-block;
-    width: 15px;
+    width: 13.5px;
 }
 
-#commentInput {
-    padding-right: 35px;
+.inputCommentDiv {
+    position: absolute;
+    bottom: 60px;
+    width: 340px;
+}
+
+textarea {
+    width: 375px;
+    height: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+.commentInput {
+    margin-top: 14px;
 }
