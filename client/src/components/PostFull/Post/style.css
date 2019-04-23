@@ -1,3 +1,7 @@
+.commentButton {
+    width: 20px;
+}
+
 .postDetails {
     overflow: inherit;
 }

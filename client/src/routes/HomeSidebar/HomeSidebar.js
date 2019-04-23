@@ -13,7 +13,7 @@ class HomeSidebar extends Component {
         return (
         <div className="homeSidebarContainer">
             <ul className="homeSidebar">
-                <li className="centeredButtons">
+                <div className="centeredButtons">
                     <div className="buttonMenu">
                         <li>
                             <Link to="/messageInbox">
@@ -36,12 +36,10 @@ class HomeSidebar extends Component {
                     </div>
                     <div className="buttonCreate">
                         <li>
-                            <Link to="/createContent">
-                                <CreateButton id="createButton"/>
-                            </Link>
+                            <CreateButton id="createButton" onClick=""/>
                         </li>
                     </div>
-                </li>
+                </div>
             </ul>
         </div>
         )

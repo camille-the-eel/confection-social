@@ -5,6 +5,7 @@ import Source from '../../components/Sources/source';
 import Credit from '../../components/Sources/credit';
 import TimeAgo from '../../components/TimeAgo';
 import Comment from './Comment/Comment';
+import CommentButton from '../../components/CommentButton';
 import './style.css';
 
 import commentButton from '../../img/commentButton.svg';
@@ -16,7 +17,7 @@ class CommentSidebar extends Component {
         return (
             <div className="fixedDiv">
             <div className="commentSidebarContainer">
-            <img src={closeButton} alt="closeButton" className="closeButton" onClick=""/>
+            <img src={closeButton} alt="closeButton" className="closeButton" onClick={() => props.onClick()}/>
                 <div className="commentSidebar">
                     <div className="centeredDiv">
                         <div clasName="creatorDiv">
@@ -39,10 +40,10 @@ class CommentSidebar extends Component {
                                 <p className="activeBlogName">props.activeBlogName</p>
                             </div>
                             <textarea className="commentInput"/>
-                            <div className="addComment" onClick="">
+                            <button className="addComment" onClick="">
                                 <p className="comment">ADD COMMENT</p>
-                                <img src={commentButton} alt="commentButton" className="commentButton"/>
-                            </div>
+                                <CommentButton className="commentButton"/>
+                            </button>
                         </div>
                     </div>
                 </div>

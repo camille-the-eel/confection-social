@@ -13,7 +13,9 @@ class Home extends Component {
         super()
         this.state = {
             commentsHidden: true,
-            menuHidden: false
+            menuHidden: false,
+            createHidden: true,
+            feedHidden: false
         }
     }
 
@@ -31,11 +33,20 @@ class Home extends Component {
         })
     }
 
+    toggleCreate = () => {
+        this.setState({
+            createHidden: !this.state.createHidden,
+            feedHidden: !this.state.feedHidden
+        })
+    }
+
+    // {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
+
     render() {
         return (
             <div className="body">
                 <Navbar />
-                <HomeSidebar />
+                <HomeSidebar onClick={this.toggleCreate}/>
                 <CommentSidebar onClick={this.closeComments}/>
                 <PostFull onClick={this.openComments}/>
             </div>

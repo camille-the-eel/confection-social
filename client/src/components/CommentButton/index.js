@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { User as UserActions } from 'actions';
 import commentButton from '../../img/commentButton.svg';
 import CommentSidebar from '../../routes/CommentSidebar/CommentSidebar.js';
+import './style.css';
 
 class CommentButton extends Component {
     
@@ -17,7 +18,7 @@ class CommentButton extends Component {
     };
 
     render () {
-        return <img src={commentButton} alt="commentButton" className="commentButton" onClick={this.handleClick} />;
+        return <img src={commentButton} alt="commentButton" className="commentSVG" onClick={this.handleClick}/>;
     }
 
 }
