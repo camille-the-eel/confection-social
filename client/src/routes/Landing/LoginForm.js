@@ -32,9 +32,8 @@ class LoginForm extends Component {
 
         loginUser(userData, () => {
             let context = this.context;
-            console.log(this.context.isUser);
+            console.log(context);
             context.logIn();
-            console.log(this.context.isUser);
         })
     }
     

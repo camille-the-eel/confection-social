@@ -39,7 +39,7 @@ class App extends Component {
   checkIfUser = () => {
       console.log("check user firing")
       console.log(sessionStorage)
-      const isToken = sessionStorage.getItem("jwttoken");
+      const isToken = sessionStorage.getItem("jwtToken");
       if (isToken) {
           this.setState({ isUser: true })
       } else {
@@ -52,7 +52,7 @@ class App extends Component {
   };
 
   logoutUser = () => {
-      sessionStorage.removeItem("jwttoken");
+      sessionStorage.removeItem("jwtToken");
       setAuthToken(false);
       this.checkIfUser();
   }
