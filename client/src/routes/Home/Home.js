@@ -11,6 +11,24 @@ import './style.css';
 class Home extends Component {
     constructor() {
         super()
+        this.state = {
+            commentsHidden: true,
+            menuHidden: false
+        }
+    }
+
+    openComments = () => {
+        this.setState({
+            commentsHidden: false,
+            menuHidden: true
+        })
+    }
+
+    closeComments = () => {
+        this.setState({
+            commentsHidden: true,
+            menuHidden: false
+        })
     }
 
     render() {
@@ -18,8 +36,8 @@ class Home extends Component {
             <div className="body">
                 <Navbar />
                 <HomeSidebar />
-                <CommentSidebar />
-                <PostFull />
+                <CommentSidebar onClick={this.closeComments}/>
+                <PostFull onClick={this.openComments}/>
             </div>
         )
     }

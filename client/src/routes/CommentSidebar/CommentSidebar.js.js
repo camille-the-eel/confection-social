@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import AvatarSidebar from '../../components/AvatarSidebar';
 import Caption from '../../components/Caption';
-import Sources from '../../components/Sources';
+import Source from '../../components/Sources/source';
+import Credit from '../../components/Sources/credit';
 import TimeAgo from '../../components/TimeAgo';
 import Comment from './Comment/Comment';
 import './style.css';
@@ -11,7 +12,7 @@ import closeButton from '../../img/closeButton.svg';
 
 class CommentSidebar extends Component {
 
-    render () {
+    render (props) {
         return (
             <div className="fixedDiv">
             <div className="commentSidebarContainer">
@@ -25,7 +26,8 @@ class CommentSidebar extends Component {
                             </div>
                             <div className="pContent">
                                 <Caption/>
-                                <Sources/>
+                                <Source/>
+                                <Credit/>
                             </div>
                         </div>
                         <div className="commentsDiv">
