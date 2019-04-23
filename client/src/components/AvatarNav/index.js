@@ -4,7 +4,7 @@ import { Route, Link } from "react-router-dom"
 class AvatarNav extends Component {
 
     render () {
-        return <p>test.</p>
+        return <img src="https://via.placeholder.com/150" alt="test-avatar" style={{width:45}} />
     }
 
 }

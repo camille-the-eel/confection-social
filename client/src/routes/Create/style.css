@@ -1,4 +1,57 @@
 #divBody {
-    width: 350px;
+    width: 55%;
     margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #FDFCFB;
+    padding: 15px 25px;
+    border: 7px solid #991A2A;
+    box-shadow: 0 0 200px #3B3A3A;;
+    z-index: 10;
+}
+
+p {
+    margin: 0px;
+    font-size: 28px;
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#photoHead {
+    margin-bottom: 10px;
+}
+
+#upload {
+    margin-bottom: 15px;
+}
+
+.input-field {
+    margin: 0px !important;
+}
+
+input {
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+textarea {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.postButton {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0px;
+    font-size: 32px;
+    color: #991A2A;
+    font-family: miller-text, serif;
+    font-weight: 700;
+    font-style: bold;
 }

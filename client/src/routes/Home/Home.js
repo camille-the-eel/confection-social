@@ -63,8 +63,9 @@ class Home extends Component {
                     <Navbar />
                     {!this.state.menuHidden && <HomeSidebar onClick={this.toggleCreate}/>}
                     {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
-                    <PostFull onClick={this.openComments}/>
                     <Create/>
+                    <PostFull onClick={this.openComments}/>
+
                 </div>
             )
         }

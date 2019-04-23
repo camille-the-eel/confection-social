@@ -15,23 +15,23 @@ class Create extends Component {
         return (
             <div id="divBody">
                 <div className="photoDiv">
-                    <h1>PHOTO</h1>
+                    <p id="photoHead">photo</p>
                     <div id="upload">
                     </div>
                 </div>
                 <div className="text-input">
-                    <h1>CAPTION</h1>
+                    <p id="captionHead">caption</p>
                     <textarea className="commentInput"/>
                 </div>
                 <div className="input-field">
-                    <h1>CREDIT</h1>
+                    <p id="creditHead">credit</p>
                     <input id="credit" type="text" className="validate addition"/>
                 </div>
                 <div className="input-field">
-                    <h1>TAGS</h1>
+                    <p id="tagsHead">tags</p>
                     <input id="tags" type="text" className="validate addition"/>
                 </div>
-                <button>POST</button>
+                <button className="postButton">post</button>
             </div>
         )
     }

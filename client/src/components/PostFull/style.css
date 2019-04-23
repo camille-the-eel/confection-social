@@ -1,6 +1,7 @@
 .postDiv {
     box-sizing: content-box;
     position: relative;
+    top: 55px;
 }
 
 .postContainer {
