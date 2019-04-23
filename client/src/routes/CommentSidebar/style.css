@@ -1,0 +1,122 @@
+.fixedDiv {
+    position: fixed;
+    width: 100%;
+}
+
+.commentSidebarContainer {
+    background-color: #FDFCFB;
+    width: 400px;
+    height: 100vh;
+    float: right;
+    z-index: 1;
+    border-left: 7px solid #991A2A;
+}
+
+.clearfix::after {
+    content: “”;
+    display: block;
+    clear: both;
+}
+
+.commentSidebar {
+    margin-left: 30px;
+}
+
+.centeredDiv {
+   width: 375px;
+}
+
+.closeButton {
+    position: relative;
+    left: 350px;
+    top: 50px;
+    z-index: 2;
+    width: 25px;
+}
+
+p {
+    margin-top: 7px;
+}
+
+.creatorAvatar {
+    width: 50px;
+}
+
+.blogName {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.blogLink {
+    margin-top: 20px;
+}
+
+.caption {
+    padding-right: 30px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.activeBlogName {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.commentsDiv {
+    margin-top: 30px;
+}
+
+.addComment {
+    position: relative;
+    left: 180px;
+}
+
+.comment {
+    display: inline-block;
+    font-size: 18px;
+    padding-right: 7px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.commentButton {
+    display: inline-block;
+    width: 13.5px;
+}
+
+.inputCommentDiv {
+    position: absolute;
+    bottom: 60px;
+    width: 340px;
+}
+
+textarea {
+    width: 375px;
+    height: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+.commentInput {
+    margin-top: 14px;
+}
