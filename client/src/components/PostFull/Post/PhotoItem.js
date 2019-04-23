@@ -3,6 +3,7 @@ import Caption from '../../Caption';
 import Source from '../../Sources/source';
 import Credit from '../../Sources/credit';
 import CommentButton from '../../CommentButton';
+import './style.css';
 
 class PhotoItem extends Component {
 

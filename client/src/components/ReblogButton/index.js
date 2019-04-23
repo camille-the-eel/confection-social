@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { User as UserActions } from 'actions';
 import reblogButton from '../../img/reblogButton.svg';
 import reblogButtonClicked from '../../img/reblogButtonClicked.svg';
+import './style.css';
 
 class ReblogButton extends Component {
 

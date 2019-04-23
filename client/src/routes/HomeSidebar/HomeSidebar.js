@@ -4,6 +4,7 @@ import { ReactComponent as MessagesButton } from '../../img/messagesButton.svg';
 import { ReactComponent as NotificationButton } from '../../img/notificationButton.svg';
 import { ReactComponent as SettingsButton } from '../../img/settingsButton.svg';
 import { ReactComponent as CreateButton } from '../../img/createButton.svg';
+import { ReactComponent as LogoutButton } from '../../img/logoutButton.svg';
 import './style.css';
 
 class HomeSidebar extends Component {
@@ -28,6 +29,9 @@ class HomeSidebar extends Component {
                             <Link to="/accountSettings">
                                 <SettingsButton id="settingsButton" className="customButton"/>
                             </Link>
+                        </li>
+                        <li>
+                            <LogoutButton id="logoutButton" className="customButton"/>
                         </li>
                     </div>
                     <div className="buttonCreate">

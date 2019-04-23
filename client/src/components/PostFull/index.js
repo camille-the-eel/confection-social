@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import PhotoPost from './Post/PhotoItem';
 import TextPost from './Post/TextItem';
 import PostMenu from './PostMenu';
+import './style.css';
 
-class PostPlus extends Component {
+class PostFull extends Component {
 
     //conditional render photo vs text?
 
     render () {
         return (
-            <div>
-                <PostMenu/>
-                <PhotoPost/>
+            <div className="postDiv">
+                <div className="postMenu">
+                    <PostMenu/>
+                </div>
+                <div className="postContainer">
+                    <PhotoPost/>
+                </div>
             </div>
         )
     }
 
 }
 
-export default PostPlus;
+export default PostFull;
