@@ -1,0 +1,21 @@
+.blogName {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.previousComment {
+    padding-right: 30px;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #3B3A3A;
+}

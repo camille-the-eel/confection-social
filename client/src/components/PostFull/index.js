@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import PostMenu from '../PostMenu';
-import PostPlus from '../PostPlus';
+import PhotoPost from './Post/PhotoItem';
+import TextPost from './Post/TextItem';
+import PostMenu from './PostMenu';
 
-class PostFull extends Component {
+class PostPlus extends Component {
+
+    //conditional render photo vs text?
 
     render () {
-        return <PostPlus/>
+        return (
+            <div>
+                <PostMenu/>
+                <PhotoPost/>
+            </div>
+        )
     }
 
 }
 
-export default PostFull;
+export default PostPlus;

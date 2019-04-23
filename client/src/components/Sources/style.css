@@ -1,0 +1,39 @@
+.source {
+    display: inline;
+    padding-right: 6px;
+    font-size: 13px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.sourceContent {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.credit {
+    display: inline;
+    padding-right: 6px;
+    font-size: 13px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #3B3A3A;
+}
+
+.creditContent {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+}
