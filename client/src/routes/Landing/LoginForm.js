@@ -34,7 +34,7 @@ class LoginForm extends Component {
             let context = this.context;
             console.log(context);
             context.logIn();
-        })
+        });
     }
     
     render() {

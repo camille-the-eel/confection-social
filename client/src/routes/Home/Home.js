@@ -11,8 +11,6 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
 
 class Home extends Component {
-    static contextType = CurrentUser;
-
     constructor() {
         super()
         this.state = {
@@ -55,7 +53,6 @@ class Home extends Component {
             return <Redirect to={{ pathname: "/" }} />
         } else {
             return (
-            
                 <div className="body">
                     <Navbar />
                     <HomeSidebar onClick={this.toggleCreate}/>
@@ -67,4 +64,5 @@ class Home extends Component {
     }
 }
 
+Home.contextType = CurrentUser;
 export default Home;
