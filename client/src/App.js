@@ -24,7 +24,8 @@ class App extends Component {
           user: null,
           setUser: this.setUser,
           logOut: this.logoutUser,
-          logIn: this.logIn
+          logIn: this.logIn,
+          checkIfUser: this.checkIfUser
       };
   };
 
@@ -61,10 +62,7 @@ class App extends Component {
 
   render() {
       return (
-          <CurrentUser.Provider value={
-              this.state
-              
-              }>
+          <CurrentUser.Provider value={this.state}>
             <Router>
                 <div className="App">
                     <Switch>
