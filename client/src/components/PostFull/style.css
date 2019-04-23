@@ -1,7 +1,12 @@
 .postDiv {
     box-sizing: content-box;
     position: relative;
+    max-width: 80%;
 }
+/* 
+.postMenu {
+    max-width: 100%;
+} */
 
 .postContainer {
     display: inline-block;
