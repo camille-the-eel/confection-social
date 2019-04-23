@@ -39,7 +39,7 @@ class App extends Component {
   checkIfUser = () => {
       console.log("check user firing")
       console.log(sessionStorage)
-      const isToken = sessionStorage.getItem("jwttoken");
+      const isToken = sessionStorage.getItem("jwtToken");
       if (isToken) {
           this.setState({ isUser: true })
       } else {
@@ -52,14 +52,19 @@ class App extends Component {
   };
 
   logoutUser = () => {
-      sessionStorage.removeItem("jwttoken");
+      console.log("Logout called")
+      sessionStorage.removeItem("jwtToken");
+      sessionStorage.removeItem("id");
       setAuthToken(false);
       this.checkIfUser();
   }
 
   render() {
       return (
-          <CurrentUser.Provider value={this.state}>
+          <CurrentUser.Provider value={
+              this.state
+              
+              }>
             <Router>
                 <div className="App">
                     <Switch>
