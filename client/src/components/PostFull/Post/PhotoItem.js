@@ -7,7 +7,7 @@ import './style.css';
 
 class PhotoItem extends Component {
 
-    render (props) {
+    render () {
         return (
             <div className="containPost">
                 <img src="https://via.placeholder.com/350" alt="photo post test"/>
@@ -18,7 +18,7 @@ class PhotoItem extends Component {
                     <div className="containCaption">
                         <Caption className="caption"/>
                     </div>
-                    <img src={commentButton} alt="allComments" className="commentButton" onClick={() => props.onClick()}/>
+                    <img src={commentButton} alt="allComments" className="commentButton" onClick={this.props.children.openComments}/>
                 </div>
             </div>
         )

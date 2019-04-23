@@ -13,11 +13,11 @@ import closeButton from '../../img/closeButton.svg';
 
 class CommentSidebar extends Component {
 
-    render (props) {
+    render () {
         return (
             <div className="fixedDiv">
             <div className="commentSidebarContainer">
-            <img src={closeButton} alt="closeButton" className="closeButton" onClick={() => props.onClick()}/>
+            <img src={closeButton} alt="closeButton" className="closeButton" onClick={this.props.closeComments}/>
                 <div className="commentSidebar">
                     <div className="centeredDiv">
                         <div className="creatorDiv">

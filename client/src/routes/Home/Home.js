@@ -13,8 +13,6 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
 
 class Home extends Component {
-    static contextType = CurrentUser;
-
     constructor() {
         super()
         this.state = {
@@ -58,18 +56,17 @@ class Home extends Component {
             return <Redirect to={{ pathname: "/" }} />
         } else {
             return (
-            
                 <div className="body">
                     <Navbar />
-                    {!this.state.menuHidden && <HomeSidebar onClick={this.toggleCreate}/>}
-                    {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
+                    {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
                     <Create/>
-                    <PostFull onClick={this.openComments}/>
-
+                    <PostFull openComments={this.openComments}/>
                 </div>
             )
         }
     }
 }
 
+Home.contextType = CurrentUser;
 export default Home;

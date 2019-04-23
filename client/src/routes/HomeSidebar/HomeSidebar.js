@@ -6,7 +6,7 @@ import { ReactComponent as SettingsButton } from '../../img/settingsButton.svg';
 import { ReactComponent as CreateButton } from '../../img/createButton.svg';
 import { ReactComponent as LogoutButton } from '../../img/logoutButton.svg';
 
-import { logoutUser } from "../../utils/authController";
+import CurrentUser from "../../AppContext";
 
 import './style.css';
 
@@ -17,6 +17,15 @@ class HomeSidebar extends Component {
 
     componentDidMount() {
         console.log(this);
+    }
+
+    dummyFunction() {
+        console.log("dummy")
+    }
+
+    logout = () => { 
+        this.context.logOut();
+        console.log(this)
     }
 
     render () {
@@ -40,13 +49,13 @@ class HomeSidebar extends Component {
                                 <SettingsButton id="settingsButton" className="customButton"/>
                             </Link>
                         </li>
-                        <li onClick={logoutUser}>
-                            <LogoutButton id="logoutButton" className="customButton"/>
+                        <li>
+                            <LogoutButton id="logoutButton" className="customButton" onClick={this.logout}/>
                         </li>
                     </div>
                     <div className="buttonCreate">
                         <li>
-                            <CreateButton id="createButton" onClick=""/>
+                            <CreateButton id="createButton" onClick={this.dummyFunction}/>
                         </li>
                     </div>
                 </div>
@@ -56,4 +65,5 @@ class HomeSidebar extends Component {
     }
 }
 
+HomeSidebar.contextType = CurrentUser;
 export default HomeSidebar;
