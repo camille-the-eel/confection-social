@@ -1,7 +1,13 @@
 import React, { Component }  from "react";
 import Navbar from "../../components/Nav";
+import CommentSidebar from '../CommentSidebar/CommentSidebar.js';
+import HomeSidebar from '../HomeSidebar/HomeSidebar.js';
+import PostFull from '../../components/PostFull';
 
-class Homepage extends Component {
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
+class Home extends Component {
     constructor() {
         super()
     }
@@ -10,10 +16,11 @@ class Homepage extends Component {
         return (
             <div>
                 <Navbar />
-                <h2>Welcome to your homepage</h2>
+                <h2 className="waves-effect waves-light btn">Welcome to your homepage</h2>
+                <HomeSidebar />
             </div>
         )
     }
 }
 
-export default Homepage;
+export default Home;

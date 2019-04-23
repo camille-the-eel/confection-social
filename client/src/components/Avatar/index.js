@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Tags extends Component {
+class Avatar extends Component {
 
     render () {
         return <p>test.</p>
@@ -8,4 +8,4 @@ class Tags extends Component {
 
 }
 
-export default Tags;
+export default Avatar;
