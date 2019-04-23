@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import config from './config';
-import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./routes/NewUser/NewUser";
 import LandingPage from "./routes/Landing/Landing";
-import Homepage from "./routes/Home/Home";
+import Home from "./routes/Home/Home";
+
+import setAuthToken from "./utils/setAuthToken";
+import CurrentUser from "./AppContext";
 
 //REQUIRE STREAM DEPENDENCY
 var stream = require('getstream');
@@ -19,69 +20,69 @@ class App extends Component {
   constructor() {
       super()
       this.state = {
-          loggedIn: false,
-          email: null
-      }
-      
-      this.getUser = this.getUser.bind(this)
-      this.componentDidMount = this.componentDidMount.bind(this)
-      this.updateUser = this.updateUser.bind(this)
-  }
+          isUser: false,
+          user: null,
+          setUser: this.setUser,
+          logOut: this.logoutUser,
+          logIn: this.logIn
+      };
+  };
 
   componentDidMount() {
-      this.getUser()
-  }
+      this.checkIfUser()
+  };
 
-  updateUser (userObject) {
-      this.setState(userObject)
-  }
+  setUser = newUser => {
+      this.setState({ user: newUser })
+  };
 
-  getUser() {
-      axios.get("/user/").then(response => {
-          console.log("Get user response: ");
-          console.log(response.data);
-          if (response.data.user) {
-              console.log("Get User: There is a user saved in the server session: ")
+  checkIfUser = () => {
+      console.log("check user firing")
+      console.log(sessionStorage)
+      const isToken = sessionStorage.getItem("jwttoken");
+      if (isToken) {
+          this.setState({ isUser: true })
+      } else {
+          this.setState({ isUser: false })
+      }
+  };
 
-              this.setState({
-                  loggedIn: true,
-                  email: response.data.user.email
-              })
-          } else {
-              console.log("Get user: no user");
+  logIn = () => {
+      this.checkIfUser()
+  };
 
-              this.setState({
-                  loggedIn: false,
-                  email: null
-              })
-          }
-      })
+  logoutUser = () => {
+      sessionStorage.removeItem("jwttoken");
+      setAuthToken(false);
+      this.checkIfUser();
   }
 
   render() {
       return (
-          <Router>
-              <div className="App">
-                  <Switch>
-                  <Route 
-                      exact path="/"
-                      render={() => 
-                          <LandingPage 
-                              updateUser={this.updateUser}
-                          />} 
-                  />
-                  <Route 
-                      exact path="/home"
-                      component={Homepage}
-                  />
-                  <Route 
-                      path="/signup"
-                      render={() => 
-                          <Signup />}
-                  />
-                  </Switch>
-              </div>
-          </Router>
+          <CurrentUser.Provider value={this.state}>
+            <Router>
+                <div className="App">
+                    <Switch>
+                    <Route 
+                        exact path="/"
+                        render={() => 
+                            <LandingPage 
+                                updateUser={this.updateUser}
+                            />} 
+                    />
+                    <Route 
+                        exact path="/home"
+                        component={Home}
+                    />
+                    <Route 
+                        path="/signup"
+                        render={() => 
+                            <Signup />}
+                    />
+                    </Switch>
+                </div>
+            </Router>
+          </CurrentUser.Provider>
       );
   }
 }

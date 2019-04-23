@@ -10,8 +10,8 @@ class LandingPage extends Component {
     render() {
         return (
             <div className="LandingPage">
-                {console.log("Landing Page object: ")}
-                {console.log(this)}
+                {/* {console.log("Landing Page object: ")}
+                {console.log(this)} */}
                 <LoginForm updateUser={this.props.updateUser}/>
                 <Link to={"/signup/"}><button className="btn btn-primary">Not Registered? Sign up here</button>
                 </Link>
