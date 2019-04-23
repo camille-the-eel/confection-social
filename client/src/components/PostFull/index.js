@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PhotoPost from './Post/PhotoItem';
 import TextPost from './Post/TextItem';
 import PostMenu from './PostMenu';
-import CommentButton from '../CommentButton';
 import './style.css';
 
 class PostFull extends Component {
@@ -18,7 +17,9 @@ class PostFull extends Component {
                     <PostMenu/>
                 </div>
                 <div className="postContainer">
-                    <PhotoPost onClick={this.props.onClick}/>
+                    <PhotoPost>
+                       
+                    </PhotoPost>
                 </div>
             </div>
         )
