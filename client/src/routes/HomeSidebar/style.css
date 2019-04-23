@@ -28,6 +28,11 @@
 
 }
 
+#logoutButton {
+    margin-top: 20px;
+    width: 30px;
+}
+
 .buttonCreate {
     position: fixed;
     bottom: 20px;

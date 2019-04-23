@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { User as UserActions } from 'actions';
 import likeButton from '../../img/likeButton.svg';
 import likeButtonClicked from '../../img/likeButtonClicked.svg';
+import './style.css';
 
 class LikeButton extends Component {
 
