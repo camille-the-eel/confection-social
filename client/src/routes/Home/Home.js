@@ -6,6 +6,8 @@ import HomeSidebar from '../HomeSidebar/HomeSidebar.js';
 import PostFull from '../../components/PostFull';
 import CurrentUser from "../../AppContext";
 
+import Create from '../Create/Create';
+
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
@@ -49,6 +51,7 @@ class Home extends Component {
     }
 
     // <CommentSidebar onClick={this.closeComments}/>
+    // <HomeSidebar onClick={this.toggleCreate}/>
 
     render() {
         if (!this.context.isUser) {
@@ -58,9 +61,10 @@ class Home extends Component {
             
                 <div className="body">
                     <Navbar />
-                    <HomeSidebar onClick={this.toggleCreate}/>
+                    {!this.state.menuHidden && <HomeSidebar onClick={this.toggleCreate}/>}
                     {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
                     <PostFull onClick={this.openComments}/>
+                    <Create/>
                 </div>
             )
         }
