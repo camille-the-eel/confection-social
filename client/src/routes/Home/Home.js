@@ -6,18 +6,38 @@ import PostFull from '../../components/PostFull';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import './style.css';
 
 class Home extends Component {
     constructor() {
         super()
+        this.state = {
+            commentsHidden: true,
+            menuHidden: false
+        }
+    }
+
+    openComments = () => {
+        this.setState({
+            commentsHidden: false,
+            menuHidden: true
+        })
+    }
+
+    closeComments = () => {
+        this.setState({
+            commentsHidden: true,
+            menuHidden: false
+        })
     }
 
     render() {
         return (
-            <div>
+            <div className="body">
                 <Navbar />
-                <h2 className="waves-effect waves-light btn">Welcome to your homepage</h2>
                 <HomeSidebar />
+                <CommentSidebar onClick={this.closeComments}/>
+                <PostFull onClick={this.openComments}/>
             </div>
         )
     }
