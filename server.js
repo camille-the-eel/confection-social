@@ -27,7 +27,7 @@ const db = `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confec
 mongoose
   .connect(
     db,
-    { useNewUrlParser: true}
+    { useNewUrlParser: true }
   )
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));

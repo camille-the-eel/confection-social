@@ -7,17 +7,25 @@ const UserSchema = new Schema({
     email: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
+
     primaryBlog: {
         type: String,
         unique: true,
         required: true
     },
+
     password: {
         type: String,
         unique: false,
         required: true
+    },
+    
+    dateCreate: {
+        type: Date,
+        default: Date.now
     }
 })
 
