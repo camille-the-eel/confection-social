@@ -84,7 +84,17 @@ p {
 
 .addComment {
     position: relative;
-    left: 180px;
+    left: 170px;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    background: none;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .comment {
@@ -95,11 +105,6 @@ p {
     font-weight: 700;
     font-style: normal;
     color: #3B3A3A;
-}
-
-.commentButton {
-    display: inline-block;
-    width: 13.5px;
 }
 
 .inputCommentDiv {

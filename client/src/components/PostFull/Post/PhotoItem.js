@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Caption from '../../Caption';
 import Source from '../../Sources/source';
 import Credit from '../../Sources/credit';
-import CommentButton from '../../CommentButton';
+import commentButton from '../../../img/commentButton.svg';
 import './style.css';
 
 class PhotoItem extends Component {
 
-    render () {
+    render (props) {
         return (
-            <div>
+            <div className="containPost">
                 <img src="https://via.placeholder.com/350" alt="photo post test"/>
                 <div className="postDetails">
                     <div>
@@ -18,7 +18,7 @@ class PhotoItem extends Component {
                     <div className="containCaption">
                         <Caption className="caption"/>
                     </div>
-                    <CommentButton/>
+                    <img src={commentButton} alt="allComments" className="commentButton" onClick={() => props.onClick()}/>
                 </div>
             </div>
         )
