@@ -20,7 +20,7 @@ class CommentSidebar extends Component {
             <img src={closeButton} alt="closeButton" className="closeButton" onClick={() => props.onClick()}/>
                 <div className="commentSidebar">
                     <div className="centeredDiv">
-                        <div clasName="creatorDiv">
+                        <div className="creatorDiv">
                             <div className="blogLink" onClick="">
                                 <AvatarSidebar className="creatorAvatar"/>
                                 <p className="blogName">props.blogName</p>

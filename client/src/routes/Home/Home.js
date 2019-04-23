@@ -40,14 +40,14 @@ class Home extends Component {
         })
     }
 
-    // {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
+    // <CommentSidebar onClick={this.closeComments}/>
 
     render() {
         return (
             <div className="body">
                 <Navbar />
                 <HomeSidebar onClick={this.toggleCreate}/>
-                <CommentSidebar onClick={this.closeComments}/>
+                {!this.state.commentsHidden && <CommentSidebar onClick={this.closeComments}/>}
                 <PostFull onClick={this.openComments}/>
             </div>
         )

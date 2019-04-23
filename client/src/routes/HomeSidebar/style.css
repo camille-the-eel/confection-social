@@ -4,6 +4,7 @@
     height: 100vh;
     position: relative;
     float: left;
+    z-index: 5;
 }
 
 .clearfix::after {
