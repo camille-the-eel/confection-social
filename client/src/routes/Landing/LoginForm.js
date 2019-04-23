@@ -51,7 +51,7 @@ class LoginForm extends Component {
                             </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
-                                    type="text"
+                                    type="email"
                                     id="email"
                                     name="email"
                                     placeholder="example@gmail.com"

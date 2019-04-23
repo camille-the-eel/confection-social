@@ -59,7 +59,9 @@ class App extends Component {
 
   render() {
       return (
-          <CurrentUser.Provider value={this.state}>
+          <CurrentUser.Provider value={
+              this.state
+              }>
             <Router>
                 <div className="App">
                     <Switch>
