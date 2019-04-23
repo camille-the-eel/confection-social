@@ -1,0 +1,10 @@
+.postDiv {
+    box-sizing: content-box;
+    position: relative;
+}
+
+
+.postContainer {
+    display: inline-block;
+    overflow: hidden;
+}
