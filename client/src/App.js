@@ -52,7 +52,9 @@ class App extends Component {
   };
 
   logoutUser = () => {
+      console.log("Logout called")
       sessionStorage.removeItem("jwtToken");
+      sessionStorage.removeItem("id");
       setAuthToken(false);
       this.checkIfUser();
   }
@@ -61,6 +63,7 @@ class App extends Component {
       return (
           <CurrentUser.Provider value={
               this.state
+              
               }>
             <Router>
                 <div className="App">

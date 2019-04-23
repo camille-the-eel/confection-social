@@ -42,8 +42,11 @@ export const loginUser = (userData, cb) => {
 
 // Logout User
 export const logoutUser = () => {
+    console.log("Logout called")
     // Remove token from local storage
     sessionStorage.removeItem("jwtToken");
+    sessionStorage.removeItem("id");
+    console.log(sessionStorage);
     // Remove auth header for future requests
     setAuthToken(false);
 };

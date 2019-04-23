@@ -5,9 +5,19 @@ import { ReactComponent as NotificationButton } from '../../img/notificationButt
 import { ReactComponent as SettingsButton } from '../../img/settingsButton.svg';
 import { ReactComponent as CreateButton } from '../../img/createButton.svg';
 import { ReactComponent as LogoutButton } from '../../img/logoutButton.svg';
+
+import { logoutUser } from "../../utils/authController";
+
 import './style.css';
 
 class HomeSidebar extends Component {
+    constructor() {
+        super()
+    }
+
+    componentDidMount() {
+        console.log(this);
+    }
 
     render () {
         return (
@@ -30,7 +40,7 @@ class HomeSidebar extends Component {
                                 <SettingsButton id="settingsButton" className="customButton"/>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={logoutUser}>
                             <LogoutButton id="logoutButton" className="customButton"/>
                         </li>
                     </div>
@@ -46,7 +56,6 @@ class HomeSidebar extends Component {
         </div>
         )
     }
-
 }
 
 export default HomeSidebar;
