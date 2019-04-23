@@ -18,7 +18,7 @@ class PostFull extends Component {
                 </div>
                 <div className="postContainer">
                     <PhotoPost>
-                        {props.children}
+                       
                     </PhotoPost>
                 </div>
             </div>
