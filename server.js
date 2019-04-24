@@ -7,7 +7,7 @@ const mongoose      = require("mongoose");
 const bodyParser    = require("body-parser");
 const passport      = require("passport");
 
-const users         = require("./server/routes/api/user");
+const routes        = require("./server/routes");
 
 const PORT          = process.env.PORT || 3001;
 const app           = express();
@@ -39,7 +39,7 @@ app.use(passport.initialize());
 require("./server/config/passport")(passport);
 
 // Routes
-app.use("/api/users", users);
+app.use(routes)
 
 
 if(process.env.NODE_ENV === 'production'){

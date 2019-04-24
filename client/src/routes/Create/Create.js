@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import closeButton from '../../img/closeButton.svg';
 import './style.css';
+import { newPost } from "../../actions/Create_Photo";
 
 import CurrentUser from "../../AppContext";
 
@@ -46,19 +47,17 @@ class Create extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const newPost = {
-            postAuthor: sessionStorage.blogID,
+        const postData = {
+            source: sessionStorage.blogID,
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,
             photo: this.state.photo
         };
 
-        console.log(newPost);
-
-        // registerUser(newUser, () => {
-        //     this.setState({ redirectTo: "/" })
-        // });
+        newPost(postData, () => {
+            this.props.toggleCreate();
+        });
     };
 
 

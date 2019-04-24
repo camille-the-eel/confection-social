@@ -8,7 +8,7 @@ const jwt       =   require("jsonwebtoken");
 const validateRegisterInput =   require("../../validation/register");
 const validateLoginInput    =   require("../../validation/login");
 
-// Load User model
+// Load User and Blog model
 const User  =   require("../../database/models/user");
 const Blog  =   require("../../database/models/blog");
 
@@ -48,20 +48,14 @@ router.post("/register", (req, res) => {
                             .save()
                             .then(user => {
                                 res.json(user);
-                                console.log(user);
-
                                 const newBlog = new Blog({
                                     blog_title: user.primaryBlog,
                                     isPrimary: true,
                                     userID: user._id
                                 });
 
-                                console.log(newBlog);
                                 newBlog
                                     .save()
-                                    // .then(blog => {
-                                    //     res.json(blog)
-                                    // })
                                     .catch(err => console.log(err));
 
                             })

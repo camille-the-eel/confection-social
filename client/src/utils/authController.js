@@ -27,13 +27,11 @@ export const loginUser = (userData, cb) => {
             sessionStorage.setItem("jwtToken", token);
             // Set token to Auth header
             setAuthToken(token);
-            console.log(token);
             // Decode token to get user's data
             const decoded = jwt_decode(token);
             // Set decoded id
             sessionStorage.setItem("id", decoded.id);
             sessionStorage.setItem("blogID", decoded.blogID)
-            console.log(decoded);
             cb();
         })
         .catch(error => {
@@ -47,6 +45,7 @@ export const logoutUser = () => {
     // Remove token from local storage
     sessionStorage.removeItem("jwtToken");
     sessionStorage.removeItem("id");
+    sessionStorage.removeItem("blogID");
     console.log(sessionStorage);
     // Remove auth header for future requests
     setAuthToken(false);
