@@ -33,7 +33,6 @@ class LoginForm extends Component {
 
         loginUser(userData, () => {
             let context = this.context;
-            console.log(context);
             context.logIn();
         });
     }

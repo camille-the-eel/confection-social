@@ -39,17 +39,15 @@ class Create extends Component {
         event.preventDefault();
         let newTag = this.state.tagForm
 
-        console.log(newTag);
         this.state.tags.push(newTag);
-        console.log(this.state.tags);
         this.setState({ tagForm: "" });
-        console.log(this.state);
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
         const newPost = {
+            postAuthor: sessionStorage.blogID,
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,

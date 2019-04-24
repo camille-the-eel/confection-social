@@ -93,10 +93,23 @@ router.post("/login", (req, res) => {
     const email     =   req.body.email;
     const password  =   req.body.password;
 
-    User.findOne({ email }).then(user => {
+    User.findOne({ email }).then(async user => {
         if (!user) {
             return res.status(404).json({ emailnotfound: "Email not found"});
         }
+
+        let userID = user.id;
+        let blogID = "";
+
+        // Use user id to search for the primary blog associated with that id
+        await Blog.find({ 
+            userID: userID,
+            isPrimary: true
+        }).then(blog => {
+            blogID = blog[0]._id
+            return blogID;
+        });
+
             // Check password
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
@@ -104,6 +117,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
+                    blogID: blogID,
                     email: user.email
                 };
 
