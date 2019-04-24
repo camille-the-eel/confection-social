@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Tags Schema
-var TagsSchema = new Schema({
+var TagSchema = new Schema({
     tag: {
         type: String,
         require: true  
@@ -18,7 +18,7 @@ var TagsSchema = new Schema({
 
 });
 
-var tags = mongoose.model("tags", TagsSchema);
+var Tag = mongoose.model("tags", TagSchema);
 
-module.exports = tags;
+module.exports = Tag;
 

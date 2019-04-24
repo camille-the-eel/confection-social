@@ -23,7 +23,7 @@ body {
     background-color:#FDFCFB;    
     border: 10px solid #991A2A;
     padding: 20px;
-    width: 60%;
+    width: 55%;
     margin: 10px 40px 0px 40px;
     padding: 15px;
 }
@@ -51,4 +51,9 @@ body {
     font-family: miller-text, serif;
     font-weight: 700;
     font-style: bold;
+}
+
+.signUp:focus {
+    background-color: #FDFCFB;
+    color: #991A2A;
 }

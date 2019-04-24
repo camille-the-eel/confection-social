@@ -40,12 +40,22 @@
     font-style: bold;
 }
 
+.loginButton:focus {
+    background-color: #FDFCFB;
+    color: #991A2A;
+}
+
 .register {
     margin-top: 15px;
     font-size: 20px;
     color: #3B3A3A;
     font-family: miller-text, serif;
     font-weight: 600;
+}
+
+.register:focus {
+    background-color: #F7EEE8 !important;
+    color: #991A2A;
 }
 
 .form-group input:focus {
@@ -55,4 +65,4 @@
 
 button {
     background-color: none; 
-  }
+}

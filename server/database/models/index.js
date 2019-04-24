@@ -1,6 +1,7 @@
 module.exports = {
     User: require("./user"),
     Blog: require("./blog"),
+    Blog_like: require("./blog_like"),
     Message: require("./message"),
     Notification: require("./notification"),
     Post: require("./post"),
