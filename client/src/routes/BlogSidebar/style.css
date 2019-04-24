@@ -1,0 +1,55 @@
+.blogSidebarContainer {
+    margin-top: 50px;
+    width: 350px;
+    height: 100vh;
+    position: relative;
+    float: left;
+    z-index: 5;
+}
+
+.clearfix::after {
+    content: “”;
+    display: block;
+    clear: both;
+}
+
+.blogSidebar {
+    width: 350px;
+    margin-left: 30px;
+}
+
+.activeBlogPage {
+    display: inline-block;
+    font-size: 20px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #3B3A3A;
+    margin-top: 10px;
+}
+
+.followButton {
+    display: inline-block;
+    width: 20px;
+    margin-left: 8px;
+}
+
+.pageDescrip {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #3B3A3A;
+    width: 90%;
+}
+
+.message {
+    width: 25px;
+}
+
+.like {
+    width: 22px;
+    margin-top: 7px;
+}

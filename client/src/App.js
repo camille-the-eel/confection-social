@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./routes/NewUser/NewUser";
 import LandingPage from "./routes/Landing/Landing";
 import Home from "./routes/Home/Home";
+import Blog from './routes/Blog/Blog';
 
 import setAuthToken from "./utils/setAuthToken";
 import CurrentUser from "./AppContext";
@@ -76,6 +77,10 @@ class App extends Component {
                     <Route 
                         exact path="/home"
                         component={Home}
+                    />
+                     <Route 
+                        exact path="/blog"
+                        component={Blog}
                     />
                     <Route 
                         path="/signup"
