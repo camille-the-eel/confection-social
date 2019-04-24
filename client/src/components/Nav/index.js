@@ -19,7 +19,7 @@ class Navbar extends Component {
                             confection
                         </Link>
                         <ul>
-                            <li>
+                            <li className="avatars">
                                 <AvatarNav/>
                             </li>
                         </ul>
@@ -34,6 +34,3 @@ class Navbar extends Component {
 }
 
 export default Navbar;
-
-//TO DO:
-//display NavAvatar component(s) --link in the NavAv component?

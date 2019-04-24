@@ -1,0 +1,54 @@
+body {
+    background-color: rgba(226, 200, 181, .29);
+}
+
+.sticks {
+    width: 35%;
+    position: fixed;
+    bottom: 0;
+    left: 62%;
+}
+
+.header {
+    margin-left: 40px;
+    margin-top: 20px;
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 65px;
+}
+
+.formContainer {
+    background-color:#FDFCFB;    
+    border: 10px solid #991A2A;
+    padding: 20px;
+    width: 60%;
+    margin: 10px 40px 0px 40px;
+    padding: 15px;
+}
+
+.avatarHead {
+    color: #D1D1D1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    margin: 10px 20px 10px 0px;
+    display: inline-block;
+}
+
+.chooseFile {
+    display: inline-block;
+}
+
+.signUp {
+    margin-top: 10px;
+    margin-bottom: 7px;
+    padding: 0px;
+    font-size: 32px;
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 700;
+    font-style: bold;
+}

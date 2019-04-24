@@ -1,0 +1,58 @@
+.sticks {
+    width: 35%;
+    position: fixed;
+    bottom: 0;
+    left: 62%;
+}
+
+.appName {
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin: 40px 40px 0px 40px;
+}
+
+.accountForm {
+    background-color:#FDFCFB;    
+    border: 10px solid #991A2A;
+    padding: 20px;
+}
+
+.loginForm {
+    margin: 10px 40px 0px 40px;
+    padding: 15px;
+    width: 40%;
+}
+
+.loginButton {
+    margin-top: 20px;
+    margin-bottom: 7px;
+    padding: 0px;
+    font-size: 32px;
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 700;
+    font-style: bold;
+}
+
+.register {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #3B3A3A;
+    font-family: miller-text, serif;
+    font-weight: 600;
+}
+
+.form-group input:focus {
+    border-bottom: 1px solid #3B3A3A !important;
+    box-shadow: 0 1px 0 0 #3B3A3A !important;
+}
+
+button {
+    background-color: none; 
+  }

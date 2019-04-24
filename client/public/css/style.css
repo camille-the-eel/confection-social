@@ -1,3 +1,9 @@
 body {
     background-color: rgba(226, 200, 181, .29);
 }
+
+* {
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+  }
