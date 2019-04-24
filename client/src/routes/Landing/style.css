@@ -41,7 +41,8 @@
 }
 
 .loginButton:focus {
-    background-color: rgba(153, 26, 42, .50);
+    background-color: #FDFCFB;
+    color: #991A2A;
 }
 
 .register {
@@ -53,7 +54,8 @@
 }
 
 .register:focus {
-    background-color: rgba(153, 26, 42, .50);
+    background-color: #F7EEE8 !important;
+    color: #991A2A;
 }
 
 .form-group input:focus {

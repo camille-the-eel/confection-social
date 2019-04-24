@@ -73,6 +73,10 @@ class App extends Component {
                         exact path="/home"
                         component={Home}
                     />
+                     <Route 
+                        exact path="/blog"
+                        component={Blog}
+                    />
                     <Route 
                         exact path="/blog"
                         component={Blog}
