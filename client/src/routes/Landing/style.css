@@ -1,3 +1,10 @@
+.sticks {
+    width: 35%;
+    position: fixed;
+    bottom: 0;
+    left: 62%;
+}
+
 .appName {
     color: #3B3A3A;
     font-family: miller-text, serif;

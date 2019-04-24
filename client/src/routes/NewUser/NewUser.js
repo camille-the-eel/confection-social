@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { registerUser } from "../../utils/authController";
+import Style from '../../img/landing-sticks-01.svg';
 import './style.css';
 
 class Register extends Component {
@@ -115,6 +116,7 @@ class Register extends Component {
                             >sign up</button>
                         </div>
                     </form>
+                    <img src={Style} className="sticks"/>
                 </div>
             )
         }
