@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Post Reblogs Schema
-var PostReblogsSchema = new Schema({
+var PostReblogSchema = new Schema({
     post_reblogs: {
         type: Number,
         default: 0   
@@ -13,7 +13,7 @@ var PostReblogsSchema = new Schema({
 
 });
 
-var post_reblogs = mongoose.model("post_reblogs", PostReblogsSchema);
+var Post_reblog = mongoose.model("post_reblogs", PostReblogSchema);
 
-module.exports = post_reblogs;
+module.exports = Post_reblog;
 

@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Notifications Schema
-var NotificationsSchema = new Schema({
+var NotificationSchema = new Schema({
     total_notifications: {
         type: Number,
         default: 0   
@@ -18,7 +18,7 @@ var NotificationsSchema = new Schema({
 
 });
 
-var notifications = mongoose.model("notifications", NotificationsSchema);
+var Notification = mongoose.model("notifications", NotificationSchema);
 
-module.exports = notifications;
+module.exports = Notification;
 

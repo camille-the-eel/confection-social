@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Post Tags Schema
-var PostTagsSchema = new Schema({
+var PostTagSchema = new Schema({
     // post_tags: {
     //     type: Array,
     //     default: []   
@@ -21,7 +21,7 @@ var PostTagsSchema = new Schema({
 
 });
 
-var post_tags = mongoose.model("post_tags", PostTagsSchema);
+var Post_tag = mongoose.model("post_tags", PostTagSchema);
 
-module.exports = post_tags;
+module.exports = Post_tag;
 
