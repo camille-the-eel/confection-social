@@ -1,3 +1,7 @@
-.menu {
+.menuDiv {
     width: 500px;
+}
+
+.inlineButton {
+    display: inline-block;
 }
