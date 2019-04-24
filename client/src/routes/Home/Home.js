@@ -43,8 +43,7 @@ class Home extends Component {
 
     toggleCreate = () => {
         this.setState({
-            createHidden: !this.state.createHidden,
-            feedHidden: !this.state.feedHidden
+            createHidden: !this.state.createHidden
         })
     }
 
@@ -60,7 +59,7 @@ class Home extends Component {
                     <Navbar />
                     {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
                     {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
-                    <Create/>
+                    {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
                     <PostFull openComments={this.openComments}/>
                 </div>
             )

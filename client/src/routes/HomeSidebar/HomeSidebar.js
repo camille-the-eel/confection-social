@@ -55,7 +55,7 @@ class HomeSidebar extends Component {
                     </div>
                     <div className="buttonCreate">
                         <li>
-                            <CreateButton id="createButton" onClick={this.dummyFunction}/>
+                            <CreateButton id="createButton" onClick={this.props.toggleCreate}/>
                         </li>
                     </div>
                 </div>

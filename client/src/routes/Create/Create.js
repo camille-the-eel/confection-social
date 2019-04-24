@@ -12,14 +12,14 @@ class Create extends Component {
         document.getElementById("upload").appendChild(x);
     }
 
-    render () {
+    render (props) {
         return (
             <div id="divBody">
                 <div id="padding">
                     <div className="photoDiv">
                         <p id="photoHead">
                             photo
-                            <img src={closeButton} alt="closeButton" id="close" onClick=""/>
+                            <img src={closeButton} alt="closeButton" id="close" onClick={this.props.toggleCreate}/>
                         </p>
                         <div id="upload">
                         </div>
