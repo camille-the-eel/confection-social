@@ -39,7 +39,7 @@ class Register extends Component {
         console.log(this);
 
         registerUser(newUser, () => {
-            // this.setState({ redirectTo: "/" })
+            this.setState({ redirectTo: "/" })
         });
     };
 
