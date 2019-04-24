@@ -1,15 +1,16 @@
 
 # Confection Social App
 
-**Goal**
+<h1>Link to Deployed App <a href="https://confection-social-app.herokuapp.com/">Here</a></h1>
 
+**Goal**
 To create an application with an emphasis on community interactivity, artistic liberty, chronological feed, ease of use between accounts, and striking visual content.
 
 =======================================================================================
 
 **Team**
-- **Camille Hughes** https://github.com/camille-the-eel
-- **Marshall Dreiling** https://github.com/mdreiling
+- <a href="https://github.com/camille-the-eel">Camille Hughes</a>
+- <a href="https://github.com/mdreiling">Marshall Dreiling</a>
 
 =======================================================================================
 
@@ -18,7 +19,7 @@ To create an application with an emphasis on community interactivity, artistic l
 - React
 - Express
 - Node
-- MongoDB
+- MongoDB & <a href="https://www.mongodb.com/cloud/atlas">Atlas</a>
 - Javascript
 - CSS
 - HTML
@@ -34,13 +35,17 @@ To create an application with an emphasis on community interactivity, artistic l
 
 **Build Status**
 
-In development
+IN DEVELOPMENT
+
+Current Features:
+- user authentication/log in & out
+- creating photo posts
 
 Features to Come: 
+- multiple Pages by one account
 - live feed
 - live commenting
 - live notifications of activity, likes, rePaged content
-- creating content
 - creating text posts
 - search by multiple tags
 - explore
@@ -60,11 +65,12 @@ Our motivation was to address all of these inherent user concerns, and create on
 Let's give a real life example of this: 
 
 Kelly is a professional photographer, travel blogger, and dog owner. 
-She has one account under her specified email, and four Pages. 
-    -Photography Page : posts her photography content and inspiration : mostly photo posts
-    -Travel Page : shares her travel journeys and tips and tricks of each city : mostly text posts
-    -Dog's Page : page for her pup, Kingpin, only posts doggie content : mostly photo posts
-    -Personal Page : personal interests, journaling : equal mix of photo and text posts
+She has one account under her specified email, and four Pages.
+
+- Photography Page : posts her photography content and inspiration : mostly photo posts
+- Travel Page : shares her travel journeys and tips and tricks of each city : mostly text posts
+- Dog's Page : page for her pup, Kingpin, only posts doggie content : mostly photo posts
+- Personal Page : personal interests, journaling : equal mix of photo and text posts
 
 Using Confection, Kelly can easily view *all* the content she is interested in through her aggregated home Page, while also with a click of a button switch which user/Page she is acting under in order to create content, rePage, like, or comment on a post.
 
@@ -73,10 +79,11 @@ If you were to view her Photography Page, you would see in the sidebar a link to
 
 =======================================================================================
 
-**Mockups & Wireframes**
+####Mockups & Wireframes
 
 
-**Home Page Mockup**
+**Home Page Mockup** 
+You can see the avatars of each Page this account has in the navbar. The active Page is full opacity while the rest of faded out. To switch which Page you are acting under, merely click the avatar you wish to act as.
 
 ![Mockup: Home Page](assets/wireframes/Dashboard.jpg)
 
