@@ -47,9 +47,6 @@ class Home extends Component {
         })
     }
 
-    // <CommentSidebar onClick={this.closeComments}/>
-    // <HomeSidebar onClick={this.toggleCreate}/>
-
     render() {
         if (!this.context.isUser) {
             return <Redirect to={{ pathname: "/" }} />
