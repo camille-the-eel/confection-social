@@ -11,11 +11,6 @@ import CurrentUser from "./AppContext";
 //REQUIRE STREAM DEPENDENCY
 var stream = require('getstream');
 
-/* <StreamApp 
-apiKey={config.stream.key}
-appId={config.stream.appId}
-token={config.stream.secret}
-> */
 
 class App extends Component {
   constructor() {
@@ -79,6 +74,10 @@ class App extends Component {
                         component={Home}
                     />
                      <Route 
+                        exact path="/blog"
+                        component={Blog}
+                    />
+                    <Route 
                         exact path="/blog"
                         component={Blog}
                     />

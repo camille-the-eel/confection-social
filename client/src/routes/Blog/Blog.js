@@ -1,6 +1,6 @@
 import React, { Component }  from "react";
 import { Redirect } from "react-router-dom";
-import CommentSidebar from '../CommentSidebar/CommentSidebar.js.js';
+import CommentSidebar from '../CommentSidebar/CommentSidebar.js';
 import BlogSidebar from '../BlogSidebar/BlogSidebar.js';
 import Post from '../../components/PostFull/Post/PhotoItem';
 import CurrentUser from "../../AppContext";
