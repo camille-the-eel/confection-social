@@ -3,7 +3,24 @@ import { Link } from "react-router-dom";
 import closeButton from '../../img/closeButton.svg';
 import './style.css';
 
+import CurrentUser from "../../AppContext";
+
 class Create extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            caption: "",
+            credit: "",
+            tagForm: "",
+            tags: [],
+            photo: "",
+        }
+
+        this.handleSubmit   = this.handleSubmit.bind(this)
+        this.handleChange   = this.handleChange.bind(this)
+        this.handleTags     = this.handleTags.bind(this)
+    }
 
     componentDidMount() {
         var x = document.createElement("input");
@@ -12,10 +29,46 @@ class Create extends Component {
         document.getElementById("upload").appendChild(x);
     }
 
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }  
+
+    handleTags(event) {
+        event.preventDefault();
+        let newTag = this.state.tagForm
+
+        console.log(newTag);
+        this.state.tags.push(newTag);
+        console.log(this.state.tags);
+        this.setState({ tagForm: "" });
+        console.log(this.state);
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const newPost = {
+            caption: this.state.caption,
+            credit: this.state.credit,
+            tags: this.state.tags,
+            photo: this.state.photo
+        };
+
+        console.log(newPost);
+
+        // registerUser(newUser, () => {
+        //     this.setState({ redirectTo: "/" })
+        // });
+    };
+
+
+
     render (props) {
         return (
             <div id="divBody">
-                <div id="padding">
+                <div id="padding form-horizontal formContainer">
                     <div className="photoDiv">
                         <p id="photoHead">
                             photo
@@ -24,23 +77,49 @@ class Create extends Component {
                         <div id="upload">
                         </div>
                     </div>
-                    <div className="text-input">
-                        <p id="captionHead">caption</p>
-                        <textarea className="commentInput"/>
+                    <div className="form-group">
+                        <div className="text-input">
+                            <p id="captionHead">caption</p>
+                            <textarea className="form-input"
+                                id="caption"
+                                name="caption"
+                                value={this.state.caption}
+                                onChange={this.handleChange}
+                            />
+                        </div>
                     </div>
-                    <div className="input-field">
-                        <p id="creditHead">credit</p>
-                        <input id="credit" type="text" className="validate addition"/>
+                    <div className="form-group">
+                        <div className="input-field">
+                            <p id="creditHead">credit</p>
+                            <input className="form-input"
+                                id="credit"
+                                type="text"
+                                name="credit"
+                                value={this.state.credit}
+                                onChange={this.handleChange}
+                            />
+                        </div>    
                     </div>
-                    <div className="input-field">
-                        <p id="tagsHead">tags</p>
-                        <input id="tags" type="text" className="validate addition"/>
+                    <div className="form-group">
+                        <div className="input-field">
+                            <p id="tagHead">tag</p>
+                            <input className="form-input"
+                                id="tagForm"
+                                type="text"
+                                name="tagForm"
+                                value={this.state.tagForm}
+                                onChange={this.handleChange}
+                            />
+                        </div>   
+                        <button className="btn btn-small tag-button" onClick={this.handleTags}>Add Tag</button> 
                     </div>
-                    <button className="postButton">post</button>
+
+                    <button className="postButton" onClick={this.handleSubmit}>post</button>
                 </div>
             </div>
         )
     }
 }
 
+Create.contextType = CurrentUser;
 export default Create;
