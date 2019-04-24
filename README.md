@@ -1,10 +1,35 @@
-# Create React Express App
+# Confection Social App
 
-## About This Boilerplate
+**Goal**
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+To create an application with an emphasis on community interactivity, artistic liberty, chronological feed, ease of use between accounts, and striking visual content.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+=======================================================================================
+
+**Team**
+- **Camille Hughes** https://github.com/camille-the-eel
+- **Marshall Dreiling** https://github.com/mdreiling
+
+=======================================================================================
+
+**Technologies Used**
+
+- React
+- Express
+- Node
+- MongoDB
+- Javascript
+- CSS
+- HTML
+- <a href="https://jwt.io/">JSON Web Token</a> : user authentication
+- <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a> : password encryption
+- <a href="https://www.npmjs.com/package/validator">validator</a> : validates account creation and log in input
+- APIs: 
+    - <a href="https://getstream.io/">Stream</a>
+- Materialize CSS Framework
+- Adobe Fonts
+
+=======================================================================================
 
 ## Starting the app locally
 
