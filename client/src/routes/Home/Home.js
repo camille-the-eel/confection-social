@@ -53,11 +53,11 @@ class Home extends Component {
         } else {
             return (
                 <div className="body">
-                    <Navbar />
-                    {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
-                    {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
-                    <PostFull openComments={this.openComments}/>
+                        <Navbar/>
+                        {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
+                        {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                        {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
+                        <PostFull openComments={this.openComments}/>
                 </div>
             )
         }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import CurrentUser from "../../AppContext";
+import './style.css';
 
 import { loginUser } from "../../utils/authController";
 
@@ -43,12 +44,8 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
-                    <h4>Login</h4>
-                    <form className="form-horizontal">
+                    <form className="form-horizontal accountForm">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="email">Email</label>
-                            </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
                                     type="email"
@@ -61,14 +58,12 @@ class LoginForm extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password</label>
-                            </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
                                     type="password"
                                     id="password"
                                     name="password"
+                                    placeholder="password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
@@ -76,10 +71,10 @@ class LoginForm extends Component {
                         </div>
                         <div className="form-group">
                             <div className="col-7"></div>
-                            <button className="btn btn-primary col-1 col-mr-auto"
+                            <button className="col-1 col-mr-auto loginButton"
                                 onClick={this.handleSubmit}
                                 type="submit">
-                            Login</button>
+                            login</button>
                         </div>
                     </form>
                 </div>
