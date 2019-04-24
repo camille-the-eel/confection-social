@@ -34,6 +34,3 @@ class Navbar extends Component {
 }
 
 export default Navbar;
-
-//TO DO:
-//display NavAvatar component(s) --link in the NavAv component?
