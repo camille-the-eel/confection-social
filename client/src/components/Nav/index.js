@@ -19,7 +19,7 @@ class Navbar extends Component {
                             confection
                         </Link>
                         <ul>
-                            <li>
+                            <li className="avatars">
                                 <AvatarNav/>
                             </li>
                         </ul>
