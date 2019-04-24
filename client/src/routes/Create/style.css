@@ -64,3 +64,13 @@ textarea {
     font-weight: 700;
     font-style: bold;
 }
+
+.postButton:focus {
+    background-color: rgba(153, 26, 42, .5)  
+}
+
+.tag-button {
+    background-color: #991A2A !important;
+    color: #FDFCFB !important;
+    font-family: miller-text, serif;
+}

@@ -24,7 +24,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
 
     openComments = () => {

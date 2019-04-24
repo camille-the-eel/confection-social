@@ -6,10 +6,6 @@ var Schema = mongoose.Schema;
 
 // Post Schema
 var PostSchema = new Schema({
-    post_title: {
-        type: String,
-        required: true
-    },
 
     text_body: {
         type: String,
@@ -35,18 +31,19 @@ var PostSchema = new Schema({
         type: String,
     },
 
+    source: {
+        type: String
+    },
+
     dateCreate: {
         type: Date,
         default: Date.now
     },
 
     // Post Tags associated with this post
-    post_tags: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "post_tags"
-        }
-    ],
+    post_tags: {
+        type: Array
+    }, 
 
     // Likes for this post
     post_likes: [

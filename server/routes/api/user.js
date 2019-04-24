@@ -8,7 +8,7 @@ const jwt       =   require("jsonwebtoken");
 const validateRegisterInput =   require("../../validation/register");
 const validateLoginInput    =   require("../../validation/login");
 
-// Load User model
+// Load User and Blog model
 const User  =   require("../../database/models/user");
 const Blog  =   require("../../database/models/blog");
 
@@ -48,20 +48,14 @@ router.post("/register", (req, res) => {
                             .save()
                             .then(user => {
                                 res.json(user);
-                                console.log(user);
-
                                 const newBlog = new Blog({
                                     blog_title: user.primaryBlog,
                                     isPrimary: true,
                                     userID: user._id
                                 });
 
-                                console.log(newBlog);
                                 newBlog
                                     .save()
-                                    // .then(blog => {
-                                    //     res.json(blog)
-                                    // })
                                     .catch(err => console.log(err));
 
                             })
@@ -93,10 +87,23 @@ router.post("/login", (req, res) => {
     const email     =   req.body.email;
     const password  =   req.body.password;
 
-    User.findOne({ email }).then(user => {
+    User.findOne({ email }).then(async user => {
         if (!user) {
             return res.status(404).json({ emailnotfound: "Email not found"});
         }
+
+        let userID = user.id;
+        let blogID = "";
+
+        // Use user id to search for the primary blog associated with that id
+        await Blog.find({ 
+            userID: userID,
+            isPrimary: true
+        }).then(blog => {
+            blogID = blog[0]._id
+            return blogID;
+        });
+
             // Check password
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
@@ -104,6 +111,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
+                    blogID: blogID,
                     email: user.email
                 };
 

@@ -3,7 +3,7 @@ const path = require("path");
 const router = require("express").Router();
 
 // Pulling in local API routes
-const apiRoutes = requite("./api");
+const apiRoutes = require("./api");
 
 // Calling local api routes
 router.use("/api", apiRoutes);

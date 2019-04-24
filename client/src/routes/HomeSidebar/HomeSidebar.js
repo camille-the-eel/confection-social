@@ -16,16 +16,11 @@ class HomeSidebar extends Component {
     }
 
     componentDidMount() {
-        console.log(this);
-    }
-
-    dummyFunction() {
-        console.log("dummy")
+        // console.log(this);
     }
 
     logout = () => { 
         this.context.logOut();
-        console.log(this)
     }
 
     render () {
