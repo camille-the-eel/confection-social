@@ -52,3 +52,7 @@ body {
     font-weight: 700;
     font-style: bold;
 }
+
+.signUp:focus {
+    background-color: rgba(153, 26, 42, .50);
+}
