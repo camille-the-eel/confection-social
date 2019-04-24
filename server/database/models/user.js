@@ -26,7 +26,14 @@ const UserSchema = new Schema({
     dateCreate: {
         type: Date,
         default: Date.now
-    }
+    },
+
+    user_blogs: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "blogs"
+        }    
+    ]   
 })
 
 

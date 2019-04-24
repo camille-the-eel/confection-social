@@ -31,6 +31,12 @@ var BlogSchema = new Schema({
         default: Date.now
     },
 
+    // Associated user
+    userID: {
+        type: String,
+        required: true
+    },
+
     // Blogs associated with this blog
     associated_blogs: [
         {
