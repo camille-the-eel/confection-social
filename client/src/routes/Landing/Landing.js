@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
 import LoginForm from "./LoginForm";
+import Style from '../../img/landing-sticks-01.svg';
 import './style.css';
 
 class LandingPage extends Component {
@@ -18,6 +19,7 @@ class LandingPage extends Component {
                         <button className="register">not registered? sign up here</button>
                     </Link>
                 </div>
+                <img src={Style} className="sticks"/>
             </div>
         )
     }
