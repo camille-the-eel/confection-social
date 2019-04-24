@@ -46,9 +46,6 @@ class LoginForm extends Component {
                 <div>
                     <form className="form-horizontal accountForm">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="email">Email</label>
-                            </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
                                     type="email"
@@ -61,14 +58,12 @@ class LoginForm extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password</label>
-                            </div>
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
                                     type="password"
                                     id="password"
                                     name="password"
+                                    placeholder="password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
