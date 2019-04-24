@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom"
-import AvatarNav from '../../components/AvatarNav';
+import AvatarSidebar from '../../components/AvatarSidebar';
 import { ReactComponent as FollowButton } from '../../img/followButton.svg';
 import { ReactComponent as MessagesButton } from '../../img/messagesButton.svg';
+import { ReactComponent as LikeButton } from '../../img/likeButton.svg';
 
 import CurrentUser from "../../AppContext";
 
@@ -32,18 +33,21 @@ class BlogSidebar extends Component {
             <ul className="blogSidebar">
                 <div className="divList">
                     <div className="accountMenu">
-                        <li>
-                            <AvatarNav/>
+                        <li className="pageAvatar">
+                            <AvatarSidebar/>
                         </li>
                         <li>
                             <p className="activeBlogPage">props.blogPageName</p>
                             <FollowButton className="followButton"/>
                         </li>
-                        <li>
+                        <li className="descripContainer">
                             <p className="pageDescrip">page description..customizable to user</p>
                         </li>
                         <li>
                             <MessagesButton className="message"/>
+                        </li>
+                        <li>
+                            <LikeButton className="like"/>
                         </li>
                     </div>
                 </div>
