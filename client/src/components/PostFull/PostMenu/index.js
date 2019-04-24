@@ -8,14 +8,14 @@ class PostMenu extends Component {
 
     render () {
         return (
-            <div className="menu">
-                <Link to="" className="">
+            <div className="menuDiv">
+                <Link to="" className="inlineButton">
                     <AvatarSidebar/>
                 </Link>
-                <div className="reblog">
+                <div className="reblog inlineButton">
                     <ReblogButton/>
                 </div>
-                <div className="like">
+                <div className="like inlineButton">
                     <LikeButton/>
                 </div>
             </div>
