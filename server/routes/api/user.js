@@ -10,6 +10,7 @@ const validateLoginInput    =   require("../../validation/login");
 
 // Load User model
 const User  =   require("../../database/models/user");
+const Blog  =   require("../../database/models/blog");
 
 // @route POST api/users/register
 // @desc Register user
@@ -25,32 +26,55 @@ router.post("/register", (req, res) => {
     }
 
     // Check to see if the submitted email is already in the database
-    User.findOne({ email: req.body.email }).then(user => {
-        if (user) {
-            return res.status(400).json({ email: "Email already in use" });
-        } else {
+    User
+        .findOne({ email: req.body.email })
+        .then(user => {
+            if (user) {
+                return res.status(400).json({ email: "Email already in use" });
+            } else {
 
-            const newUser = new User({
-                email:          req.body.email,
-                primaryBlog:    req.body.primaryBlog,
-                password:       req.body.password
-            });
-
-            // Hash password before saving to database
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err;
-                    newUser.password = hash;
-                    newUser
-                        .save()
-                        .then(user => res.json(user))
-                        .catch(err => console.log(err));
+                const newUser = new User({
+                    email:          req.body.email,
+                    primaryBlog:    req.body.primaryBlog,
+                    password:       req.body.password
                 });
-            });
 
-            return res.status(200)
-        }
-    });
+                // Hash password before saving to database
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if (err) throw err;
+                        newUser.password = hash;
+                        newUser
+                            .save()
+                            .then(user => {
+                                res.json(user);
+                                console.log(user);
+
+                                const newBlog = new Blog({
+                                    blog_title: user.primaryBlog,
+                                    isPrimary: true,
+                                    userID: user._id
+                                });
+
+                                console.log(newBlog);
+                                newBlog
+                                    .save()
+                                    // .then(blog => {
+                                    //     res.json(blog)
+                                    // })
+                                    .catch(err => console.log(err));
+
+                            })
+                            .catch(err => console.log(err));
+                    });
+
+                });
+
+                return res.status(200)
+
+                
+            }
+        });
 });
 
 // @route POST api/users/login

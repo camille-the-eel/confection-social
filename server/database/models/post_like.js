@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Post Likes Schema
-var PostLikesSchema = new Schema({
+var PostLikeSchema = new Schema({
     post_likes: {
         type: Number,
         default: 0   
@@ -13,7 +13,7 @@ var PostLikesSchema = new Schema({
 
 });
 
-var post_likes = mongoose.model("post_likes", PostLikesSchema);
+var Post_like = mongoose.model("post_likes", PostLikeSchema);
 
-module.exports = post_likes;
+module.exports = Post_like;
 

@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Post Schema
-var PostsSchema = new Schema({
+var PostSchema = new Schema({
     post_title: {
         type: String,
         required: true
@@ -35,6 +35,11 @@ var PostsSchema = new Schema({
         type: String,
     },
 
+    dateCreate: {
+        type: Date,
+        default: Date.now
+    },
+
     // Post Tags associated with this post
     post_tags: [
         {
@@ -60,7 +65,7 @@ var PostsSchema = new Schema({
     ]
 });
 
-var posts = mongoose.model("posts", PostsSchema);
+var Post = mongoose.model("posts", PostSchema);
 
-module.exports = posts;
+module.exports = Post;
 

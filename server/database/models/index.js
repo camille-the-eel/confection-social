@@ -1,12 +1,13 @@
 module.exports = {
-    Users: require("./users"),
-    Blogs: require("./blogs"),
-    Messages: require("./messages"),
-    Notifications: require("./notifications"),
-    Posts: require("./posts"),
-    Post_comments: require("./post_comments"),
-    Post_likes: require("./post_likes"),
-    Post_reblogs: require("./post_reblogs"),
-    Post_tags: require("./post_tags"),
-    Tags: require("./tags")
+    User: require("./user"),
+    Blog: require("./blog"),
+    Blog_like: require("./blog_like"),
+    Message: require("./message"),
+    Notification: require("./notification"),
+    Post: require("./post"),
+    Post_comment: require("./post_comment"),
+    Post_like: require("./post_like"),
+    Post_reblog: require("./post_reblog"),
+    Post_tag: require("./post_tag"),
+    Tag: require("./tag")
 }

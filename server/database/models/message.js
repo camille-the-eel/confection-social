@@ -4,9 +4,9 @@ var mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Post Comments Schema
-var PostCommentsSchema = new Schema({
-    comment_text: {
+// Messages Schema
+var MessageSchema = new Schema({
+    message_text: {
         type: String,
         required: true   
     },
@@ -20,7 +20,7 @@ var PostCommentsSchema = new Schema({
     ]
 });
 
-var post_comments = mongoose.model("post_comments", PostCommentsSchema);
+var Message = mongoose.model("messages", MessageSchema);
 
-module.exports = post_comments;
+module.exports = Message;
 
