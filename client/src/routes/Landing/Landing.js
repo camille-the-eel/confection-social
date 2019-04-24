@@ -15,7 +15,7 @@ class LandingPage extends Component {
                 <div className="loginForm">
                     <LoginForm updateUser={this.props.updateUser}/>
                     <Link to={"/signup/"}>
-                        <button className="register">Not Registered? Sign Up Here</button>
+                        <button className="register">not registered? sign up here</button>
                     </Link>
                 </div>
             </div>
