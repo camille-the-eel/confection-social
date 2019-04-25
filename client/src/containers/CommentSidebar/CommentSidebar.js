@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Avatar from '../../components/Avatar/Avatar';
 import Caption from '../../components/Caption/Caption';
-import Source from '../../components/Sources/source';
-import Credit from '../../components/Sources/credit';
+import Source from '../../components/Sources/Source';
+import Credit from '../../components/Sources/Credit';
 import Comment from '../../components/CommentItem/CommentItem';
 import CommentButton from '../../components/CommentButton/CommentButton';
 import './style.css';
