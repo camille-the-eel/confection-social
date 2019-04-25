@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from "react-router-dom";
 import closeButton from '../../img/closeButton.svg';
 import './style.css';
-// import { newPost } from "../../actions/Create_Photo";
+import { newPost } from "../../actions/Create_Photo";
 
 import CurrentUser from "../../AppContext";
 
@@ -55,9 +55,9 @@ class Create extends Component {
             photo: this.state.photo
         };
 
-        // newPost(postData, () => {
-        //     this.props.toggleCreate();
-        // });
+        newPost(postData, () => {
+            this.props.toggleCreate();
+        });
     };
 
 
