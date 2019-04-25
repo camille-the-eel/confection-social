@@ -10,12 +10,14 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "flow": "flow"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "flow-bin": "^0.97.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
@@ -35,7 +37,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "react-activity-feed": "^0.9.6",
+    "react-activity-feed": "^0.9.8",
     "react-router": "^5.0.0",
     "validator": "^10.11.0"
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Caption from '../../Caption';
-import Source from '../../Sources/source';
-import Credit from '../../Sources/credit';
+import Caption from '../../Caption/Caption';
+import Source from '../../Sources/Source';
+import Credit from '../../Sources/Credit';
 import commentButton from '../../../img/commentButton.svg';
 import './style.css';
 
@@ -10,7 +10,7 @@ class PhotoItem extends Component {
     render () {
         return (
             <div className="containPost">
-                <img src="https://via.placeholder.com/350" alt="photo post test"/>
+                <img src="https://via.placeholder.com/350" alt="post"/>
                 <div className="postDetails">
                     <div>
                         <Source className="source"/><Credit className="credit"/>
