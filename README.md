@@ -48,7 +48,7 @@ Features to Come:
 - explore
 - private message center
 - like list per Page
-- account settings and customization
+- update account settings and customization
 
 =======================================================================================
 
