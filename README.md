@@ -1,9 +1,8 @@
 
-# Confection Social App
-
-<h1>Link to Deployed App <a href="https://confection-social-app.herokuapp.com/">Here</a></h1>
+# <a href="https://confection-social-app.herokuapp.com/">Confection</a> Social App
 
 **Goal**
+
 To create an application with an emphasis on community interactivity, artistic liberty, chronological feed, ease of use between accounts, and striking visual content.
 
 =======================================================================================
@@ -23,9 +22,9 @@ To create an application with an emphasis on community interactivity, artistic l
 - Javascript
 - CSS
 - HTML
-- <a href="https://jwt.io/">JSON Web Token</a> : user authentication
-- <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a> : password encryption
-- <a href="https://www.npmjs.com/package/validator">validator</a> : validates account creation and log in input
+- <a href="https://jwt.io/">JSON Web Token</a>: user authentication
+- <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>: password encryption
+- <a href="https://www.npmjs.com/package/validator">validator</a>: validates account creation and log in input
 - APIs: 
     - <a href="https://getstream.io/">Stream</a>
 - Materialize CSS Framework
@@ -33,9 +32,7 @@ To create an application with an emphasis on community interactivity, artistic l
 
 =======================================================================================
 
-**Build Status**
-
-IN DEVELOPMENT
+**Build Status: In Development**
 
 Current Features:
 - user authentication/log in & out
@@ -79,11 +76,14 @@ If you were to view her Photography Page, you would see in the sidebar a link to
 
 =======================================================================================
 
-####Mockups & Wireframes
+### Mockups & Wireframes
 
 
 **Home Page Mockup** 
+
 You can see the avatars of each Page this account has in the navbar. The active Page is full opacity while the rest of faded out. To switch which Page you are acting under, merely click the avatar you wish to act as.
+
+(This feature is not currenlty available in the deployed app).
 
 ![Mockup: Home Page](assets/wireframes/Dashboard.jpg)
 
