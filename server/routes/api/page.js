@@ -1,7 +1,15 @@
 // Set requires
-const express   = require("express");
-const router    = express.Router();
+const router   = require("express").Router();
+const Page = require("../../database/models/page");
 
-// Call post and page model
-const Page      = require("../../database/models/page")
-const Post      = require("../../database/models/post");
+// Get route for retreiving a single post and pushing all of their posts to the client
+router.get("/:id", (req, res) => {
+        Page.findOne({
+            page_title: req.params.id
+        })
+        .then(pageData => res.json(pageData))
+        .catch(err => res.status(422).json(err));
+        }
+);
+
+module.exports = router;

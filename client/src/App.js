@@ -8,9 +8,6 @@ import Page from './containers/Page/Page';
 import setAuthToken from "./utils/setAuthToken";
 import CurrentUser from "./AppContext";
 
-//REQUIRE STREAM DEPENDENCY
-var stream = require('getstream');
-
 
 class App extends Component {
   constructor() {
@@ -73,8 +70,8 @@ class App extends Component {
                         exact path="/home"
                         component={Home}
                     />
-                     <Route 
-                        exact path="/page"
+                    <Route 
+                        exact path="/pages/:id"
                         component={Page}
                     />
                     <Route 
