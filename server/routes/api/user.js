@@ -92,17 +92,20 @@ router.post("/login", (req, res) => {
             return res.status(404).json({ emailnotfound: "Email not found"});
         }
 
+        // Set user id to id received from database and         
         let userID = user.id;
-        let pageID = "";
 
-        // Use user id to search for the primary page associated with that id
+        // Set up an empty pages array to be filled within page call
+        let pages = [];
+
+        // Use user id to search for all pages created by that user id
         await Page.find({ 
-            userID: userID,
-            isPrimary: true
+            userID: userID
         }).then(page => {
-            pageID = page[0]._id
-            return pageID;
-        });
+            pages = page.map(page => page)
+            return pages;
+        })
+        .catch(err => console.log(err));
 
             // Check password
         bcrypt.compare(password, user.password).then(isMatch => {
@@ -111,8 +114,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    pageID: pageID,
-                    email: user.email
+                    pages: pages
                 };
 
                 jwt.sign(

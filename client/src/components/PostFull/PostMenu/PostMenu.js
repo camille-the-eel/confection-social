@@ -6,11 +6,15 @@ import LikeButton from '../../LikeButton/LikeButton';
 
 class PostMenu extends Component {
 
+    componentDidMount() {
+        console.log(this);
+    }
+
     render () {
         return (
             <div className="menuDiv">
                 <Link to="" className="inlineButton">
-                    <Avatar/>
+                    <Avatar>{this.props.children}</Avatar>
                 </Link>
                 <div className="repage inlineButton">
                     <RePageButton/>

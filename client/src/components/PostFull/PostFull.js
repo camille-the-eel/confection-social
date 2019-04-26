@@ -6,16 +6,19 @@ import './style.css';
 
 class PostFull extends Component {
 
+    componentDidMount() {
+        console.log(this);
+    }
     //conditional render photo vs text?
 
     render () {
         return (
             <div className="postDiv">
                 <div className="postMenu">
-                    <PostMenu/>
+                    <PostMenu>{this.props.children}</PostMenu>
                 </div>
                 <div className="postContainer">
-                    <PhotoPost>{this.props}</PhotoPost>
+                    <PhotoPost>{this.props.children}</PhotoPost>
                 </div>
             </div>
         )
