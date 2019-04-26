@@ -1,16 +1,18 @@
 // Setting requires
-const express       = require("express");
-                      require("dotenv").config();
+const express = require("express");
+                require("dotenv").config();
 
-const path          = require("path");
-const mongoose      = require("mongoose");
-const bodyParser    = require("body-parser");
-const passport      = require("passport");
+const path = require("path");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
 
-const routes        = require("./server/routes");
+const routes = require("./server/routes");
 
-const PORT          = process.env.PORT || 3001;
-const app           = express();
+const PORT = process.env.PORT || 3001;
+const app = express();
+const socket = require('socket.io');
+const io = socket(server);
 
 // Bodyparser middleware
 app.use(
@@ -50,4 +52,21 @@ app.get('*',(req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Server up and running on port ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Server up and running on port ${PORT}`));
+
+
+//SOCKET ROUTES
+//on connection: do these actions
+io.on('connection', function(socket){
+  console.log("Socket Connection Successful", socket.id);
+
+  //listening for emit events from jsx
+  socket.on('create', function(data){
+    
+    //send event data to database
+    
+    //then! 
+    //send to all other sockets
+    io.sockets.emit('create', data);
+  })
+});
