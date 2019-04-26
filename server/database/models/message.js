@@ -11,11 +11,11 @@ var MessageSchema = new Schema({
         required: true   
     },
 
-    // Blog that has sent this message
+    // Page that has sent this message
     sender_ID: [
         {
             type: Schema.Types.ObjectId,
-            ref: "blogs"
+            ref: "pages"
         }
     ]
 });

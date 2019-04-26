@@ -29,15 +29,15 @@ class PageSidebar extends Component {
 
     render () {
         return (
-        <div className="blogSidebarContainer">
-            <ul className="blogSidebar">
+        <div className="pageSidebarContainer">
+            <ul className="pageSidebar">
                 <div className="divList">
                     <div className="accountMenu">
                         <li className="pageAvatar">
                             <Avatar/>
                         </li>
                         <li>
-                            <p className="activeBlogPage">props.blogPageName</p>
+                            <p className="activePage">props.pageName</p>
                             <FollowButton className="followButton"/>
                         </li>
                         <li className="descripContainer">

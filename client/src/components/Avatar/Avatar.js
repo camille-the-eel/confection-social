@@ -13,4 +13,4 @@ export default Avatar;
 
 //TO DO:
 //display avatar(s) from database
-//link avatar to user's blogs on click
+//link avatar to user's pages on click

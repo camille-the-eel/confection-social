@@ -7,7 +7,7 @@ module.exports  =   function validateRegisterInput(data) {
 
     // Convert empty fields to an empty string so we can use validator
     data.email          =   !isEmpty(data.email)        ?   data.email          :   "";
-    data.primaryBlog    =   !isEmpty(data.primaryBlog)  ?   data.primaryBlog    :   "";
+    data.primaryPage    =   !isEmpty(data.primaryPage)  ?   data.primaryPage    :   "";
     data.password       =   !isEmpty(data.password)     ?   data.password       :   "";
     data.password2      =   !isEmpty(data.password2)    ?   data.password2      :   "";
 
@@ -18,9 +18,9 @@ module.exports  =   function validateRegisterInput(data) {
         errors.email = "Email is invalid";
     }
 
-    // Primary Blog Checks
-    if (Validator.isEmpty(data.primaryBlog)) {
-        errors.name = "Primary Blog field is required";
+    // Primary Page Checks
+    if (Validator.isEmpty(data.primaryPage)) {
+        errors.name = "Primary Page field is required";
     }
 
     // Password checks

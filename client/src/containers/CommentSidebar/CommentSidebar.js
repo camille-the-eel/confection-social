@@ -19,9 +19,9 @@ class CommentSidebar extends Component {
                 <div className="commentSidebar">
                     <div className="centeredDiv">
                         <div className="creatorDiv">
-                            <div className="blogLink" onClick="">
+                            <div className="pageLink" onClick="">
                                 <Avatar className="creatorAvatar"/>
-                                <p className="blogName">props.blogName</p>
+                                <p className="pageName">props.pageName</p>
                             </div>
                             <div className="pContent">
                                 <Caption/>
@@ -33,9 +33,9 @@ class CommentSidebar extends Component {
                            <Comment/>
                         </div>
                         <div className="inputCommentDiv">
-                            <div className="blogLink" onClick="">
+                            <div className="pageLink" onClick="">
                                 <Avatar className="commentorAvator"/>
-                                <p className="activeBlogName">props.activeBlogName</p>
+                                <p className="activePageName">props.activePageName</p>
                             </div>
                             <textarea className="commentInput"/>
                             <button className="addComment" onClick="">

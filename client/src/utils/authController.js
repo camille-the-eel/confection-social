@@ -31,7 +31,7 @@ export const loginUser = (userData, cb) => {
             const decoded = jwt_decode(token);
             // Set decoded id
             sessionStorage.setItem("id", decoded.id);
-            sessionStorage.setItem("blogID", decoded.blogID)
+            sessionStorage.setItem("pageID", decoded.pageID)
             cb();
         })
         .catch(error => {

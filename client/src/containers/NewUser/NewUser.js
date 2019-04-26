@@ -9,7 +9,7 @@ class Register extends Component {
         super() 
             this.state = {
                 email: "",
-                primaryBlog: "",
+                primaryPage: "",
                 password: "",
                 password2: "",
                 passwordMatch: false,
@@ -31,7 +31,7 @@ class Register extends Component {
 
         const newUser = {
             email: this.state.email,
-            primaryBlog: this.state.primaryBlog,
+            primaryPage: this.state.primaryPage,
             password: this.state.password,
             password2: this.state.password2
         };
@@ -96,16 +96,16 @@ class Register extends Component {
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
                                     type="text"
-                                    id="primaryBlog"
-                                    name="primaryBlog"
-                                    placeholder="blog page name"
-                                    value={this.state.primaryBlog}
+                                    id="primaryPage"
+                                    name="primaryPage"
+                                    placeholder="page name"
+                                    value={this.state.primaryPage}
                                     onChange={this.handleChange}
                                 />
                             </div>
                         </div>
                         <div id="upload">
-                        <p className="avatarHead">blog page avatar</p>
+                        <p className="avatarHead">page avatar</p>
                         </div>
                         <div className="form-group ">
                             <div className="col-7"></div>

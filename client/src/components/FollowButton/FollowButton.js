@@ -14,7 +14,7 @@ class FollowButton extends Component {
     handleClick = e => {
         if (!this.props.followed) {
             this.props.onFollow({ id: this.props.id, followed: this.props.followed, src: followButtonClicked });
-            followBlog(this.props.user.id, this.props.id);
+            followPage(this.props.user.id, this.props.id);
         }
     };
 
