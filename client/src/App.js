@@ -49,6 +49,7 @@ class App extends Component {
       console.log("Logout called")
       sessionStorage.removeItem("jwtToken");
       sessionStorage.removeItem("id");
+      sessionStorage.removeItem("pageID");
       setAuthToken(false);
       this.checkIfUser();
   }
