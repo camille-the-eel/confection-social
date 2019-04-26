@@ -42,7 +42,7 @@ p {
     width: 50px;
 }
 
-.blogName {
+.pageName {
     display: inline;
     margin-left: 10px;
     vertical-align: top;
@@ -53,7 +53,7 @@ p {
     color: #3B3A3A;
 }
 
-.blogLink {
+.pageLink {
     margin-top: 20px;
 }
 
@@ -67,7 +67,7 @@ p {
     color: #3B3A3A;
 }
 
-.activeBlogName {
+.activePageName {
     display: inline;
     margin-left: 10px;
     vertical-align: top;

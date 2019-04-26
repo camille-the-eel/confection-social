@@ -2,7 +2,7 @@
 const express   = require("express");
 const router    = express.Router();
 
-// Call post and blog model
+// Call post model
 const Post      = require("../../database/models/post");
 
 // @ POST api/posts/create

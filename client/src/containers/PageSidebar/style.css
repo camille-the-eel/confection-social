@@ -1,4 +1,4 @@
-.blogSidebarContainer {
+.pageSidebarContainer {
     margin-top: 50px;
     width: 350px;
     height: 100vh;
@@ -13,12 +13,12 @@
     clear: both;
 }
 
-.blogSidebar {
+.pageSidebar {
     width: 350px;
     margin-left: 30px;
 }
 
-.activeBlogPage {
+.activePage {
     display: inline-block;
     font-size: 20px;
     font-family: acumin-pro, sans-serif;

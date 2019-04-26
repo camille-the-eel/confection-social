@@ -48,7 +48,7 @@ class Create extends Component {
         event.preventDefault();
 
         const postData = {
-            source: sessionStorage.blogID,
+            source: sessionStorage.pageID,
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,

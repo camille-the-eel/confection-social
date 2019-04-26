@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 // import { User as UserActions } from 'actions';
-import reblogButton from '../../img/reblogButton.svg';
-import reblogButtonClicked from '../../img/reblogButtonClicked.svg';
+import rePageButton from '../../img/reblogButton.svg';
+import rePageButtonClicked from '../../img/reblogButtonClicked.svg';
 import './style.css';
 
-class ReblogButton extends Component {
+class RePageButton extends Component {
 
     static defaultProps = {
         id: '',
-        onReblog: () => {},
-        src: reblogButton
+        onRePage: () => {},
+        src: rePageButton
     };
 
     handleClick = e => {
-        if (!this.props.reblogged) {
-            this.props.onReblog({ id: this.props.id, reblogged: this.props.reblogged, src: reblogButtonClicked });
-            // reblogPost(this.props.user.id, this.props.id);
+        if (!this.props.rePaged) {
+            this.props.onRePage({ id: this.props.id, repaged: this.props.rePaged, src: rePageButtonClicked });
+            // rePagePost(this.props.user.id, this.props.id);
         }
     };
 
     render() {
-        return <img src={this.props.src} alt="reblogButton" className="reblogButton" onClick={this.handleClick} />;
+        return <img src={this.props.src} alt="rePageButton" className="rePageButton" onClick={this.handleClick} />;
     }
 }
 
-export default ReblogButton;
+export default RePageButton;
 
 
 //TO DO:

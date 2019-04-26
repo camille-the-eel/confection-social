@@ -11,7 +11,7 @@ const UserSchema = new Schema({
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
 
-    primaryBlog: {
+    primaryPage: {
         type: String,
         unique: true,
         required: true
@@ -28,10 +28,10 @@ const UserSchema = new Schema({
         default: Date.now
     },
 
-    user_blogs: [
+    user_pages: [
         {
             type: Schema.Types.ObjectId,
-            ref: "blogs"
+            ref: "pages"
         }    
     ]   
 })

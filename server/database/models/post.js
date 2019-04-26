@@ -54,10 +54,10 @@ var PostSchema = new Schema({
     ],    
     
     // Likes for this post
-    post_reblogs: [
+    post_repages: [
         {
             type: Schema.Types.ObjectId,
-            ref: "post_reblogs"
+            ref: "post_repages"
         }
     ]
 });

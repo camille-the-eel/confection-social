@@ -4,22 +4,22 @@ var mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Blog Schema
-var BlogSchema = new Schema({
-    // Blog Title
-    blog_title: {
+// Page Schema
+var PageSchema = new Schema({
+    // Page Title
+    page_title: {
         type: String,
         unique: true,
         required: true
     },
 
-    // Avatar image to be shown in association with the blog
+    // Avatar image to be shown in association with the page
     avatar: {
         type: String,
         default: "https://via.placeholder.com/150"
     },
 
-    // Is primary blog associated to a user (typically first blog created)
+    // Is primary page associated to a user (typically first page created)
     isPrimary: {
         type: Boolean,
         default: false
@@ -37,23 +37,23 @@ var BlogSchema = new Schema({
         required: true
     },
 
-    // Blogs associated with this blog
-    associated_blogs: [
+    // Pages associated with this page
+    associated_pages: [
         {
             type: Schema.Types.ObjectId,
-            ref: "blogs"
+            ref: "pages"
         }
     ],
 
-    // Blogs followed by this blog
+    // Pages followed by this page
     following: [
         {
             type: Schema.Types.ObjectId,
-            ref: "blogs"
+            ref: "pages"
         }
     ],
 
-    // Posts by this blog
+    // Posts by this page
     posts: [
         {
             type: Schema.Types.ObjectId,
@@ -61,7 +61,7 @@ var BlogSchema = new Schema({
         }
     ],
 
-    // Notifications for this blog
+    // Notifications for this page
     notifications: [
         {
             type: Schema.Types.ObjectId,
@@ -69,7 +69,7 @@ var BlogSchema = new Schema({
         }
     ],
 
-    // Messages for this blog
+    // Messages for this page
     messages: [
         {
             type: Schema.Types.ObjectId,
@@ -77,14 +77,14 @@ var BlogSchema = new Schema({
         }
     ],
 
-    // Likes for this blog
+    // Likes for this page
     likes: [
         {
             type: Schema.Types.ObjectId,
-            ref: "blog_likes"
+            ref: "page_likes"
         }
     ]
 });
 
-module.exports = Blog = mongoose.model("blogs", BlogSchema);
+module.exports = Page = mongoose.model("pages", PageSchema);
 

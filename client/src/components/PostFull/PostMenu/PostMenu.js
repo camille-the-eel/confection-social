@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom"
 import Avatar from '../../Avatar/Avatar';
-import ReblogButton from '../../RePageButton/RePageButton';
+import RePageButton from '../../RePageButton/RePageButton';
 import LikeButton from '../../LikeButton/LikeButton';
 
 class PostMenu extends Component {
@@ -12,8 +12,8 @@ class PostMenu extends Component {
                 <Link to="" className="inlineButton">
                     <Avatar/>
                 </Link>
-                <div className="reblog inlineButton">
-                    <ReblogButton/>
+                <div className="repage inlineButton">
+                    <RePageButton/>
                 </div>
                 <div className="like inlineButton">
                     <LikeButton/>

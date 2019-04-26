@@ -8,9 +8,9 @@ const jwt       =   require("jsonwebtoken");
 const validateRegisterInput =   require("../../validation/register");
 const validateLoginInput    =   require("../../validation/login");
 
-// Load User and Blog model
+// Load User and page model
 const User  =   require("../../database/models/user");
-const Blog  =   require("../../database/models/blog");
+const Page  =   require("../../database/models/page");
 
 // @route POST api/users/register
 // @desc Register user
@@ -35,7 +35,7 @@ router.post("/register", (req, res) => {
 
                 const newUser = new User({
                     email:          req.body.email,
-                    primaryBlog:    req.body.primaryBlog,
+                    primaryPage:    req.body.primaryPage,
                     password:       req.body.password
                 });
 
@@ -48,13 +48,13 @@ router.post("/register", (req, res) => {
                             .save()
                             .then(user => {
                                 res.json(user);
-                                const newBlog = new Blog({
-                                    blog_title: user.primaryBlog,
+                                const newPage = new Page({
+                                    page_title: user.primaryPage,
                                     isPrimary: true,
                                     userID: user._id
                                 });
 
-                                newBlog
+                                newPage
                                     .save()
                                     .catch(err => console.log(err));
 
@@ -93,15 +93,15 @@ router.post("/login", (req, res) => {
         }
 
         let userID = user.id;
-        let blogID = "";
+        let pageID = "";
 
-        // Use user id to search for the primary blog associated with that id
-        await Blog.find({ 
+        // Use user id to search for the primary page associated with that id
+        await Page.find({ 
             userID: userID,
             isPrimary: true
-        }).then(blog => {
-            blogID = blog[0]._id
-            return blogID;
+        }).then(page => {
+            pageID = page[0]._id
+            return pageID;
         });
 
             // Check password
@@ -111,7 +111,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    blogID: blogID,
+                    pageID: pageID,
                     email: user.email
                 };
 
