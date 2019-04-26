@@ -10,6 +10,7 @@ import API from "../../utils/API"
 import 'materialize-css/dist/css/materialize.min.css';
 // import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
+import PostFull from "../../components/PostFull/PostFull";
 
 class Page extends Component {
     constructor() {
@@ -47,15 +48,15 @@ class Page extends Component {
     }
 
     render() {
-            return (
-                <div className="body">
-                    {!this.state.menuHidden && <PageSidebar/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
-                    <div className="postDiv">
-
-                    </div>
+        return (
+            <div className="body">
+                {!this.state.menuHidden && <PageSidebar>{this.state.page}</PageSidebar>}
+                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                <div className="postDiv">
+                    <PostFull />
                 </div>
-            )
+            </div>
+        )
     }
 }
 

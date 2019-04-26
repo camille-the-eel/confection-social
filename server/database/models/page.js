@@ -19,6 +19,11 @@ var PageSchema = new Schema({
         default: "https://via.placeholder.com/150"
     },
 
+    page_description: {
+        type: String,
+        default: "This is the test default description"
+    },
+
     // Is primary page associated to a user (typically first page created)
     isPrimary: {
         type: Boolean,
