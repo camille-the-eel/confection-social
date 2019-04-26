@@ -9,7 +9,7 @@ class Avatar extends Component {
     render () {
         return <img
                     src={this.props.children || "https://via.placeholder.com/250"} 
-                    alt="test-avatar" 
+                    alt="page-avatar" 
                     style={{width:45}} 
                 />
     }

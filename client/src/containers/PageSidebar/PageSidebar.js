@@ -20,10 +20,10 @@ class PageSidebar extends Component {
                 <div className="divList">
                     <div className="accountMenu">
                         <li className="pageAvatar">
-                            <Avatar></Avatar>
+                            <Avatar>{this.props.children.avatar}</Avatar>
                         </li>
                         <li>
-                            <p className="activePage"></p>
+                            <p className="activePage">{this.props.children.page_title}</p>
                             <FollowButton className="followButton"/>
                         </li>
                         <li className="descripContainer">
