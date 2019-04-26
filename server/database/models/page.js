@@ -42,53 +42,33 @@ var PageSchema = new Schema({
         required: true
     },
 
-    // Pages associated with this page
-    associated_pages: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "pages"
-        }
-    ],
+    // // Pages associated with this page
+    // associated_pages: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "pages"
+    //     }
+    // ],
 
     // Pages followed by this page
-    following: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "pages"
-        }
-    ],
-
-    // Posts by this page
-    posts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "posts"
-        }
-    ],
+    following: {
+        type: Array
+    },
 
     // Notifications for this page
-    notifications: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "notifications"
-        }
-    ],
+    notifications:  {
+        type: Array
+    },
 
     // Messages for this page
-    messages: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "messages"
-        }
-    ],
+    messages:  {
+        type: Array
+    },
 
     // Likes for this page
-    likes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "page_likes"
-        }
-    ]
+    likes:  {
+        type: Array
+    }
 });
 
 module.exports = Page = mongoose.model("pages", PageSchema);

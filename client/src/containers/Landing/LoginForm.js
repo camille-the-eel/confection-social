@@ -11,8 +11,7 @@ class LoginForm extends Component {
         this.state = {
             email: "",
             password: "",
-            redirectTo: null,
-            token: ""
+            redirectTo: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -32,8 +31,9 @@ class LoginForm extends Component {
         };
 
         loginUser(userData, () => {
+            console.log("+++Login form calling check user+++")
             let context = this.context;
-            context.logIn();
+            context.checkIfUser();
         });
     }
     

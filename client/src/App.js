@@ -6,53 +6,67 @@ import Home from "./containers/Home/Home";
 import Page from './containers/Page/Page';
 
 import setAuthToken from "./utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 import CurrentUser from "./AppContext";
 
 
 class App extends Component {
-  constructor() {
-      super()
-      this.state = {
-          isUser: false,
-          user: null,
-          setUser: this.setUser,
-          logOut: this.logoutUser,
-          logIn: this.logIn,
-          checkIfUser: this.checkIfUser
+    constructor() {
+        super()
+        this.state = {
+            isUser: false,
+            user: null,
+            pages: [],
+            logOut: this.logoutUser,
+            checkIfUser: this.checkIfUser
       };
-  };
+    };
 
-  componentDidMount() {
-      this.checkIfUser()
-  };
+    // Fires check user function on page load
+    componentDidMount() {
+        this.checkIfUser()
+    };
 
-  setUser = newUser => {
-      this.setState({ user: newUser })
-  };
+    // Checks to see if a token for the user has been stored in session storage
+    // If session token does exist, writeUserData function is called to write users data to state
+    // If session token does not exist, this.state.isUser is set to false to not allow them into restricted areas of app
+    checkIfUser = () => {
+        console.log("check user firing")
+        const token = sessionStorage.getItem("jwtToken");
+        if (token) {
+            this.writeUserData(token)
+        } else {
+            this.setState({ isUser: false })
+        }
+    };
 
-  checkIfUser = () => {
-      console.log("check user firing")
-      console.log(sessionStorage)
-      const isToken = sessionStorage.getItem("jwtToken");
-      if (isToken) {
-          this.setState({ isUser: true })
-      } else {
-          this.setState({ isUser: false })
-      }
-  };
+    // Write user takes token and decodes it to extract the data
+    // User ID is pushed into user | All pages created by the current user ID are pushed into the pages array
+    // These are pushed into state at this level so that they can be accessed in context anywhere in the app 
+    writeUserData = token => {
 
-  logIn = () => {
-      this.checkIfUser()
-  };
+        // Decode session token and pass it into the userData const
+        const userData = jwt_decode(token);
 
-  logoutUser = () => {
-      console.log("Logout called")
-      sessionStorage.removeItem("jwtToken");
-      sessionStorage.removeItem("id");
-      sessionStorage.removeItem("pageID");
-      setAuthToken(false);
-      this.checkIfUser();
-  }
+        // Extract user id and related pages from userData
+        let user = userData.id;
+        let pages = userData.pages.map(page => page);
+
+        // Pushes user and related pages into state to be accessed with context in other components
+        this.setState({
+            user: user,
+            pages: pages
+        })
+            
+        // Sets isUser to true and fires checkIfUser function
+        this.setState({ isUser: true });
+    }
+
+    logoutUser = () => {
+        sessionStorage.clear();
+        setAuthToken(false);
+        this.checkIfUser();
+    }
 
   render() {
       return (

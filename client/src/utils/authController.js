@@ -1,5 +1,4 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import setAuthToken from "./setAuthToken";
 
 // Register User
@@ -27,11 +26,6 @@ export const loginUser = (userData, cb) => {
             sessionStorage.setItem("jwtToken", token);
             // Set token to Auth header
             setAuthToken(token);
-            // Decode token to get user's data
-            const decoded = jwt_decode(token);
-            // Set decoded id
-            sessionStorage.setItem("id", decoded.id);
-            sessionStorage.setItem("pageID", decoded.pageID)
             cb();
         })
         .catch(error => {

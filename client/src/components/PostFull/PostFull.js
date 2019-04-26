@@ -6,6 +6,9 @@ import './style.css';
 
 class PostFull extends Component {
 
+    componentDidMount() {
+        console.log(this);
+    }
     //conditional render photo vs text?
 
     render () {

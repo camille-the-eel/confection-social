@@ -53,7 +53,7 @@ class Page extends Component {
                 {!this.state.menuHidden && <PageSidebar>{this.state.page}</PageSidebar>}
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
                 <div className="postDiv">
-                    <PostFull />
+                    <PostFull>{this.state.page.posts}</PostFull>>
                 </div>
             </div>
         )

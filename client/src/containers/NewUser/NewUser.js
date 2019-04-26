@@ -20,15 +20,18 @@ class Register extends Component {
             this.handleChange = this.handleChange.bind(this)   
     }
 
+    // Changes state based on form inputs
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }  
 
+    // Handles button click - primarily register button
     handleSubmit(event) {
         event.preventDefault()
 
+        // Creates a newUser based off of current state
         const newUser = {
             email: this.state.email,
             primaryPage: this.state.primaryPage,
@@ -36,8 +39,8 @@ class Register extends Component {
             password2: this.state.password2
         };
 
-        console.log(this);
-
+        // Pushes newUser const into register user function from authController
+        // If registration is successful, callback function fires and user is redirected to the root(login page) 
         registerUser(newUser, () => {
             this.setState({ redirectTo: "/" })
         });

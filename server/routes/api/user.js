@@ -93,15 +93,14 @@ router.post("/login", (req, res) => {
         }
 
         let userID = user.id;
-        let pageID = "";
+        let pages = [];
 
         // Use user id to search for the primary page associated with that id
         await Page.find({ 
-            userID: userID,
-            isPrimary: true
+            userID: userID
         }).then(page => {
-            pageID = page[0]._id
-            return pageID;
+            pages = page.map(page => page)
+            return pages;
         });
 
             // Check password
@@ -111,8 +110,7 @@ router.post("/login", (req, res) => {
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    pageID: pageID,
-                    email: user.email
+                    pages: pages
                 };
 
                 jwt.sign(
