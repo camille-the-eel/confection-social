@@ -16,7 +16,8 @@ class Page extends Component {
     constructor() {
         super()
         this.state = {
-            page: {},
+            pageInfo: {},
+            posts: [],
             commentsHidden: true,
             sidebarHidden: false
         }
@@ -27,7 +28,10 @@ class Page extends Component {
         API.getPage(this.props.match.params.id)
             .then(res => {
                 console.log(res);
-                this.setState({ page: res.data});
+                this.setState({ 
+                    pageInfo: res.data.pageInfo,
+                    posts: res.data.posts
+                });
                 console.log(this.state)
             })
             .catch(err => console.log(err));
@@ -53,7 +57,7 @@ class Page extends Component {
                 {!this.state.menuHidden && <PageSidebar>{this.state.page}</PageSidebar>}
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
                 <div className="postDiv">
-                    <PostFull>{this.state.page.posts}</PostFull>>
+                    <PostFull></PostFull>>
                 </div>
             </div>
         )

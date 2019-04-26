@@ -92,16 +92,20 @@ router.post("/login", (req, res) => {
             return res.status(404).json({ emailnotfound: "Email not found"});
         }
 
+        // Set user id to id received from database and         
         let userID = user.id;
+
+        // Set up an empty pages array to be filled within page call
         let pages = [];
 
-        // Use user id to search for the primary page associated with that id
+        // Use user id to search for all pages created by that user id
         await Page.find({ 
             userID: userID
         }).then(page => {
             pages = page.map(page => page)
             return pages;
-        });
+        })
+        .catch(err => console.log(err));
 
             // Check password
         bcrypt.compare(password, user.password).then(isMatch => {
