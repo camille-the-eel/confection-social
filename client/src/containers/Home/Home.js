@@ -8,6 +8,8 @@ import CurrentUser from "../../AppContext";
 
 import Create from '../../components/Create/Create';
 
+import API from "../../utils/API";
+
 import 'materialize-css/dist/css/materialize.min.css';
 // import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
@@ -16,6 +18,7 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
+            posts:[],
             commentsHidden: true,
             menuHidden: false,
             createHidden: true,
@@ -24,7 +27,19 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        // console.log(this);
+        console.log(this);
+        this.loadPosts();
+    }
+
+    loadPosts = () => {
+        API.getPosts()
+            .then(res => {                
+                this.setState({ 
+                    posts: res.data.map(post => post)
+                });
+                console.log(this.state)
+            })
+            .catch(err => console.log(err));
     }
 
     openComments = () => {
@@ -33,6 +48,7 @@ class Home extends Component {
             menuHidden: true
         })
     }
+
 
     closeComments = () => {
         this.setState({
@@ -58,7 +74,11 @@ class Home extends Component {
                     {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
                     {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
                     <div className="postMargin">
-                        <PostFull openComments={this.openComments}/>
+                        {this.state.posts.map(post => (
+                            <PostFull key={post._id} openComments={this.openComments}>
+                                {post}
+                            </PostFull>
+                        ))}
                     </div>
                 </div>
             )

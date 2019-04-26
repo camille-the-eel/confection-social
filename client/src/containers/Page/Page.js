@@ -25,6 +25,10 @@ class Page extends Component {
 
     componentDidMount() {
         console.log(this);
+        this.loadPosts();
+    }
+
+    loadPosts = () => {
         API.getPage(this.props.match.params.id)
             .then(res => {
                 this.setState({ 

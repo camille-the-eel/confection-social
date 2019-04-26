@@ -22,7 +22,7 @@ class Avatar extends Component {
     render () {
         return (
             <img
-                src={this.props.children.avatar || this.fetchPageInfo(this.props.children.source)|| "https://via.placeholder.com/250"} 
+                src={/* this.props.children.avatar || this.fetchPageInfo(this.props.children.source) ||  */"https://via.placeholder.com/250"} 
                 alt="page-avatar" 
                 style={{width:45}} 
             />

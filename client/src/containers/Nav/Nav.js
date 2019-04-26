@@ -4,7 +4,35 @@ import Avatar from "../../components/Avatar/Avatar";
 import { ReactComponent as SearchButton } from '../../img/searchButton.svg';
 import './style.css';
 
+import CurrentUser from "../../AppContext";
+
 class Navbar extends Component {
+    
+    state = {
+        pages: []    
+    }
+
+    componentDidMount() {
+        console.log(this);
+        this.mapPages();
+    }
+
+    // Mapping the current users pages into 
+    // !! Currently not actually changing the state of this component !!
+    mapPages = () => {
+        const pagesState = {...this.state};
+        console.log(pagesState);
+        console.log(this.context);
+        let context = this.context
+        let contextPages = context.pages.map(page => page);
+        console.log(contextPages);
+        pagesState.pages = contextPages.map(page => page)
+        console.log(pagesState);
+        this.setState({
+            pages: contextPages.map(page => page)
+        });
+        console.log(this.state);
+    }
 
     render() {
         return (
@@ -16,7 +44,7 @@ class Navbar extends Component {
                         </Link>
                         <ul>
                             <li className="avatars">
-                                <Avatar/>
+                                <Avatar>{this.context.pages[0]}</Avatar>
                             </li>
                         </ul>
                         <Link to="/explore" className="right">
@@ -29,4 +57,5 @@ class Navbar extends Component {
     }
 }
 
+Navbar.contextType = CurrentUser;
 export default Navbar;
