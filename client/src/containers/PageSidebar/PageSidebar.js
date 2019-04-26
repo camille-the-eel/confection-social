@@ -5,26 +5,12 @@ import { ReactComponent as FollowButton } from '../../img/followButton.svg';
 import { ReactComponent as MessagesButton } from '../../img/messagesButton.svg';
 import { ReactComponent as LikeButton } from '../../img/likeButton.svg';
 
-// import CurrentUser from "../../AppContext";
-
 import './style.css';
 
 class PageSidebar extends Component {
-    // constructor() {
-    //     super()
-    // }
 
     componentDidMount() {
         console.log(this);
-    }
-
-    dummyFunction() {
-        console.log("dummy")
-    }
-
-    logout = () => { 
-        this.context.logOut();
-        console.log(this)
     }
 
     render () {
@@ -34,10 +20,10 @@ class PageSidebar extends Component {
                 <div className="divList">
                     <div className="accountMenu">
                         <li className="pageAvatar">
-                            <Avatar/>
+                            <Avatar>{this.props.children.avatar}</Avatar>
                         </li>
                         <li>
-                            <p className="activePage">props.pageName</p>
+                            <p className="activePage">{this.props.children.page_title}</p>
                             <FollowButton className="followButton"/>
                         </li>
                         <li className="descripContainer">

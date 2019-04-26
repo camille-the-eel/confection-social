@@ -12,8 +12,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './style.css';
 import PostFull from "../../components/PostFull/PostFull";
 
-const PageContext = React.createContext();
-
 class Page extends Component {
     constructor() {
         super()
@@ -33,8 +31,6 @@ class Page extends Component {
                 console.log(this.state)
             })
             .catch(err => console.log(err));
-
-        console.log(this.context);
     }
 
     openComments = () => {
@@ -53,16 +49,13 @@ class Page extends Component {
 
     render() {
         return (
-
-            <PageContext.Provider value={this.state}>
-                <div className="body">
-                    {!this.state.menuHidden && <PageSidebar/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
-                    <div className="postDiv">
-                        <PostFull />
-                    </div>
+            <div className="body">
+                {!this.state.menuHidden && <PageSidebar>{this.state.page}</PageSidebar>}
+                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                <div className="postDiv">
+                    <PostFull />
                 </div>
-            </PageContext.Provider>
+            </div>
         )
     }
 }
