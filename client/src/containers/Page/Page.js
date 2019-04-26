@@ -56,7 +56,11 @@ class Page extends Component {
                 {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
                 <div className="postDiv">
-                    <PostFull>{this.state.posts}</PostFull>>
+                    {this.state.posts.map(post => (
+                        <PostFull key={post._id}>
+                            {post}
+                        </PostFull>
+                    ))}
                 </div>
             </div>
         )
