@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import CommentItem from "../CommentItem/CommentItem";
 
-class CommentHeader extends Component {
+class CommentList extends Component {
 
-    localClick = () => {
+    componentDidMount() {
         console.log(this)
-    } 
+    }
     
     render() {
         return (
@@ -16,4 +16,4 @@ class CommentHeader extends Component {
     }
 }
 
-export default CommentHeader
+export default CommentList

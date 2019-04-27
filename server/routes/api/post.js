@@ -36,19 +36,4 @@ router.get("/home", (req, res) => {
         .catch(err => res.status(422).json(err))
 });
 
-// @ Get api/posts/comments/:id
-// Pulls specific post by id to be used to populate comments
-router.get("comments/:id", (req, res) => {
-    console.log(req.params.id)
-    Post
-        .findOne({
-            _id: req.params.id
-        })
-        .then(post => {
-            console.log(post.data)
-            // res.json(post)
-        })
-        .catch(err => res.status(422).json(err))
-})
-
 module.exports = router;

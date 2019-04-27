@@ -18,6 +18,7 @@ class Page extends Component {
         this.state = {
             pageInfo: {},
             posts: [],
+            postForComments: {},
             commentsHidden: true,
             sidebarHidden: false
         }
@@ -28,6 +29,7 @@ class Page extends Component {
         this.loadPosts();
     }
 
+    // Loads all posts
     loadPosts = () => {
         API.getPage(this.props.match.params.id)
             .then(res => {
@@ -41,22 +43,21 @@ class Page extends Component {
     }
 
     // Calls to the api to get comments for the post that was clicked
-    loadComments = (postId) => {
+    loadComments = (posts, _id, postId) => {
         console.log("Load Comments fired");
-        console.log(postId);
-
-        API.getPost(postId)
-            .then(res => {
-                console.log("Comments got")
-                console.log(res)
-            })
-            .catch(err => console.log(err));
+        for (var i = 0; i < posts.length; i++) {
+            if (posts[i][_id] === postId) {
+                return posts[i];
+                }
+        }
+        return null;
     }
 
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
     openComments = (postId) => {
-        this.loadComments(postId)
+        let postForComments = this.loadComments(this.state.posts, "_id", postId)
         this.setState({
+            postForComments: postForComments,
             commentsHidden: false,
             sidebarHidden: true
         })
@@ -73,7 +74,7 @@ class Page extends Component {
         return (
             <div className="body">
                 {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
-                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 <div className="postDiv">
                     {this.state.posts.map(post => (
                         <PostFull key={post._id} openComments={this.openComments}>

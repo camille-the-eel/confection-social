@@ -41,9 +41,22 @@ var PostSchema = new Schema({
     },
 
     // Comments made for this post
-    post_comments: {
-        type: Array
-    },
+    post_comments: [
+        {
+            caption_text: {
+                type: String
+            },
+            caption_author: {
+                type: String
+            },
+            cAuthor_id: {
+                type: String
+            },
+            cAuthor_avatar: {
+                type: String
+            }
+        }
+    ],
 
     // Post Tags associated with this post
     post_tags: {
