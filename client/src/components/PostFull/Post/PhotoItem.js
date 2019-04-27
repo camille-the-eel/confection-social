@@ -14,7 +14,7 @@ class PhotoItem extends Component {
     render () {
         return (
             <div className="containPost">
-                <img src={this.props.children.image_url || "https://via.placeholder.com/350"} alt="post"/>
+                <img src={this.props.children.image_url || "https://via.placeholder.com/350"} alt="post" className="postImg"/>
                 <div className="postDetails">
                     <div>
                         <Source className="source">{this.props.children.source}</Source>
