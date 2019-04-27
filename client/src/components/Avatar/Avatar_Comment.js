@@ -1,40 +1,18 @@
 import React, { Component } from 'react';
 // import { Route, Link } from "react-router-dom"
 
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
-class AvatarPost extends Component {
-    state = {
-        image: "",
-        source: "",
-        page_title: "",
-    }
+class AvatarComment extends Component {
 
     componentDidMount() {
         console.log(this);
-        // this.fetchPageInfo(this.props.children.source);
     }
-
-    // Take props and pass needed info into state
-    // fetchPageInfo = (pageID) => {
-    //     console.log(pageID)
-    //     API.getPageBasic(pageID)
-    //         .then(res => {
-    //             console.log(res);
-    //             this.setState({ 
-    //                 image: res.data.avatar,
-    //                 source: res.data._id,
-    //                 page_title: res.data.page_title
-    //             });
-    //             console.log(this.state)
-    //         })
-    //         .catch(err => console.log(err));
-    // }
 
     render () {
         return (
             <img
-                src={/* this.state.image || */ "https://via.placeholder.com/250"} 
+                src={this.props.children || "https://via.placeholder.com/250"} 
                 alt="page-avatar" 
                 style={{width:45}} 
             />
@@ -42,7 +20,7 @@ class AvatarPost extends Component {
     }
 }
 
-export default AvatarPost;
+export default AvatarComment;
 
 //TO DO:
-//link avatar to user's pages on click
+//link avatar to user's pages on click 

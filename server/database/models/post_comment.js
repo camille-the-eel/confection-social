@@ -12,12 +12,33 @@ var PostCommentSchema = new Schema({
     },
 
     // Page that has sent this message
-    sender_ID: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "pages"
+    commenter_info: {
+        commenterId: {
+            type: String
+        },
+        commenter_page: {
+            type: String,
+        },
+        commenter_avatar: {
+            
         }
-    ]
+    },
+
+    // Related Post info
+    post_info: {
+        postId: {
+            type: String
+        },
+        source: {
+            type: String
+        }
+    },
+
+    // Date comment created
+    dateCreate: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 var Post_comment = mongoose.model("post_comments", PostCommentSchema);

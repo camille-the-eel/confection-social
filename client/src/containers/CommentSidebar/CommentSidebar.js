@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import AvatarComment from '../../components/Avatar/Avatar_Comment';
-import Caption from '../../components/Caption/Caption';
-// import Source from '../../components/Sources/Source';
-// import Credit from '../../components/Sources/Credit';
-import Comment from '../../components/CommentItem/CommentItem';
+import CommentHeader from "../../components/CommentHeader/CommentHeader";
 import CommentButton from '../../components/CommentButton/CommentButton';
+import CommentList from "../../components/CommentList/CommentList";
 import './style.css';
 
 import closeButton from '../../img/closeButton.svg';
 
 class CommentSidebar extends Component {
+
+    componentDidMount() {
+        console.log(this);
+    }
+
+    localClick = () => {
+        console.log("local click")
+    }
 
     render () {
         return (
@@ -19,26 +24,14 @@ class CommentSidebar extends Component {
                 <div className="commentSidebar">
                     <div className="centeredDiv">
                         <div className="creatorDiv">
-                            <div className="pageLink" onClick="">
-                                <AvatarComment className="creatorAvatar"/>
-                                <p className="pageName">props.pageName</p>
-                            </div>
-                            <div className="pContent">
-                                <Caption/>
-                                {/* <Source/> */}
-                                {/* <Credit/> */}
-                            </div>
+                            <CommentHeader>{this.props.children}</CommentHeader>
                         </div>
                         <div className="commentsDiv">
-                           <Comment/>
+                           <CommentList>{this.props.children.post_comments}</CommentList>
                         </div>
                         <div className="inputCommentDiv">
-                            <div className="pageLink" onClick="">
-                                <AvatarComment className="commentorAvator"/>
-                                <p className="activePageName">props.activePageName</p>
-                            </div>
                             <textarea className="commentInput"/>
-                            <button className="addComment" onClick="">
+                            <button className="addComment" onClick={this.localClick}>
                                 <p className="comment">ADD COMMENT</p>
                                 <CommentButton className="commentButton"/>
                             </button>
@@ -52,4 +45,4 @@ class CommentSidebar extends Component {
 
 }
 
-export default CommentSidebar;
+export default CommentSidebar; 

@@ -34,6 +34,6 @@ router.get("/home", (req, res) => {
             res.json(posts)
         })
         .catch(err => res.status(422).json(err))
-})
+});
 
 module.exports = router;

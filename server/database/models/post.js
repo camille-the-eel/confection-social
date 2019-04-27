@@ -40,6 +40,24 @@ var PostSchema = new Schema({
         default: Date.now
     },
 
+    // Comments made for this post
+    post_comments: [
+        {
+            caption_text: {
+                type: String
+            },
+            caption_author: {
+                type: String
+            },
+            cAuthor_id: {
+                type: String
+            },
+            cAuthor_avatar: {
+                type: String
+            }
+        }
+    ],
+
     // Post Tags associated with this post
     post_tags: {
         type: Array
