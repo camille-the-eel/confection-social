@@ -18,7 +18,7 @@ class PostFull extends Component {
                     <PostMenu>{this.props.children}</PostMenu>
                 </div>
                 <div className="postContainer">
-                    <PhotoPost>{this.props.children}</PhotoPost>
+                    <PhotoPost openComments={this.props.openComments}>{this.props.children}</PhotoPost>
                 </div>
             </div>
         )
