@@ -3,13 +3,17 @@
     position: relative;
     top: 55px;
     max-width: 80%;
+    margin-left: 10%;
+    margin-bottom: 50px;
 }
-/* 
+
 .postMenu {
-    max-width: 100%;
-} */
+    max-width: 50px;
+}
 
 .postContainer {
     display: inline-block;
     overflow: hidden;
+    max-width: 90%;
+    min-width: 90%;
 }

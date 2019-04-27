@@ -1,8 +1,8 @@
 .homeSidebarContainer {
     margin-top: 50px;
-    width: 250px;
+    width: 150px;
     height: 100vh;
-    position: relative;
+    position: fixed;
     float: left;
     z-index: 5;
 }
@@ -26,7 +26,6 @@
 .customButton {
     width: 40px;
     margin: 4px;
-
 }
 
 #logoutButton {

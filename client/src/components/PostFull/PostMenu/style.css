@@ -1,5 +1,10 @@
 .menuDiv {
-    width: 500px;
+    max-width: 50px;
+    height: 130px;
+}
+
+.align {
+    max-width: 50px;
 }
 
 .inlineButton {
