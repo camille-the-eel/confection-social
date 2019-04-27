@@ -1,16 +1,14 @@
 import React, { Component }  from "react";
-// import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom"
 import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PageSidebar from '../PageSidebar/PageSidebar';
-// import Post from '../PostFull/Post/PhotoItem';
-// import CurrentUser from "../../AppContext";
-
+import PostFull from "../../components/PostFull/PostFull";
+import PageNav from "../../components/PageNav/PageNav";
 import API from "../../utils/API"
 
 import 'materialize-css/dist/css/materialize.min.css';
 // import M from 'materialize-css/dist/js/materialize.min.js';
 import './style.css';
-import PostFull from "../../components/PostFull/PostFull";
 
 class Page extends Component {
     constructor() {
@@ -73,6 +71,9 @@ class Page extends Component {
     render() {
         return (
             <div className="body">
+                <Link to="/home">
+                    <PageNav/>
+                </Link>
                 {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 <div className="postDiv">

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
+  "engines": {
+    "node": "10.10.0"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -10,14 +13,12 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "flow": "flow"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "flow-bin": "^0.97.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
