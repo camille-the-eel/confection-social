@@ -4,7 +4,7 @@
     height: 100vh;
     position: fixed;
     float: left;
-    z-index: 5;
+    /* z-index: 5; */
 }
 
 .clearfix::after {

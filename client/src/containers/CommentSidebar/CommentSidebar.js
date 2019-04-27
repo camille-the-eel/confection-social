@@ -27,7 +27,7 @@ class CommentSidebar extends Component {
                             <CommentHeader>{this.props.children}</CommentHeader>
                         </div>
                         <div className="commentsDiv">
-                           {/* <CommentList>{this.props.children.post_comments}</CommentList> */}
+                           <CommentList>{this.props.children.post_comments}</CommentList>
                         </div>
                         <div className="inputCommentDiv">
                             <textarea className="commentInput"/>
