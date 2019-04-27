@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Avatar from '../../components/Avatar/Avatar';
+import AvatarPageSidebar from '../../components/Avatar/Avatar_PageSidebar';
 import Caption from '../../components/Caption/Caption';
 import Source from '../../components/Sources/Source';
 import Credit from '../../components/Sources/Credit';
@@ -20,7 +20,7 @@ class CommentSidebar extends Component {
                     <div className="centeredDiv">
                         <div className="creatorDiv">
                             <div className="pageLink" onClick="">
-                                <Avatar className="creatorAvatar"/>
+                                <AvatarPageSidebar className="creatorAvatar"/>
                                 <p className="pageName">props.pageName</p>
                             </div>
                             <div className="pContent">
@@ -34,7 +34,7 @@ class CommentSidebar extends Component {
                         </div>
                         <div className="inputCommentDiv">
                             <div className="pageLink" onClick="">
-                                <Avatar className="commentorAvator"/>
+                                <AvatarPageSidebar className="commentorAvator"/>
                                 <p className="activePageName">props.activePageName</p>
                             </div>
                             <textarea className="commentInput"/>

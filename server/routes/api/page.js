@@ -52,4 +52,28 @@ router.get("/:id", (req, res) => {
     }
 );
 
+// Get route to pull page title and avatar by using page id
+router.get("/basic/:id", (req, res) => {
+    Page.findOne({
+        _id: req.params.id
+    })
+    .then(pageData => {
+        
+        // Return an error of we return a blank page
+        if (!pageData) {
+            return res.status(404).json({ emptypage: "Page not found" });
+        }
+
+        let pageDataBasic = {
+            page_title: pageData.page_title,
+            avatar: pageData.avatar,
+            _id: pageData._id
+        }
+
+        res.json(pageDataBasic);
+    })
+    .catch(err => res.status(422).json(err));
+    }
+)
+
 module.exports = router;

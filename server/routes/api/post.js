@@ -21,8 +21,19 @@ router.post("/create", (req, res) => {
     newPost
         .save()
         .then(post => res.json(post))
-        .catch(err => console.log(err));
+        .catch(err => res.status(422).json(err));
 
 });
+
+// @ GET api/posts/home
+// Currently pulls all posts created. Will eventually pull all posts by current users followed blogs
+router.get("/home", (req, res) => {
+    Post
+        .find()
+        .then(posts => {
+            res.json(posts)
+        })
+        .catch(err => res.status(422).json(err))
+})
 
 module.exports = router;
