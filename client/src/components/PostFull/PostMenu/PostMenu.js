@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom"
-import Avatar from '../../Avatar/Avatar';
+import AvatarPost from '../../Avatar/Avatar_Post';
 import RePageButton from '../../RePageButton/RePageButton';
 import LikeButton from '../../LikeButton/LikeButton';
 
@@ -14,7 +14,7 @@ class PostMenu extends Component {
         return (
             <div className="menuDiv">
                 <Link to="" className="inlineButton">
-                    <Avatar>{this.props.children}</Avatar>
+                    <AvatarPost>{this.props.children}</AvatarPost>
                 </Link>
                 <div className="repage inlineButton">
                     <RePageButton/>

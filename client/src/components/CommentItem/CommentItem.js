@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Avatar from '../Avatar/Avatar';
+import AvatarPageSidebar from '../Avatar/Avatar_PageSidebar';
 import './style.css';
 
 class Comment extends Component {
@@ -8,7 +8,7 @@ class Comment extends Component {
         return (
             <div clasName="creatorDiv">
                 <div className="pageLink" onClick="">
-                    <Avatar className="commentorAvatar"/>
+                    <AvatarPageSidebar className="commentorAvatar"/>
                     <p className="pageName">props.pageName</p>
                 </div>
                 <div className="commentDiv">

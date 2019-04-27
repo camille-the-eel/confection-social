@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // import API from "../../utils/API";
 
-class Avatar extends Component {
+class AvatarPageSidebar extends Component {
     state = {
         image: "",
         source: "",
@@ -14,15 +14,10 @@ class Avatar extends Component {
         console.log(this);
     }
 
-    // Take props and pass needed info into state
-    fetchPageInfo = (pageID) => {
-        console.log(pageID)
-    }
-
     render () {
         return (
             <img
-                src={/* this.props.children.avatar || this.fetchPageInfo(this.props.children.source) ||  */"https://via.placeholder.com/250"} 
+                src={this.props.children.avatar || "https://via.placeholder.com/250"} 
                 alt="page-avatar" 
                 style={{width:45}} 
             />
@@ -30,7 +25,7 @@ class Avatar extends Component {
     }
 }
 
-export default Avatar;
+export default AvatarPageSidebar;
 
 //TO DO:
 //link avatar to user's pages on click

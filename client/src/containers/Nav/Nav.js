@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import Avatar from "../../components/Avatar/Avatar";
+import AvatarNavbar from "../../components/Avatar/Avatar_Navbar";
 import { ReactComponent as SearchButton } from '../../img/searchButton.svg';
 import './style.css';
 
@@ -44,7 +44,7 @@ class Navbar extends Component {
                         </Link>
                         <ul>
                             <li className="avatars">
-                                <Avatar>{this.context.pages[0]}</Avatar>
+                                <AvatarNavbar>{this.context.pages[0]}</AvatarNavbar>
                             </li>
                         </ul>
                         <Link to="/explore" className="right">

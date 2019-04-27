@@ -35,7 +35,7 @@ class Home extends Component {
         API.getPosts()
             .then(res => {                
                 this.setState({ 
-                    posts: res.data.map(post => post)
+                    posts: res.data
                 });
                 console.log(this.state)
             })
