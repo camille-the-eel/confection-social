@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Route, Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import API from "../../utils/API";
 
@@ -33,11 +33,13 @@ class AvatarPost extends Component {
 
     render () {
         return (
-            <img
-                src={this.state.image || "https://via.placeholder.com/250"} 
-                alt="page-avatar" 
-                style={{width:45}} 
-            />
+            <Link to={"/pages/" + this.state.page_title}>
+                <img value={this.state.page_title}
+                    src={this.state.image || "https://via.placeholder.com/250"} 
+                    alt="page-avatar" 
+                    style={{width:45}} 
+                />
+            </Link>
         )
     }
 }

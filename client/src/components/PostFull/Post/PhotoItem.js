@@ -11,6 +11,11 @@ class PhotoItem extends Component {
         console.log(this);
     }
 
+    localOnClick = () => {
+        console.log("Comment button clicked")
+        console.log(this.props)
+    }
+
     render () {
         return (
             <div className="containPost">
@@ -23,7 +28,7 @@ class PhotoItem extends Component {
                     <div className="containCaption">
                         <Caption className="caption">{this.props.children.caption}</Caption>
                     </div>
-                    <img src={commentButton} alt="allComments" className="commentButton" onClick={this.props.children.openComments}/>
+                    <img src={commentButton} alt="allComments" className="commentButton" onClick={this.props.openComments}/>
                 </div>
             </div>
         )
