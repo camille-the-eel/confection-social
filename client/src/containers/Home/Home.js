@@ -5,7 +5,6 @@ import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import HomeSidebar from '../HomeSidebar/HomeSidebar';
 import PostFull from '../../components/PostFull/PostFull';
 import CurrentUser from "../../AppContext";
-
 import Create from '../../components/Create/Create';
 
 import API from "../../utils/API";
@@ -19,6 +18,7 @@ class Home extends Component {
         super()
         this.state = {
             posts:[],
+            postForComments: {},
             commentsHidden: true,
             menuHidden: false,
             createHidden: true,
@@ -31,6 +31,7 @@ class Home extends Component {
         this.loadPosts();
     }
 
+    // Loads all posts (will eventually call posts for followed pages)
     loadPosts = () => {
         API.getPosts()
             .then(res => {                
@@ -42,13 +43,26 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
-    openComments = () => {
-        this.setState({
-            commentsHidden: false,
-            menuHidden: true
-        })
+    // Calls to the api to get comments for the post that was clicked
+    loadComments = (posts, _id, postId) => {
+        console.log("Load Comments fired");
+        for (var i = 0; i < posts.length; i++) {
+            if (posts[i][_id] === postId) {
+                return posts[i];
+                }
+        }
+        return null;
     }
 
+    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
+    openComments = (postId) => {
+        let postForComments = this.loadComments(this.state.posts, "_id", postId)
+        this.setState({
+            postForComments: postForComments,
+            commentsHidden: false,
+            sidebarHidden: true
+        })
+    }
 
     closeComments = () => {
         this.setState({
@@ -71,7 +85,7 @@ class Home extends Component {
                 <div className="body">
                     <Navbar/>
                     {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                     {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
                     <div className="postMargin">
                         {this.state.posts.map(post => (

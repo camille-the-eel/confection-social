@@ -4,6 +4,7 @@ import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PageSidebar from '../PageSidebar/PageSidebar';
 import PostFull from "../../components/PostFull/PostFull";
 import PageNav from "../../components/PageNav/PageNav";
+
 import API from "../../utils/API"
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,8 +15,8 @@ class Page extends Component {
     constructor() {
         super()
         this.state = {
-            pageInfo: {},
             posts: [],
+            pageInfo: {},
             postForComments: {},
             commentsHidden: true,
             sidebarHidden: false
