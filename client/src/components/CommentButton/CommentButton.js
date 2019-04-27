@@ -22,7 +22,7 @@ class CommentButton extends Component {
 
 }
 
-export default CommentButton;
+export default CommentButton; 
 
 //TO DO:
 //handle CommentSidebar displaying on click for correct post by id

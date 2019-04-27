@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import API from "../../utils/API";
 
-class AvatarPost extends Component {
+class AvatarComment extends Component {
     state = {
         image: "",
         source: "",
@@ -42,7 +42,7 @@ class AvatarPost extends Component {
     }
 }
 
-export default AvatarPost;
+export default AvatarComment;
 
 //TO DO:
-//link avatar to user's pages on click
+//link avatar to user's pages on click 
