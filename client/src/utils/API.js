@@ -14,5 +14,9 @@ export default {
     // Get all posts
     getPosts: function() {
         return axios.get("/api/posts/home")
+    },
+
+    getPost: function(id) {
+        return axios.get("api/posts/comments" + id)
     }
 };

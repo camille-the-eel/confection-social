@@ -40,6 +40,11 @@ var PostSchema = new Schema({
         default: Date.now
     },
 
+    // Comments made for this post
+    post_comments: {
+        type: Array
+    },
+
     // Post Tags associated with this post
     post_tags: {
         type: Array

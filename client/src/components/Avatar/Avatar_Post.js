@@ -45,6 +45,3 @@ class AvatarPost extends Component {
 }
 
 export default AvatarPost;
-
-//TO DO:
-//link avatar to user's pages on click

@@ -40,7 +40,22 @@ class Page extends Component {
             .catch(err => console.log(err));
     }
 
-    openComments = () => {
+    // Calls to the api to get comments for the post that was clicked
+    loadComments = (postId) => {
+        console.log("Load Comments fired");
+        console.log(postId);
+
+        API.getPost(postId)
+            .then(res => {
+                console.log("Comments got")
+                console.log(res)
+            })
+            .catch(err => console.log(err));
+    }
+
+    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
+    openComments = (postId) => {
+        this.loadComments(postId)
         this.setState({
             commentsHidden: false,
             sidebarHidden: true

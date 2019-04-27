@@ -5,6 +5,9 @@ import './style.css';
 
 class CommentButton extends Component {
     
+    componentDidMount() {
+        console.log(this)
+    }
     static defaultProps = {
         id: '',
         onComment: () => {}

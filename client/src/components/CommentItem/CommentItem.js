@@ -4,10 +4,18 @@ import './style.css';
 
 class Comment extends Component {
 
+    componentDidMount() {
+        console.log(this)
+    }
+
+    localClick = () => {
+        console.log("local click - comment item")
+    }
+
     render () {
         return (
-            <div clasName="creatorDiv">
-                <div className="pageLink" onClick="">
+            <div className="creatorDiv">
+                <div className="pageLink" onClick={this.localClick}>
                     <AvatarComment className="commentorAvatar"/>
                     <p className="pageName">props.pageName</p>
                 </div>

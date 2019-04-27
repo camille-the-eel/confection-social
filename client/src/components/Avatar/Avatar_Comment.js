@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Route, Link } from "react-router-dom"
 
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 class AvatarComment extends Component {
     state = {
