@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AvatarComment from '../../components/Avatar/Avatar_Comment';
 import Caption from '../../components/Caption/Caption';
 // import Source from '../../components/Sources/Source';
-import Credit from '../../components/Sources/Credit';
+// import Credit from '../../components/Sources/Credit';
 import Comment from '../../components/CommentItem/CommentItem';
 import CommentButton from '../../components/CommentButton/CommentButton';
 import './style.css';
@@ -26,7 +26,7 @@ class CommentSidebar extends Component {
                             <div className="pContent">
                                 <Caption/>
                                 {/* <Source/> */}
-                                <Credit/>
+                                {/* <Credit/> */}
                             </div>
                         </div>
                         <div className="commentsDiv">
