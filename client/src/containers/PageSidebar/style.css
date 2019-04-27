@@ -1,8 +1,8 @@
 .pageSidebarContainer {
-    margin-top: 50px;
-    width: 350px;
+    margin-top: 40px;
+    width: 20%;
     height: 100vh;
-    position: relative;
+    position: fixed;
     float: left;
     z-index: 5;
 }
@@ -37,6 +37,8 @@
 .pageDescrip {
     margin-bottom: 15px;
     margin-top: 15px;
+    margin-right: 10px;
+    padding-right: 10px;
     font-size: 16px;
     font-family: acumin-pro, sans-serif;
     font-weight: 600;
@@ -47,6 +49,7 @@
 
 .message {
     width: 25px;
+    margin-top: 10px;
 }
 
 .like {
