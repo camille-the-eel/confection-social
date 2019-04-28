@@ -22,6 +22,11 @@ const UserSchema = new Schema({
         unique: false,
         required: true
     },
+
+    avatar: {
+        data: Buffer, 
+        contentType: String
+    },
     
     dateCreate: {
         type: Date,

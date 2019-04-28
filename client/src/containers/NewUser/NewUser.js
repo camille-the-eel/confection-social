@@ -60,7 +60,7 @@ class Register extends Component {
             return (
                 <div className="SignupForm">
                     <p className="header">welcome!</p>
-                    <form className="form-horizontal formContainer">
+                    <form className="form-horizontal formContainer" encType="multipart/form-data">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"

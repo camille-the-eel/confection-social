@@ -3,6 +3,7 @@ const express   =   require("express");
 const router    =   express.Router();
 const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
+const multer    =   require('multer');
 
 // Load input validation
 const validateRegisterInput =   require("../../validation/register");
@@ -12,10 +13,22 @@ const validateLoginInput    =   require("../../validation/login");
 const User  =   require("../../database/models/user");
 const Page  =   require("../../database/models/page");
 
+//Create storage object
+const storage = require('multer-gridfs-storage')({
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
+})
+
+//Set multer storage engine to storage object ^
+const upload = multer({ storage: storage });
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.post("/register", (req, res) => {
+const avUpload = upload.single('avatar');
+router.post("/register", avUpload, (req, res, next) => {
+
+    console.log("BODY", req.body);
+    console.log("FILE", req.file);
     
     // Form Validation
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -36,7 +49,8 @@ router.post("/register", (req, res) => {
                 const newUser = new User({
                     email:          req.body.email,
                     primaryPage:    req.body.primaryPage,
-                    password:       req.body.password
+                    password:       req.body.password,
+                    avatar:         req.file
                 });
 
                 // Hash password before saving to database
