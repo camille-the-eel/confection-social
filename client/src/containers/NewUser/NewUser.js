@@ -13,6 +13,7 @@ class Register extends Component {
                 password: "",
                 password2: "",
                 avatar: "",
+                files: [],
                 passwordMatch: false,
                 redirectTo: null
             }
@@ -49,7 +50,7 @@ class Register extends Component {
             password: this.state.password,
             password2: this.state.password2,
             avatar: this.state.avatar,
-            files: []
+            files: this.state.files
         };
 
         // Pushes newUser const into register user function from authController
@@ -75,7 +76,7 @@ class Register extends Component {
     uploadFile(event) {
         event.preventDefault();
         let data = new FormData();
-        data.append('file', this.state.avatar);
+        data.append('avatar', this.state.avatar);
         console.log("UP",`${this.state.avatar}`);
 
         fetch('/avatars', {
@@ -101,7 +102,7 @@ class Register extends Component {
             return (
                 <div className="SignupForm">
                     <p className="header">welcome!</p>
-                    <form className="form-horizontal formContainer" enctype="multipart/form-data">
+                    <form className="form-horizontal formContainer">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"

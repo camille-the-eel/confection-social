@@ -20,21 +20,11 @@ const Page  =   require("../../database/models/page");
 
 //set up connection to db for file storage
 const storage = require('multer-gridfs-storage')({
-    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`,
-    file: (req, file) => {
-        return {
-            filename: file.originalname
-        }
-    }
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
 });
 
 //Set multer storage engine to storage object ^ and file input to single file
 const singleUpload = multer({ storage: storage }).single('file');
-
-//Create storage object
-// const storage = require('multer-gridfs-storage')({
-//     url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
-// })
 
 
 // @route POST api/users/register
