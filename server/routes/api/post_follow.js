@@ -20,7 +20,25 @@ router.post("/follow", (req, res) => {
         }
     )
     .then(follow => res.json(follow))
-    .catch(err => res.status(422).json(err))
-})
+    .catch(err => res.status(422).json(err));
+});
+
+// @ POST api/post_follows/unfollow
+// Pushes a page id into the user's currently active page's follow array
+router.post("/unfollow", (req, res) => {
+    
+    // Update one document where the _id = the user's currently active page id
+    // Use $push operator to push page to follow into the array
+    Page.updateOne(
+        { _id: req.body.userPage_id },
+        {
+            $pull: {
+                following: req.body.pageToFollow
+            }
+        }
+    )
+    .then(follow => res.json(follow))
+    .catch(err => res.status(422).json(err));
+});
 
 module.exports = router;

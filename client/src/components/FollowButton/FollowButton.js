@@ -26,7 +26,9 @@ class FollowButton extends Component {
             userPage_id: this.context.pages[0]._id,
             pageToFollow: page_id
         }
-        console.log(followData)
+
+        // Calling API follow page function and passing through the two pieces of id data that we need
+        // Upon successful follow, the isFollowing state is flipped to true
         API.followPage(followData)
             .then(() => {
                 this.setState({ isFollowing: true })
@@ -43,9 +45,15 @@ class FollowButton extends Component {
             userPage_id: this.context.pages[0]._id,
             pageToFollow: page_id
         }
-        console.log(unFollowData)
 
-        this.setState({ isFollowing: false })
+        // Calling API unfollow page function and passing through the two pieces of id data that we need
+        // Upon successful follow, the isFollowing state is flipped to true
+        API.unFollowPage(unFollowData)
+            .then(() => {
+                this.setState({ isFollowing: false })
+            })
+            .catch(err => console.log(err));
+
     }
 
     // Handles logic whether to follow or unfollow current page
