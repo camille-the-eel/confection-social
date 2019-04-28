@@ -36,6 +36,8 @@ class CommentCreate extends Component {
             cAuthor_avatar: this.context.pages[0].avatar
         };
 
+        // console.log(commentData)
+
         API.addComment(commentData)
             .then(res => {
                 if (res) {

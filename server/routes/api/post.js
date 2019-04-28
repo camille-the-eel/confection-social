@@ -40,7 +40,7 @@ router.post("/addcomment", (req, res) => {
                     comment_text: req.body.comment_text,
                     comment_author: req.body.comment_author,
                     cAuthor_id: req.body.cAuthor_id,
-                    cAuthor_Avatar: req.body.cAuthor_avatar
+                    cAuthor_avatar: req.body.cAuthor_avatar
                 }
             } 
         }
