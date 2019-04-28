@@ -16,4 +16,8 @@ export default {
         return axios.get("/api/posts/home")
     },
 
+    addComment: function(commentData) {
+        return axios.post("/api/posts/addcomment", commentData)
+    }
+
 };

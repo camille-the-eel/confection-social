@@ -10,7 +10,11 @@ class CommentList extends Component {
     render() {
         return (
             <div>
-                <CommentItem></CommentItem>
+                {this.props.children.map(comment => (
+                    <CommentItem key={comment._id}>
+                        {comment}
+                    </CommentItem>
+                ))}
             </div>
         )
     }

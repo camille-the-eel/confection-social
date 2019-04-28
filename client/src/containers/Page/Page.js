@@ -4,6 +4,7 @@ import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PageSidebar from '../PageSidebar/PageSidebar';
 import PostFull from "../../components/PostFull/PostFull";
 import PageNav from "../../components/PageNav/PageNav";
+
 import API from "../../utils/API"
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,8 +15,8 @@ class Page extends Component {
     constructor() {
         super()
         this.state = {
-            pageInfo: {},
             posts: [],
+            pageInfo: {},
             postForComments: {},
             commentsHidden: true,
             sidebarHidden: false
@@ -74,14 +75,16 @@ class Page extends Component {
                 <Link to="/home">
                     <PageNav/>
                 </Link>
-                {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
-                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
-                <div className="postDiv">
-                    {this.state.posts.map(post => (
-                        <PostFull key={post._id} openComments={this.openComments}>
-                            {post}
-                        </PostFull>
-                    ))}
+                <div className="contentContainer">    
+                    {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                    <div className="postWindow">
+                        {this.state.posts.map(post => (
+                            <PostFull key={post._id} openComments={this.openComments}>
+                                {post}
+                            </PostFull>
+                        ))}
+                    </div>
                 </div>
             </div>
         )

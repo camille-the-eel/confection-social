@@ -43,10 +43,10 @@ var PostSchema = new Schema({
     // Comments made for this post
     post_comments: [
         {
-            caption_text: {
+            comment_text: {
                 type: String
             },
-            caption_author: {
+            comment_author: {
                 type: String
             },
             cAuthor_id: {
@@ -54,6 +54,10 @@ var PostSchema = new Schema({
             },
             cAuthor_avatar: {
                 type: String
+            },
+            cDateCreate: {
+                type: Date,
+                default: Date.now
             }
         }
     ],
