@@ -5,8 +5,8 @@ import Style from '../../img/landing-sticks-01.svg';
 import './style.css';
 
 class Register extends Component {
-    constructor() {
-        super() 
+    constructor(props) {
+        super(props) 
             this.state = {
                 email: "",
                 primaryPage: "",
@@ -17,6 +17,7 @@ class Register extends Component {
                 redirectTo: null
             }
 
+            this.loadFiles = this.loadFiles.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this)
             this.handleChange = this.handleChange.bind(this)   
     }
@@ -28,9 +29,16 @@ class Register extends Component {
         })
     }  
 
+    fileChanged(event) {
+        const file = event.target.files[0];
+        this.setState({
+          avatar: file
+        });
+    }
+
     // Handles button click - primarily register button
     handleSubmit(event) {
-        event.preventDefault()
+        event.preventDefault();
 
         console.log("AV",`${this.state.avatar}`);
 
@@ -40,7 +48,8 @@ class Register extends Component {
             primaryPage: this.state.primaryPage,
             password: this.state.password,
             password2: this.state.password2,
-            avatar: this.state.avatar
+            avatar: this.state.avatar,
+            files: []
         };
 
         // Pushes newUser const into register user function from authController
@@ -50,12 +59,39 @@ class Register extends Component {
         });
     };
 
-    componentDidMount() {
-        var x = document.createElement("input");
-        x.setAttribute("type", "file");
-        x.setAttribute("id", "chooseFile");
-        x.setAttribute("value", `${this.state.avatar}`)
-        document.getElementById("upload").appendChild(x);
+    loadFiles() {
+        fetch('/avatars')
+          .then(res => res.json())
+          .then(files => {
+            if (files.message) {
+              console.log('No Files');
+              this.setState({ files: [] })
+            } else {
+              this.setState({ files })
+            }
+          });
+    }
+
+    uploadFile(event) {
+        event.preventDefault();
+        let data = new FormData();
+        data.append('file', this.state.avatar);
+        console.log("UP",`${this.state.avatar}`);
+
+        fetch('/avatars', {
+            method: 'POST',
+            body: data
+        })
+        .then(res => res.json())
+        // .then(res => res.text())
+        // .then(text => console.log("TEXT", text))
+            .then(data => {
+            if (data.success) {
+                this.loadFiles();
+            } else {
+                alert('Upload failed');
+            }
+            });
     }
 
     render() {
@@ -112,9 +148,11 @@ class Register extends Component {
                                 />
                             </div>
                         </div>
-                        <div id="upload">
+                        <input type="file" onChange={this.fileChanged.bind(this)}/>
+                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button>
+                        {/* <div id="upload">
                         <p className="avatarHead">page avatar</p>
-                        </div>
+                        </div> */}
                         <div className="form-group ">
                             <div className="col-7"></div>
                             <button

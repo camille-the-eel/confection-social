@@ -3,6 +3,7 @@ const express = require("express");
                 require("dotenv").config();
 
 const path = require("path");
+// const dbConfig = require('./dbconfig');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -41,7 +42,7 @@ app.use(passport.initialize());
 require("./server/config/passport")(passport);
 
 // Routes
-app.use(routes)
+app.use(routes);
 
 
 if(process.env.NODE_ENV === 'production'){
@@ -70,3 +71,5 @@ const server = app.listen(PORT, () => console.log(`Server up and running on port
 //     io.sockets.emit('create', data);
 //   })
 // });
+
+module.exports = server;

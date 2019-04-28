@@ -4,6 +4,11 @@ const router    =   express.Router();
 const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
 const multer    =   require('multer');
+const { mongo} = require('mongoose');
+const Grid = require('gridfs-stream');
+Grid.mongo = mongo;
+// const dbConfig  =   require("../../../dbconfig");
+// var gfs = new Grid(dbConfig.db);
 
 // Load input validation
 const validateRegisterInput =   require("../../validation/register");
@@ -13,19 +18,41 @@ const validateLoginInput    =   require("../../validation/login");
 const User  =   require("../../database/models/user");
 const Page  =   require("../../database/models/page");
 
-//Create storage object
+//set up connection to db for file storage
 const storage = require('multer-gridfs-storage')({
-    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
-})
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`,
+    file: (req, file) => {
+        return {
+            filename: file.originalname
+        }
+    }
+});
 
-//Set multer storage engine to storage object ^
-const upload = multer({ storage: storage });
+//Set multer storage engine to storage object ^ and file input to single file
+const singleUpload = multer({ storage: storage }).single('file');
+
+//Create storage object
+// const storage = require('multer-gridfs-storage')({
+//     url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
+// })
+
 
 // @route POST api/users/register
-// @desc Register user
+// @desc Register userx
 // @access Public
-const avUpload = upload.single('avatar');
-router.post("/register", avUpload, (req, res, next) => {
+
+router.post('/avatars', singleUpload, (req, res) => {
+    if (req.file) {
+       return res.json({
+          success: true,
+          file: req.file
+       });
+    }
+     res.send({ success: false });
+ });
+
+
+router.post("/register", (req, res) => {
 
     console.log("BODY", req.body);
     console.log("FILE", req.file);
@@ -50,7 +77,6 @@ router.post("/register", avUpload, (req, res, next) => {
                     email:          req.body.email,
                     primaryPage:    req.body.primaryPage,
                     password:       req.body.password,
-                    avatar:         req.file
                 });
 
                 // Hash password before saving to database
