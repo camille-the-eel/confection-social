@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
-import { User as UserActions } from 'actions';
 import followButton from '../../img/followButton.svg';
 import followButtonClicked from '../../img/followButtonClicked.svg';
 
 class FollowButton extends Component {
 
-    static defaultProps = {
-        id: '',
-        onFollow: () => {},
-        src: followButton
-    };
+    state = {
+        isFollowing: false
+    }
 
-    handleClick = e => {
-        if (!this.props.followed) {
-            this.props.onFollow({ id: this.props.id, followed: this.props.followed, src: followButtonClicked });
-            followPage(this.props.user.id, this.props.id);
+    componentDidMount() {
+        console.log(this);
+    }
+
+    handleClick = event => {
+        event.preventDefault()
+
+        if (this.state.isFollowing) {
+            this.setState({ isFollowing: false })
+        } else {
+            this.setState({ isFollowing: true })
         }
     };
 
     render() {
-        return <img src={this.props.src} className="followButton" onClick={this.handleClick} />;
+        return <img
+                src={this.state.isFollowing ? followButtonClicked : followButton} 
+                className="followButton" 
+                alt="follow button"
+                onClick={this.handleClick} 
+                />;
     }
 }
-
+ 
 export default FollowButton;
-
-//TO DO:
-//connect the User/state.User to this action
-//complete action in the Activity component
