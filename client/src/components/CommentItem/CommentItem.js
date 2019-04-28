@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import AvatarComment from '../Avatar/Avatar_Comment';
 import './style.css';
 
@@ -15,12 +16,13 @@ class Comment extends Component {
     render () {
         return (
             <div className="creatorDiv">
-                <div className="pageLink" onClick={this.localClick}>
-                    <AvatarComment className="commentorAvatar"/>
-                    <p className="pageName">props.pageName</p>
-                </div>
+                <Link to={"/pages/" + this.props.children.comment_author}>
+                    <AvatarComment className="creatorAvatar">{this.props.children.cAuthor_avatar}</AvatarComment>
+                    <p className="pageName">{this.props.children.comment_author}</p>
+                </Link>
                 <div className="commentDiv">
-                    <p className="previousComment">props.comment  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    <p className="previousComment">
+                        {this.props.children.comment_text}
                     </p>
                 </div>
             </div>

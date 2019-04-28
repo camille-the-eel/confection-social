@@ -43,7 +43,7 @@ class CommentHeader extends Component {
                     <AvatarComment className="creatorAvatar">{this.state.image}</AvatarComment>
                     <p className="pageName">{this.state.page_title}</p>
                 </Link>
-                                <div className="pContent">
+                <div className="pContent">
                     <Caption>{this.props.children.caption}</Caption>
                     <Source>{this.props.children.source}</Source>
                     <Credit>{this.props.children.credit}</Credit>
