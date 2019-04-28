@@ -33,7 +33,7 @@ router.post("/addcomment", (req, res) => {
     // Update Post where _id = the post id that we are adding to
     // Using update $push operator to push the new comment into the comments array
     Post.updateOne(
-        { _id: req.body.post_id},
+        { _id: req.body.post_id },
         { $push: 
             { post_comments: 
                 {
