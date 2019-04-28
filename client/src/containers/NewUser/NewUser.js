@@ -12,6 +12,7 @@ class Register extends Component {
                 primaryPage: "",
                 password: "",
                 password2: "",
+                avatar: "",
                 passwordMatch: false,
                 redirectTo: null
             }
@@ -31,12 +32,15 @@ class Register extends Component {
     handleSubmit(event) {
         event.preventDefault()
 
+        console.log("AV",`${this.state.avatar}`);
+
         // Creates a newUser based off of current state
         const newUser = {
             email: this.state.email,
             primaryPage: this.state.primaryPage,
             password: this.state.password,
-            password2: this.state.password2
+            password2: this.state.password2,
+            avatar: this.state.avatar
         };
 
         // Pushes newUser const into register user function from authController
@@ -50,6 +54,7 @@ class Register extends Component {
         var x = document.createElement("input");
         x.setAttribute("type", "file");
         x.setAttribute("id", "chooseFile");
+        x.setAttribute("value", `${this.state.avatar}`)
         document.getElementById("upload").appendChild(x);
     }
 
@@ -60,7 +65,7 @@ class Register extends Component {
             return (
                 <div className="SignupForm">
                     <p className="header">welcome!</p>
-                    <form className="form-horizontal formContainer" encType="multipart/form-data">
+                    <form className="form-horizontal formContainer" enctype="multipart/form-data">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
