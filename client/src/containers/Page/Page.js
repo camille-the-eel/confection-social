@@ -75,14 +75,16 @@ class Page extends Component {
                 <Link to="/home">
                     <PageNav/>
                 </Link>
-                {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
-                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
-                <div className="postDiv">
-                    {this.state.posts.map(post => (
-                        <PostFull key={post._id} openComments={this.openComments}>
-                            {post}
-                        </PostFull>
-                    ))}
+                <div className="contentContainer">    
+                    {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                    <div className="postWindow">
+                        {this.state.posts.map(post => (
+                            <PostFull key={post._id} openComments={this.openComments}>
+                                {post}
+                            </PostFull>
+                        ))}
+                    </div>
                 </div>
             </div>
         )
