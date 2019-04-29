@@ -12,21 +12,17 @@ class Source extends Component {
     }
 
     componentDidMount() {
-        console.log(this);
         this.fetchPageInfo(this.props.children);
     }
 
     // Take props and pass needed info into state
     fetchPageInfo = (pageID) => {
-        console.log(pageID)
         API.getPageBasic(pageID)
             .then(res => {
-                console.log(res);
                 this.setState({ 
                     source: res.data._id,
                     page_title: res.data.page_title
                 });
-                console.log(this.state)
             })
             .catch(err => console.log(err));
     }

@@ -19,7 +19,7 @@ class PostMenu extends Component {
                         <AvatarPost>{this.props.children}</AvatarPost>
                     </Link>
                     <div className="repage inlineButton">
-                        <RePageButton/>
+                        <RePageButton post_info={this.props.children}/>
                         <br/>
                         <LikeButton/>
                     </div>
