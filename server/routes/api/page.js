@@ -49,8 +49,7 @@ router.get("/:id", (req, res) => {
         res.json(pageContent);
     })
     .catch(err => res.status(422).json(err));
-    }
-);
+});
 
 // Get route to pull page title and avatar by using page id
 router.get("/basic/:id", (req, res) => {

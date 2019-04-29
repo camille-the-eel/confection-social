@@ -31,7 +31,6 @@ class App extends Component {
     // If session token does exist, writeUserData function is called to write users data to state
     // If session token does not exist, this.state.isUser is set to false to not allow them into restricted areas of app
     checkIfUser = () => {
-        console.log("check user firing")
         const token = sessionStorage.getItem("jwtToken");
         if (token) {
             this.writeUserData(token)
@@ -57,6 +56,9 @@ class App extends Component {
             user: user,
             pages: pages
         })
+
+        // Pushes users pages into session storage for easier access.
+        sessionStorage.setItem("active_page", pages[0].page_title)
             
         // Sets isUser to true and fires checkIfUser function
         this.setState({ isUser: true });

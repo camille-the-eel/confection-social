@@ -26,6 +26,10 @@ export default {
     
     unFollowPage: function(unFollowData) {
         return axios.post("/api/post_follows/unfollow", unFollowData)
+    },
+
+    checkFollow: function(activeTitle) {
+        return axios.get("/api/post_follows/checkfollow/" + activeTitle)
     }
 
 };

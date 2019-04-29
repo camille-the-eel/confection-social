@@ -24,7 +24,7 @@ class PageSidebar extends Component {
                         </li>
                         <li>
                             <p className="activePage">{this.props.children.page_title}</p>
-                            <FollowButton className="followButton" page_id={this.props.children._id}/>
+                            <FollowButton className="followButton" page_title={this.props.children.page_title}></FollowButton>
                         </li>
                         {/* <li className="descripContainer">
                             <p className="pageDescrip">page description..customizable to user</p>
