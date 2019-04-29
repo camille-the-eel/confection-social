@@ -31,7 +31,10 @@ const singleUpload = multer({ storage: storage }).single('file');
 // @desc Register userx
 // @access Public
 
-router.post('/avatars', singleUpload, (req, res) => {
+router.post('/api/avatars', singleUpload, (req, res) => {
+    console.log("api/user/router-post", req);
+    console.log("api/user/router-post", req.file);
+
     if (req.file) {
        return res.json({
           success: true,

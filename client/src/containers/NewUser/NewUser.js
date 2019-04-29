@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { registerUser } from "../../utils/authController";
+import { addAvatar } from "../../utils/authController";
 import Style from '../../img/landing-sticks-01.svg';
 import './style.css';
 
@@ -18,7 +19,6 @@ class Register extends Component {
                 redirectTo: null
             }
 
-            this.loadFiles = this.loadFiles.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this)
             this.handleChange = this.handleChange.bind(this)   
     }
@@ -60,26 +60,14 @@ class Register extends Component {
         });
     };
 
-    loadFiles() {
-        fetch('/avatars')
-          .then(res => res.json())
-          .then(files => {
-            if (files.message) {
-              console.log('No Files');
-              this.setState({ files: [] })
-            } else {
-              this.setState({ files })
-            }
-          });
-    }
-
     uploadFile(event) {
         event.preventDefault();
         let data = new FormData();
         data.append('avatar', this.state.avatar);
+
         console.log("UP",`${this.state.avatar}`);
 
-        fetch('/avatars', {
+        fetch('/api/avatars', {
             method: 'POST',
             body: data
         })
@@ -88,7 +76,7 @@ class Register extends Component {
         // .then(text => console.log("TEXT", text))
             .then(data => {
             if (data.success) {
-                this.loadFiles();
+                alert('upload success');
             } else {
                 alert('Upload failed');
             }
