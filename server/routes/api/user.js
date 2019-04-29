@@ -21,25 +21,26 @@ const Page  =   require("../../database/models/page");
 
 //set up connection to db for file storage
 const storage = new GridFsStorage({
-    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`,
-    file: (req) => {    
-        return {      
-             bucketName: 'avatar',       
-             //Setting collection name, default name is fs
-      }  
-}
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
+    // file: (req) => {    
+    //     return {      
+    //          bucketName: 'avatar',       
+    //          //Setting collection name, default name is fs
+    //   }  
+// }
 });
 
 //Set multer storage engine to storage object ^ and file input to single file
-const singleUpload = multer({ storage: storage }).single('file');
+const singleUpload = multer({ storage: storage }).single("avatarUp");
 
 
 // @route POST api/users/register
 // @desc Register userx
 // @access Public
 
-router.post('/api/avatars', singleUpload, (req, res) => {
+router.post('/avatars', singleUpload, (req, res) => {
 
+    console.log("REQ", req.payload);
     console.log("BODY", req.body);
     console.log("FILE", req.file);
 

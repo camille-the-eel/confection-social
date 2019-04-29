@@ -63,7 +63,7 @@ class Register extends Component {
 
         console.log("UP",`${this.state.avatar}`);
 
-        fetch('/api/avatars', {
+        fetch('/api/users/avatars', {
             method: 'POST',
             body: `${this.state.avatar}`
         })
@@ -74,7 +74,7 @@ class Register extends Component {
             } else {
                 alert('Upload failed');
             }
-            });
+        });
     }
 
     render() {
@@ -84,7 +84,7 @@ class Register extends Component {
             return (
                 <div className="SignupForm">
                     <p className="header">welcome!</p>
-                    <form className="form-horizontal formContainer">
+                    {/* <form className="form-horizontal formContainer">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -131,11 +131,11 @@ class Register extends Component {
                                 />
                             </div>
                         </div>
-                        {/* <input type="file" onChange={this.fileChanged.bind(this)}/>
-                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button> */}
-                        {/* <div id="upload">
+                        <input type="file" onChange={this.fileChanged.bind(this)}/>
+                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button>
+                        <div id="upload">
                         <p className="avatarHead">page avatar</p>
-                        </div> */}
+                        </div>
                         <div className="form-group">
                             <div className="col-7"></div>
                             <button
@@ -144,14 +144,14 @@ class Register extends Component {
                                 type="submit"
                             >sign up</button>
                         </div>
-                    </form>
-                    {/* <form action="/api/avatars" method="POST" enctype="multipart/form-data">
+                    </form> */}
+                    <form action="/api/users/avatars" method="POST" enctype="multipart/form-data">
                         <div className="custom-file">
-                            <input type="file" onChange={this.fileChanged.bind(this)}/>
+                            <input type="file" name="avatarUp" onChange={this.fileChanged.bind(this)}/>
                             <label for="file" className="custom-file-label">Upload Avatar</label>
                         </div>
                         <input type="submit" value="Submit" className="avatarUpload" onClick={this.uploadFile.bind(this)}/>
-                    </form> */}
+                    </form>
                     <img src={Style} alt="deco" className="sticks"/>
                 </div>
             )
