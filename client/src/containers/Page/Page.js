@@ -41,7 +41,7 @@ class Page extends Component {
             .catch(err => console.log(err));
     }
 
-    // Calls to the api to get comments for the post that was clicked
+    // Searches through the current posts state to get comments for the post that was clicked
     loadComments = (posts, _id, postId) => {
         console.log("Load Comments fired");
         for (var i = 0; i < posts.length; i++) {

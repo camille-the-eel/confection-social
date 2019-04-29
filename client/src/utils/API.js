@@ -18,6 +18,18 @@ export default {
 
     addComment: function(commentData) {
         return axios.post("/api/posts/addcomment", commentData)
+    },
+
+    followPage: function(followData) {
+        return axios.post("/api/post_follows/follow", followData)
+    },
+    
+    unFollowPage: function(unFollowData) {
+        return axios.post("/api/post_follows/unfollow", unFollowData)
+    },
+
+    checkFollow: function(activeTitle) {
+        return axios.get("/api/post_follows/checkfollow/" + activeTitle)
     }
 
 };

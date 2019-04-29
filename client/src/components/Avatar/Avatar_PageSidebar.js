@@ -26,6 +26,3 @@ class AvatarPageSidebar extends Component {
 }
 
 export default AvatarPageSidebar;
-
-//TO DO:
-//link avatar to user's pages on click

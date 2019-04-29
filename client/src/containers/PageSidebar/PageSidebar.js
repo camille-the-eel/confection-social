@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from "react-router-dom"
 import AvatarPageSidebar from '../../components/Avatar/Avatar_PageSidebar';
-import { ReactComponent as FollowButton } from '../../img/followButton.svg';
+import FollowButton from '../../components/FollowButton/FollowButton';
 import { ReactComponent as MessagesButton } from '../../img/messagesButton.svg';
 import { ReactComponent as LikeButton } from '../../img/likeButton.svg';
 
@@ -24,7 +24,7 @@ class PageSidebar extends Component {
                         </li>
                         <li>
                             <p className="activePage">{this.props.children.page_title}</p>
-                            <FollowButton className="followButton"/>
+                            <FollowButton className="followButton" page_title={this.props.children.page_title}></FollowButton>
                         </li>
                         {/* <li className="descripContainer">
                             <p className="pageDescrip">page description..customizable to user</p>
