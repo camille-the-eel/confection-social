@@ -47,19 +47,19 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
-    // Calls to the api to get comments for the post that was clicked
-    loadComments = (postId) => {
-        API.getComments(postId)
+    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
+    openComments = async (postId) => {
+        
+        // Constant to have filled with data from database
+        const postForComments = await 
+            API.getComments(postId)
             .then(res => {
-                console.log(res);
-                // return res
+                console.log(res.data);
+                return res.data
             })
             .catch(err => console.log(err));
-    }
 
-    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
-    openComments = (postId) => {
-        const postForComments = this.loadComments(postId)
+        // Update state based off of the returned post comments and then open comments and close sidebar
         this.setState({
             postForComments: postForComments,
             commentsHidden: false,

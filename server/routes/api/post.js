@@ -28,14 +28,14 @@ router.post("/create", (req, res) => {
 
 // @GET api/posts/comments/:id
 // Get all comments for the selected post (by id)
-// router.get("/comments/:id", (req, res) => {
+router.get("/comments/:id", (req, res) => {
     
-//     Post.findOne({
-//         _id: req.params.id
-//     })
-//     .then(postData => console.log(postData))
-//     .catch(err => res.status(422).json(err));
-// })
+    Post.findOne({
+        _id: req.params.id
+    })
+    .then(postData => res.json(postData))
+    .catch(err => res.status(422).json(err));
+})
 
 // @ POST api/posts/addcomment
 // Adding a comment to a post
