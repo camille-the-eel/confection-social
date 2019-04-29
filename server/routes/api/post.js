@@ -124,7 +124,7 @@ router.post("/home", (req, res) => {
             })
             .then(posts => {
                 for (post in posts) {
-                    postsForHome.push(posts[post])
+                    postsForHome.unshift(posts[post])
                 }
                 return
             })
@@ -140,7 +140,7 @@ router.post("/home", (req, res) => {
             })
             .then(posts => {
                 for (post in posts) {
-                    postsForHome.push(posts[post])
+                    postsForHome.unshift(posts[post])
                 }
                 return
             })
