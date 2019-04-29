@@ -57,7 +57,8 @@ class App extends Component {
             pages: pages
         })
 
-        // Pushes users pages into session storage for easier access.
+        // Pushes user's id and active page into session storage for easier access.
+        sessionStorage.setItem("user_id", user)
         sessionStorage.setItem("active_page", pages[0].page_title)
             
         // Sets isUser to true and fires checkIfUser function

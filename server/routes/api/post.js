@@ -4,6 +4,7 @@ const router    = express.Router();
 
 // Call post model
 const Post      = require("../../database/models/post");
+const Page      = require("../../database/models/page");
 
 // @ POST api/posts/create
 router.post("/create", (req, res) => {
@@ -24,6 +25,17 @@ router.post("/create", (req, res) => {
         .catch(err => res.status(422).json(err));
 
 });
+
+// @GET api/posts/comments/:id
+// Get all comments for the selected post (by id)
+// router.get("/comments/:id", (req, res) => {
+    
+//     Post.findOne({
+//         _id: req.params.id
+//     })
+//     .then(postData => console.log(postData))
+//     .catch(err => res.status(422).json(err));
+// })
 
 // @ POST api/posts/addcomment
 // Adding a comment to a post
@@ -71,15 +83,73 @@ router.post("/repage", (req, res) => {
         .catch(err => res.status(422).json(err));
 });
 
-// @ GET api/posts/home
+// @ POST api/posts/home
 // Currently pulls all posts created. Will eventually pull all posts by current users followed blogs
-router.get("/home", (req, res) => {
-    Post
-        .find()
-        .then(posts => {
-            res.json(posts)
-        })
-        .catch(err => res.status(422).json(err))
+router.post("/home", (req, res) => {
+
+
+    // Find pages created by current user id and pull back all associated pages
+    Page.findOne({
+        userID: req.body._id
+    })
+    .then(async pages => {
+
+        // Setting variables to be used in datacalls
+        let followedPages   = pages.following;
+        let postSource      = [];
+        let postsForHome    = [];
+           
+        // Search for page id's that match page title from following list
+        // Page id's will be push into the postSource array to be used to search for posts by source
+        await Page
+            .find({
+                page_title: {
+                    $in: followedPages
+                }
+            })
+            .then(pages => {
+                for (page in pages) {
+                    postSource.push(pages[page]._id)
+                }
+                return
+            })
+            .catch(err => res.status(422).json(err));
+
+        // Pulling all posts by any followed page (queryed by id from postSource array)
+        await Post
+            .find({
+                source: {
+                    $in: postSource
+                }
+            })
+            .then(posts => {
+                for (post in posts) {
+                    postsForHome.push(posts[post])
+                }
+                return
+            })
+            .catch(err => res.status(422).json(err));
+            
+
+        await Post
+            .find({
+                isRepaged: true,
+                repaged_by: {
+                    $in: followedPages
+                }
+            })
+            .then(posts => {
+                for (post in posts) {
+                    postsForHome.push(posts[post])
+                }
+                return
+            })
+            .catch(err => res.status(422).json(err));
+
+        res.json(postsForHome)
+    })
+    .catch(err => res.status(422).json(err))
+
 });
 
 module.exports = router;
