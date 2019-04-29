@@ -30,6 +30,10 @@ export default {
 
     checkFollow: function(activeTitle) {
         return axios.get("/api/post_follows/checkfollow/" + activeTitle)
+    },
+
+    rePage: function(rePageData) {
+        return axios.post("/api/post_repages/create", rePageData)
     }
 
 };

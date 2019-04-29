@@ -94,12 +94,11 @@ class FollowButton extends Component {
     render() {
 
         return <img        
-
                 src={this.state.isFollowing ? followButtonClicked : followButton} 
                 className="followButton" 
                 alt="follow button"
                 onClick={this.handleClick} 
-                >{}</img>
+                />
     }
 }
  
