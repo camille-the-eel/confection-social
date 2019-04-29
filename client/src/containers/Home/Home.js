@@ -17,23 +17,27 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
-            posts:[],
+            posts: [],
             postForComments: {},
             commentsHidden: true,
             menuHidden: false,
             createHidden: true,
             feedHidden: false
         }
+
     }
 
     componentDidMount() {
         console.log(this);
-        this.loadPosts();
+        this.loadPosts()
     }
 
     // Loads all posts (will eventually call posts for followed pages)
     loadPosts = () => {
-        API.getPosts()
+        let user_id = {
+            _id: sessionStorage.user_id
+        }
+        API.getPosts(user_id)
             .then(res => {                
                 this.setState({ 
                     posts: res.data
@@ -43,20 +47,19 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
-    // Calls to the api to get comments for the post that was clicked
-    loadComments = (posts, _id, postId) => {
-        console.log("Load Comments fired");
-        for (var i = 0; i < posts.length; i++) {
-            if (posts[i][_id] === postId) {
-                return posts[i];
-                }
-        }
-        return null;
-    }
-
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
-    openComments = (postId) => {
-        let postForComments = this.loadComments(this.state.posts, "_id", postId)
+    openComments = async (postId) => {
+        
+        // Constant to have filled with data from database
+        const postForComments = await 
+            API.getComments(postId)
+            .then(res => {
+                console.log(res.data);
+                return res.data
+            })
+            .catch(err => console.log(err));
+
+        // Update state based off of the returned post comments and then open comments and close sidebar
         this.setState({
             postForComments: postForComments,
             commentsHidden: false,
@@ -87,13 +90,20 @@ class Home extends Component {
                     {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
                     {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                     {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
-                    <div className="postMargin">
-                        {this.state.posts.map(post => (
-                            <PostFull key={post._id} openComments={this.openComments}>
-                                {post}
-                            </PostFull>
-                        ))}
-                    </div>
+                    {!this.state.posts ? 
+                        <div className="postMargin">
+                            <h2>There are no posts to display. Follow someone to see their posts here</h2>
+                        </div>
+                        :
+                        <div className="postMargin">
+                            {this.state.posts.map(post => (
+                                <PostFull key={post._id} openComments={this.openComments}>
+                                    {post}
+                                </PostFull>
+                            ))}
+                        </div>
+
+                    }
                 </div>
             )
         }

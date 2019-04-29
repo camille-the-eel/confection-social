@@ -41,20 +41,18 @@ class Page extends Component {
             .catch(err => console.log(err));
     }
 
-    // Searches through the current posts state to get comments for the post that was clicked
-    loadComments = (posts, _id, postId) => {
-        console.log("Load Comments fired");
-        for (var i = 0; i < posts.length; i++) {
-            if (posts[i][_id] === postId) {
-                return posts[i];
-                }
-        }
-        return null;
-    }
-
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
-    openComments = (postId) => {
-        let postForComments = this.loadComments(this.state.posts, "_id", postId)
+    openComments = async (postId) => {
+        
+        // Constant to have filled with data from database
+        const postForComments = await 
+            API.getComments(postId)
+            .then(res => {
+                console.log(res.data);
+                return res.data
+            })
+            .catch(err => console.log(err));
+
         this.setState({
             postForComments: postForComments,
             commentsHidden: false,
