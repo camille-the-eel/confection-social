@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import Caption from '../../Caption/Caption';
-import Source from '../../Sources/Source';
-import Credit from '../../Sources/Credit';
+import Source from '../../Sources/source';
+import Credit from '../../Sources/credit';
 import commentButton from '../../../img/commentButton.svg';
 import './style.css';
 
