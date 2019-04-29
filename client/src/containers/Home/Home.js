@@ -25,11 +25,11 @@ class Home extends Component {
             feedHidden: false
         }
 
-        this.loadPosts()
     }
 
     componentDidMount() {
         console.log(this);
+        this.loadPosts()
     }
 
     // Loads all posts (will eventually call posts for followed pages)
@@ -96,11 +96,11 @@ class Home extends Component {
                         </div>
                         :
                         <div className="postMargin">
-                            {/* {this.state.posts.map(post => (
+                            {this.state.posts.map(post => (
                                 <PostFull key={post._id} openComments={this.openComments}>
                                     {post}
                                 </PostFull>
-                            ))} */}
+                            ))}
                         </div>
 
                     }
