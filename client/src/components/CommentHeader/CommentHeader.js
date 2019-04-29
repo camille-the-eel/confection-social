@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AvatarComment from '../../components/Avatar/Avatar_Comment';
 import Caption from '../../components/Caption/Caption';
-import Source from '../../components/Sources/Source';
+import Source from '../../components/Sources/source';
 import Credit from '../../components/Sources/Credit';
 
 import { Link } from "react-router-dom";
