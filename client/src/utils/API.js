@@ -33,7 +33,7 @@ export default {
     },
 
     rePage: function(rePageData) {
-        return axios.post("/api/post_repages/create", rePageData)
+        return axios.post("/api/posts/repage", rePageData)
     }
 
 };

@@ -40,6 +40,15 @@ var PostSchema = new Schema({
         default: Date.now
     },
 
+    isRepaged: {
+        type: Boolean,
+        default: false
+    },
+
+    repaged_by: {
+        type: String 
+    },
+
     // Comments made for this post
     post_comments: [
         {

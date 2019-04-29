@@ -49,6 +49,28 @@ router.post("/addcomment", (req, res) => {
     .catch(err => res.status(422).json(err));
 });
 
+// @ POST api/posts/repage
+// Repaging an existing post onto the user's currently active page
+router.post("/repage", (req, res) => {
+
+    // Create new post with repaged set to true and a repaged by field filled in
+    const newPost = new Post({
+        image_url:      req.body.sourcePost.photo,
+        credit:         req.body.sourcePost.credit,
+        caption:        req.body.sourcePost.caption,
+        post_tags:      req.body.sourcePost.tags,
+        post_comments:  req.body.sourcePost.post_comments,
+        source:         req.body.sourcePost.source,
+        repaged_by:     req.body.rePagedBy,
+        isRepaged:      true
+    });
+
+    newPost
+        .save()
+        .then(repage => res.json(repage))
+        .catch(err => res.status(422).json(err));
+});
+
 // @ GET api/posts/home
 // Currently pulls all posts created. Will eventually pull all posts by current users followed blogs
 router.get("/home", (req, res) => {
