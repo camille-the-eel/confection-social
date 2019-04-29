@@ -41,16 +41,12 @@ class Register extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        console.log("AV",`${this.state.avatar}`);
-
         // Creates a newUser based off of current state
         const newUser = {
             email: this.state.email,
             primaryPage: this.state.primaryPage,
             password: this.state.password,
-            password2: this.state.password2,
-            avatar: this.state.avatar,
-            files: this.state.files
+            password2: this.state.password2
         };
 
         // Pushes newUser const into register user function from authController
@@ -63,17 +59,15 @@ class Register extends Component {
     uploadFile(event) {
         event.preventDefault();
         let data = new FormData();
-        data.append('avatar', this.state.avatar);
+        this.setState({ avatar: data });
 
         console.log("UP",`${this.state.avatar}`);
 
         fetch('/api/avatars', {
             method: 'POST',
-            body: data
+            body: `${this.state.avatar}`
         })
         .then(res => res.json())
-        // .then(res => res.text())
-        // .then(text => console.log("TEXT", text))
             .then(data => {
             if (data.success) {
                 alert('upload success');
@@ -137,12 +131,12 @@ class Register extends Component {
                                 />
                             </div>
                         </div>
-                        <input type="file" onChange={this.fileChanged.bind(this)}/>
-                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button>
+                        {/* <input type="file" onChange={this.fileChanged.bind(this)}/>
+                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button> */}
                         {/* <div id="upload">
                         <p className="avatarHead">page avatar</p>
                         </div> */}
-                        <div className="form-group ">
+                        <div className="form-group">
                             <div className="col-7"></div>
                             <button
                                 className="col-1 col-mr-auto signUp"
@@ -151,6 +145,13 @@ class Register extends Component {
                             >sign up</button>
                         </div>
                     </form>
+                    {/* <form action="/api/avatars" method="POST" enctype="multipart/form-data">
+                        <div className="custom-file">
+                            <input type="file" onChange={this.fileChanged.bind(this)}/>
+                            <label for="file" className="custom-file-label">Upload Avatar</label>
+                        </div>
+                        <input type="submit" value="Submit" className="avatarUpload" onClick={this.uploadFile.bind(this)}/>
+                    </form> */}
                     <img src={Style} alt="deco" className="sticks"/>
                 </div>
             )

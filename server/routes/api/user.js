@@ -5,6 +5,7 @@ const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
 const multer    =   require('multer');
 const { mongo} = require('mongoose');
+const GridFsStorage = require('multer-gridfs-storage') ;
 const Grid = require('gridfs-stream');
 Grid.mongo = mongo;
 // const dbConfig  =   require("../../../dbconfig");
@@ -19,8 +20,14 @@ const User  =   require("../../database/models/user");
 const Page  =   require("../../database/models/page");
 
 //set up connection to db for file storage
-const storage = require('multer-gridfs-storage')({
-    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
+const storage = new GridFsStorage({
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`,
+    file: (req) => {    
+        return {      
+             bucketName: 'avatar',       
+             //Setting collection name, default name is fs
+      }  
+}
 });
 
 //Set multer storage engine to storage object ^ and file input to single file
@@ -32,8 +39,9 @@ const singleUpload = multer({ storage: storage }).single('file');
 // @access Public
 
 router.post('/api/avatars', singleUpload, (req, res) => {
-    console.log("api/user/router-post", req);
-    console.log("api/user/router-post", req.file);
+
+    console.log("BODY", req.body);
+    console.log("FILE", req.file);
 
     if (req.file) {
        return res.json({
@@ -41,7 +49,7 @@ router.post('/api/avatars', singleUpload, (req, res) => {
           file: req.file
        });
     }
-     res.send({ success: false });
+    res.send({ success: false });
  });
 
 

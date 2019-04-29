@@ -16,11 +16,12 @@ const app = express();
 // const io = socket(server);
 
 // Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // DB Config
