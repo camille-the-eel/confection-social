@@ -55,7 +55,7 @@ router.post("/repage", (req, res) => {
 
     // Create new post with repaged set to true and a repaged by field filled in
     const newPost = new Post({
-        image_url:      req.body.sourcePost.photo,
+        image_url:      req.body.sourcePost.image_url,
         credit:         req.body.sourcePost.credit,
         caption:        req.body.sourcePost.caption,
         post_tags:      req.body.sourcePost.tags,
