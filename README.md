@@ -25,8 +25,6 @@ To create an application with an emphasis on community interactivity, artistic l
 - <a href="https://jwt.io/">JSON Web Token</a>: user authentication
 - <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>: password encryption
 - <a href="https://www.npmjs.com/package/validator">validator</a>: validates account creation and log in input
-- APIs: 
-    - <a href="https://getstream.io/">Stream</a>
 - Materialize CSS Framework
 - Adobe Fonts
 
