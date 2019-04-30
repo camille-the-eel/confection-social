@@ -46,7 +46,13 @@ class CommentHeader extends Component {
                 <div className="pContent">
                     <Caption>{this.props.children.caption}</Caption>
                     <Source>{this.props.children.source}</Source>
-                    <Credit>{this.props.children.credit}</Credit>
+                    {
+                        this.props.children.credit ?
+                        <Credit>
+                            {this.props.children.credit}
+                        </Credit> :
+                        null
+                    }
                 </div>
             </div>
         )
