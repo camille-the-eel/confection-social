@@ -3,6 +3,7 @@ import CommentButton from "../CommentButton/CommentButton";
 
 import CurrentUser from "../../AppContext";
 import API from "../../utils/API";
+import AvatarComment from "../Avatar/Avatar_Comment";
 
 import './style.css';
 
@@ -57,17 +58,23 @@ class CommentCreate extends Component {
     render () {
         return (
             <div className="inputCommentDiv">
-                <textarea className="form-input commentInput"
-                    id="newComment"
-                    type="text"
-                    name="newComment"
-                    value={this.state.newComment}
-                    onChange={this.handleChange}
-                />
-                <button className="addComment" onClick={this.handleSubmit}>
-                    <p className="comment">ADD COMMENT</p>
-                    <CommentButton className="commentButton"/>
-                </button>
+                <div className="currentPage">
+                    <AvatarComment className="currentPageAvatar">{this.context.pages[0].avatar}</AvatarComment>
+                    <p className="pageName">{this.context.pages[0].page_title}</p>
+                </div>
+                <div >
+                    <textarea className="form-input commentInput"
+                        id="newComment"
+                        type="text"
+                        name="newComment"
+                        value={this.state.newComment}
+                        onChange={this.handleChange}
+                    />
+                    <button className="addComment" onClick={this.handleSubmit}>
+                        <p className="comment">ADD COMMENT</p>
+                        <CommentButton className="commentButton"/>
+                    </button>
+                </div>
             </div>
         )
     }

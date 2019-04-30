@@ -80,6 +80,8 @@ p {
 
 .commentsDiv {
     margin-top: 30px;
+    overflow: scroll;
+    height: 550px;
 }
 
 .addComment {
