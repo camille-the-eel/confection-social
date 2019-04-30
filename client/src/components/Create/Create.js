@@ -101,7 +101,7 @@ class Create extends Component {
                             />
                         </div>    
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <div className="input-field">
                             <p id="tagHead">tag</p>
                             <input className="form-input"
@@ -113,7 +113,7 @@ class Create extends Component {
                             />
                         </div>   
                         <button className="btn btn-small tag-button" onClick={this.handleTags}>Add Tag</button> 
-                    </div>
+                    </div> */}
 
                     <button className="postButton" onClick={this.handleSubmit}>post</button>
                 </div>
