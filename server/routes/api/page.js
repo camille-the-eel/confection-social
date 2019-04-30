@@ -46,7 +46,6 @@ router.get("/:id", (req, res) => {
             })
             .then(posts => {
             
-                console.log(posts)
                 // Return an error of we return an empty post array
                 if (!posts) {
                     return res.status(404).json({ emptyposts: "Page has not made any posts" });
@@ -60,15 +59,11 @@ router.get("/:id", (req, res) => {
             })
             .catch(err => console.log(err));
 
-        console.log(postsToPage);
-
         // Create page content object to carry page info and all created posts
         let pageContent = {
             pageInfo: pageData,
             posts: postsToPage
         }
-
-        console.log(pageContent);
 
         res.json(pageContent);
     })

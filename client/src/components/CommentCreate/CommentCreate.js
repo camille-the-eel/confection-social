@@ -4,6 +4,8 @@ import CommentButton from "../CommentButton/CommentButton";
 import CurrentUser from "../../AppContext";
 import API from "../../utils/API";
 
+import './style.css';
+
 class CommentCreate extends Component {
     constructor() {
         super()
@@ -36,17 +38,20 @@ class CommentCreate extends Component {
             cAuthor_avatar: this.context.pages[0].avatar
         };
 
-        // console.log(commentData)
+        if (!commentData.comment_text) {
+            alert("Please enter a comment")
+        } else {
+            API.addComment(commentData)
+                .then(res => {
+                    if (res) {
+                        this.setState({
+                            newComment: ""
+                        })
+                    }
+                })
+                .catch(err => console.log(err));
+        }
 
-        API.addComment(commentData)
-            .then(res => {
-                if (res) {
-                    this.setState({
-                        newComment: ""
-                    })
-                }
-            })
-            .catch(err => console.log(err));
     };
 
     render () {
