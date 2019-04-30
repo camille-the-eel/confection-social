@@ -4,6 +4,7 @@ import Signup from "./containers/NewUser/NewUser";
 import LandingPage from "./containers/Landing/Landing";
 import Home from "./containers/Home/Home";
 import Page from './containers/Page/Page';
+import Explore from "./containers/Explore/Explore"
 
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -87,6 +88,10 @@ class App extends Component {
                     <Route 
                         exact path="/home"
                         component={Home}
+                    />
+                    <Route 
+                        exact path="/explore"
+                        component={Explore}
                     />
                     <Route 
                         exact path="/pages/:id"
