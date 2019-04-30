@@ -38,6 +38,10 @@ p {
     margin-top: 7px;
 }
 
+.creatorDiv {
+    margin-top: 20px;
+}
+
 .creatorAvatar {
     width: 50px;
 }
@@ -80,8 +84,9 @@ p {
 
 .commentsDiv {
     margin-top: 30px;
+    margin-right: 30px;
     overflow-y: scroll;
-    height: 40vh;
+    height: 42vh;
 }
 
 .addComment {
