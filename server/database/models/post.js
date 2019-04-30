@@ -13,6 +13,7 @@ var PostSchema = new Schema({
 
     image_url: {
         type: String,
+        required: true
     },
 
     credit: {
@@ -32,7 +33,8 @@ var PostSchema = new Schema({
     },
 
     source: {
-        type: String
+        type: String, 
+        required: true
     },
 
     dateCreate: {
