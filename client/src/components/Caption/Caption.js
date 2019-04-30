@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Caption extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
 
     render () {

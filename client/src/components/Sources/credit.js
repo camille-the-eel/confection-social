@@ -4,7 +4,7 @@ import './style.css';
 class Credit extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
     
     render () {

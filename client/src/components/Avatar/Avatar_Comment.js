@@ -7,7 +7,7 @@ import defaultAvatar from '../../img/default-avatar.svg';
 class AvatarComment extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
 
     render () {
