@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Route, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import CurrentUser from "../../AppContext"
 
@@ -9,34 +9,32 @@ class AvatarNavbar extends Component {
         this.state = {
             image: "",
             source: "",
-            page_title: "",
+            page_title: ""
         }
-
     }
-    
 
     componentDidMount() {
-        console.log(this);
         this.loadData();
-
     }
 
     // Push context data into state
     loadData = () => {
-        this.setState = {
+        this.setState({
             image: this.context.pages[0].avatar,
             source: this.context.pages[0]._id,
             page_title: this.context.pages[0].page_title,
-        }    
+        });
     }
 
     render () {
         return (
-            <img
-                src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
-                alt="page-avatar" 
-                style={{width:45}} 
-            />
+            <Link to={"/pages/" + this.state.page_title}>
+                <img
+                    src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
+                    alt="page-avatar" 
+                    style={{width:45}} 
+                />
+            </Link>
         )
     }
 }

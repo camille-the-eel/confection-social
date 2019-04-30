@@ -8,7 +8,7 @@ import './style.css';
 class PostMenu extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
 
     render () {

@@ -10,7 +10,7 @@ import './style.css';
 class PhotoItem extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     } 
 
     render () {
