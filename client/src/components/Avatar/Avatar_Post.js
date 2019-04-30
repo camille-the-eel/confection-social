@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import defaultAvatar from '../../img/default-avatar.svg';
 
 import API from "../../utils/API";
 
@@ -35,7 +36,7 @@ class AvatarPost extends Component {
         return (
             <Link to={"/pages/" + this.state.page_title}>
                 <img value={this.state.page_title}
-                    src={this.state.image || "https://via.placeholder.com/250"} 
+                    src={this.state.image || defaultAvatar } 
                     alt="page-avatar" 
                     style={{width:45}} 
                 />
