@@ -33,24 +33,14 @@ require("./server/config/passport")(passport);
 // Routes
 app.use(routes)
 
-// if(process.env.NODE_ENV === 'production'){
-//   app.use(express.static('client/build'));
-//   app.use('/static', express.static(path.join(__dirname, 'client/build')));
-
-// }
-
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/static', express.static(path.join(__dirname, 'client/build')));
-
-  app.get('*', function(req, res) {
-      res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
-  });
 }
 
-// app.get('*',(req, res) => {
-//   res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
-// });
+app.get('*',(req, res) => {
+  res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
+});
 
 app.listen(PORT, function(){
   console.log("listening on: " + PORT);
