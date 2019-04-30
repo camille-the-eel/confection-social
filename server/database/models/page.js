@@ -16,7 +16,7 @@ var PageSchema = new Schema({
     // Avatar image to be shown in association with the page
     avatar: {
         type: String,
-        default: "https://via.placeholder.com/150"
+        default: "https://i.imgur.com/G5D1q3e.png"
     },
 
     page_description: {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import defaultAvatar from '../../img/default-avatar.svg';
 // import { Route, Link } from "react-router-dom"
 
 // import API from "../../utils/API";
@@ -12,7 +13,7 @@ class AvatarComment extends Component {
     render () {
         return (
             <img
-                src={this.props.children || "https://via.placeholder.com/250"} 
+                src={this.props.children || defaultAvatar }
                 alt="page-avatar" 
                 style={{width:45}} 
             />
