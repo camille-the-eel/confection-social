@@ -9,9 +9,13 @@ const Page      = require("../../database/models/page");
 // @ POST api/posts/create
 router.post("/create", (req, res) => {
 
+    console.log("REQ", req.body);
+
+    let image_url = req.body.photo || req.body.url;
+
     // Create new post object
     const newPost = new Post({
-        image_url:  req.body.photo,
+        image_url:  image_url,
         credit:     req.body.credit,
         caption:    req.body.caption,
         post_tags:  req.body.tags,
