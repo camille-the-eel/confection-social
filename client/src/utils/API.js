@@ -44,6 +44,11 @@ export default {
     // Create new repage using existing post as base
     rePage: function(rePageData) {
         return axios.post("/api/posts/repage", rePageData);
+    },
+
+    // Explore call 
+    explorePosts: function() {
+        return axios.get("/api/posts/explore/")
     }
 
 };
