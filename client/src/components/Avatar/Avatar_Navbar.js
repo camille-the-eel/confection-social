@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 // import { Route, Link } from "react-router-dom"
 
-// import API from "../../utils/API";
+import CurrentUser from "../../AppContext"
 
 class AvatarNavbar extends Component {
-    state = {
-        image: "",
-        source: "",
-        page_title: "",
+    constructor(context) {
+        super(context)
+        this.state = {
+            image: "",
+            source: "",
+            page_title: "",
+        }
+
     }
+    
 
     componentDidMount() {
         console.log(this);
         this.loadData();
+
     }
 
-    // Check to see if avatar is being feed props from page sidebar, navbar or post.
-    // If page sidebar or nav, push data into state
-    // If post, fetch user data using source id
+    // Push context data into state
     loadData = () => {
-        console.log("Load data firing")
-    }
-
-    // Take props and pass needed info into state
-    fetchPageInfo = (pageID) => {
-        console.log(pageID)
+        this.setState = {
+            image: this.context.pages[0].avatar,
+            source: this.context.pages[0]._id,
+            page_title: this.context.pages[0].page_title,
+        }    
     }
 
     render () {
@@ -38,7 +41,5 @@ class AvatarNavbar extends Component {
     }
 }
 
+AvatarNavbar.contextType = CurrentUser
 export default AvatarNavbar;
-
-//TO DO:
-//link avatar to user's pages on click

@@ -42,7 +42,6 @@ class Home extends Component {
                 this.setState({ 
                     posts: res.data
                 });
-                console.log(this.state)
             })
             .catch(err => console.log(err));
     }
@@ -75,6 +74,7 @@ class Home extends Component {
     }
 
     toggleCreate = () => {
+        this.loadPosts()
         this.setState({
             createHidden: !this.state.createHidden
         })
