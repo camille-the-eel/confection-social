@@ -16,18 +16,17 @@ class AvatarNavbar extends Component {
     
 
     componentDidMount() {
-        console.log(this);
         this.loadData();
-
+        console.log("STATE", this);
     }
 
     // Push context data into state
     loadData = () => {
-        this.setState = {
+        this.setState = ({
             image: this.context.pages[0].avatar,
             source: this.context.pages[0]._id,
             page_title: this.context.pages[0].page_title,
-        }    
+        })
     }
 
     render () {
