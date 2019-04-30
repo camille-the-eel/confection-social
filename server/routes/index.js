@@ -11,13 +11,14 @@ router.use("/api", apiRoutes);
 
 // Send the react app if no API routes are hit
 router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../../client/public/index.html"));
+
+    if (process.env.NODE_ENV === 'production') {
+        res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+    } else {
+        res.sendFile(path.join(__dirname, "../../client/public/index.html"));
+    }
+
 });
 
-if (process.env.NODE_ENV === 'production') {
-    router.use(function(req, res) {
-        res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-    });
-}
 
 module.exports = router;
