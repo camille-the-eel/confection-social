@@ -14,7 +14,7 @@ class RePageButton extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this);
+        // console.log(this);
     }
 
     rePage = (sourcePost) => {
