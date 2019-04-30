@@ -47,7 +47,6 @@ class Explore extends Component {
         const postForComments = await 
             API.getComments(postId)
             .then(res => {
-                console.log(res.data);
                 return res.data
             })
             .catch(err => console.log(err));
@@ -70,7 +69,7 @@ class Explore extends Component {
     render() {
         return (
             <div className="body">
-                {/* <Navbar/> */}
+                <Navbar/>
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 {!this.state.posts ? 
                     <div className="postMargin">
