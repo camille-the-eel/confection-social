@@ -39,9 +39,9 @@ if(process.env.NODE_ENV === 'production'){
 
 }
 
-app.get('*',(req, res) => {
-  res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
-});
+// app.get('*',(req, res) => {
+//   res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
+// });
 
 app.listen(PORT, function(){
   console.log("listening on: " + PORT);
