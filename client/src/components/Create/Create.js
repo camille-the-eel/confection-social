@@ -16,18 +16,12 @@ class Create extends Component {
             tagForm: "",
             tags: [],
             photo: "",
+            url: ""
         }
 
         this.handleSubmit   = this.handleSubmit.bind(this)
         this.handleChange   = this.handleChange.bind(this)
         this.handleTags     = this.handleTags.bind(this)
-    }
-
-    componentDidMount() {
-        var x = document.createElement("input");
-        x.setAttribute("type", "file");
-        x.setAttribute("id", "chooseFile");
-        document.getElementById("upload").appendChild(x);
     }
 
     handleChange(event) {
@@ -60,8 +54,6 @@ class Create extends Component {
         });
     };
 
-
-
     render (props) {
         return (
             <div id="divBody">
@@ -72,6 +64,17 @@ class Create extends Component {
                             <img src={closeButton} alt="closeButton" id="close" onClick={this.props.toggleCreate}/>
                         </p>
                         <div id="upload">
+                            <input type="file" name="postUp" id="chooseFile" onChange={this.handleChange}/>
+                            <div className="input-field">
+                                <p id="urlHead">image url</p>
+                                <input className="form-input"
+                                    id="url"
+                                    type="text"
+                                    name="url"
+                                    value={this.state.url}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="form-group">
