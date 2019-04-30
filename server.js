@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use('/static', express.static(path.join(__dirname, 'client/build')));
+// const socket = require('socket.io');
+// const io = socket(server);
 
 // Bodyparser middleware
 app.use(
@@ -50,4 +52,8 @@ if(process.env.NODE_ENV === 'production'){
 
 app.get('*',(req, res) => {
   res.sendFile(path.resolve(__dirname, "/client/public/index.html"));
+});
+
+app.listen(PORT, function(){
+  console.log("listening on: " + PORT);
 });
