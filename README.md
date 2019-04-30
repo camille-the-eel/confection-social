@@ -1,5 +1,5 @@
 
-# <a href="https://confection-social-app.herokuapp.com/">Confection</a> Social App
+# <a href="https://confection-social.herokuapp.com/">Confection</a> Social App
 
 **Goal**
 
