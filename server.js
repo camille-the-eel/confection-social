@@ -1,6 +1,6 @@
 // Setting requires
 const express = require("express");
-                require("dotenv").config();
+require("dotenv").config();
 
 const path = require("path");
 const mongoose = require("mongoose");
@@ -12,27 +12,15 @@ const routes = require("./server/routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-app.use('/static', express.static(path.join(__dirname, 'client/build')));
-// const socket = require('socket.io');
-// const io = socket(server);
-
 // Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB Config
 const db = `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true`
 
 // Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
+mongoose.connect(db,{ useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 
@@ -45,9 +33,10 @@ require("./server/config/passport")(passport);
 // Routes
 app.use(routes)
 
-
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
+  // app.use(express.static('client/build'));
+  app.use('/static', express.static(path.join(__dirname, 'client/build')));
+
 }
 
 app.get('*',(req, res) => {
