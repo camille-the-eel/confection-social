@@ -30,7 +30,7 @@ class AvatarNavbar extends Component {
     render () {
         return (
             <img
-                src={this.state.image || "https://via.placeholder.com/250"} 
+                src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
                 alt="page-avatar" 
                 style={{width:45}} 
             />
