@@ -30,14 +30,14 @@ app.use(passport.initialize());
 // Passport config
 require("./server/config/passport")(passport);
 
-// Routes
-app.use(routes)
-
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   // app.use('/static', express.static(path.join(__dirname, 'client/build')));
 }
+
+// Routes
+app.use(routes);
 
 app.listen(PORT, function(){
   console.log("listening on: " + PORT);
