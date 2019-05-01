@@ -1,5 +1,5 @@
 import React, { Component }  from "react";
-import Navbar from "../Nav/Nav";
+import Navbar from "../Nav/Nav"
 import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PostFull from '../../components/PostFull/PostFull';
 import CurrentUser from "../../AppContext";
@@ -69,7 +69,7 @@ class Explore extends Component {
     render() {
         return (
             <div className="body">
-                <Navbar/>
+                {/* <Navbar/> */}
                 {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 {!this.state.posts ? 
                     <div className="postMargin">
