@@ -31,7 +31,7 @@ const storage = new GridFsStorage({
 });
 
 //Set multer storage engine to storage object ^ and file input to single file
-const singleUpload = multer({ storage: storage }).single("avatarUp");
+const singleUpload = multer({ storage: storage }).single("file");
 
 
 router.post('/avatars', singleUpload, (req, res) => {
