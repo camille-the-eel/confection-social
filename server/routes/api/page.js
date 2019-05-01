@@ -3,8 +3,9 @@ const router   = require("express").Router();
 
 const Page = require("../../database/models/page");
 const Post = require("../../database/models/post");
-const User = require("../../database/models/user");
 
+
+// @route GET api/pages/:id
 // Get route for retreiving a single post and pushing all of their posts to the client
 router.get("/:id", (req, res) => {
 
@@ -72,6 +73,7 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(422).json(err));
 });
 
+// @ GET api/pages/basic/:id
 // Get route to pull page title and avatar by using page id
 router.get("/basic/:id", (req, res) => {
     Page.findOne({
@@ -96,6 +98,8 @@ router.get("/basic/:id", (req, res) => {
     }
 )
 
+// @ POST api/pages/addpage
+
 router.post("/addpage", (req, res) => {
     
     // Set data for new page
@@ -109,8 +113,23 @@ router.post("/addpage", (req, res) => {
 
     newPage 
         .save()
-        .catch(err => console.log(err));
+        .then(page => res.json(page))
+        .catch(err => res.status(422).json(err));
     
+});
+
+// @ GET api/pages/updatepages/:id
+// Gets all pages for a given user
+router.get("/updatepages/:id", (req, res) => {
+
+    Page.find({
+        userID: req.params.id
+    })
+    .then(pages => {
+        res.send(pages)
+    })
+    .catch(err => res.status(422).json(err));
 })
+
 
 module.exports = router;

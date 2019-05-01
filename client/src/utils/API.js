@@ -54,6 +54,10 @@ export default {
     // Create a new page
     addPage: function(pageData) {
         return axios.post("/api/pages/addpage", pageData)
+    },
+
+    updatePages: function(userId) {
+        return axios.get("/api/pages/updatepages/" + userId)
     }
 
 };

@@ -7,6 +7,7 @@ import API from "../../utils/API";
 import CurrentUser from "../../AppContext"
 
 import "materialize-css/dist/css/materialize.min.css"
+import "./style.css"
 
 class Settings extends Component {
     constructor (context) {
@@ -30,7 +31,7 @@ class Settings extends Component {
         })
     }
 
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
 
         const newPage = {
@@ -38,21 +39,50 @@ class Settings extends Component {
             userID: this.context.user
         }
 
-        API.addPage(newPage)
+        console.log(newPage)
+
+        await API.addPage(newPage)
             .then(res => {
-                console.log("RES.DATA", res.data);
-                console.log("CONTEXT", this.context)
+                if (res) {
+                    this.setState({
+                        newPageTitle: ""
+                    })
+                }
             })
+            .catch(err => console.log(err));
+        
+        this.context.updatePages(this.context.user)
     }
 
     render() {
         return (
             <div className="body">
                 {/* <Navbar /> */}
-                <div>
-                    <p>    
-                        This is where the create page form will go
-                    </p>
+                <div className="settingsContainer">
+                    <form className="form-horizontal formContainer">
+                        <div className="form-group">
+                            <div className="col-3 col-mr-auto">
+                                <input className="form-input"
+                                    type="text"
+                                    id="newPageTitle"
+                                    name="newPageTitle"
+                                    placeholder="new-page-title"
+                                    value={this.state.newPageTitle}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-7"></div>
+                            <button
+                                className="col-1 col-mr-auto addPage"
+                                onClick={this.handleSubmit}
+                                type="submit"
+                            >
+                                add page
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )
