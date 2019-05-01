@@ -28,14 +28,14 @@ router.get("/:id", (req, res) => {
         await Post.find({
                 $or: [
                     {
-                        // $and: [
-                        //     {
+                        $and: [
+                            {
                                 source: pageId
-                        //     },
-                        //     {
-                        //         isRepaged: false
-                        //     }
-                        // ]
+                            },
+                            {
+                                isRepaged: false
+                            }
+                        ]
                     },
                     {
                         
