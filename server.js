@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 
 const path = require("path");
+// const dbConfig = require('./dbconfig');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -38,6 +39,8 @@ if (process.env.NODE_ENV === 'production') {
 // Routes
 app.use(routes);
 
+
 app.listen(PORT, function(){
   console.log("listening on: " + PORT);
 });
+

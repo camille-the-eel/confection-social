@@ -3,6 +3,13 @@ const express   =   require("express");
 const router    =   express.Router();
 const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
+const multer    =   require('multer');
+const { mongo } = require('mongoose');
+const GridFsStorage = require('multer-gridfs-storage') ;
+const Grid = require('gridfs-stream');
+Grid.mongo = mongo;
+// const dbConfig  =   require("../../../dbconfig");
+// var gfs = new Grid(dbConfig.db);
 
 // Load input validation
 const validateRegisterInput =   require("../../validation/register");
@@ -12,10 +19,43 @@ const validateLoginInput    =   require("../../validation/login");
 const User  =   require("../../database/models/user");
 const Page  =   require("../../database/models/page");
 
+//set up connection to db for file storage
+const storage = new GridFsStorage({
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
+    // file: (req) => {    
+    //     return {      
+    //          bucketName: 'avatar',       
+    //          //Setting collection name, default name is fs
+    //   }  
+// }
+});
+
+//Set multer storage engine to storage object ^ and file input to single file
+const singleUpload = multer({ storage: storage }).single("file");
+
+
+router.post('/avatars', singleUpload, (req, res) => {
+
+    console.log("REQ", req.payload);
+    console.log("BODY", req.body);
+    console.log("FILE", req.file);
+
+    if (req.file) {
+       return res.json({
+          success: true,
+          file: req.file
+       });
+    }
+    res.send({ success: false });
+ });
+
 // @route POST api/users/register
-// @desc Register user
+// @desc Register userx
 // @access Public
 router.post("/register", (req, res) => {
+
+    console.log("BODY", req.body);
+    console.log("FILE", req.file);
     
     // Form Validation
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -36,7 +76,7 @@ router.post("/register", (req, res) => {
                 const newUser = new User({
                     email:          req.body.email,
                     primaryPage:    req.body.primaryPage,
-                    password:       req.body.password
+                    password:       req.body.password,
                 });
 
                 // Hash password before saving to database
