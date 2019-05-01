@@ -1,7 +1,6 @@
 // External Requires
 const path = require("path");
 const router = require("express").Router();
-require("dotenv").config();
 
 // Pulling in local API routes
 const apiRoutes = require("./api");
@@ -12,7 +11,7 @@ router.use("/api", apiRoutes);
 // Send the react app if no API routes are hit
 router.use(function(req, res) {
 
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
 
 });
 
