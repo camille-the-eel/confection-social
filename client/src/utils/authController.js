@@ -1,6 +1,19 @@
 import axios from "axios";
 import setAuthToken from "./setAuthToken";
 
+// export const addAvatar = (fileData, cb) => {
+//     axios 
+//         .post("/api/users/avatars", fileData)
+//         .then(res => {
+//             if (res) {
+//                 cb()
+//             }
+//         })
+//         .catch(err => {
+//             console.log("FILE", err);
+//         });
+// }
+
 // Register User
 export const registerUser = (userData, cb) => {
     axios

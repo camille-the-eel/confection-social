@@ -1,4 +1,3 @@
-
 module.exports = {
     name: 'Confection Social Media App',
     version: '0.0.1',
