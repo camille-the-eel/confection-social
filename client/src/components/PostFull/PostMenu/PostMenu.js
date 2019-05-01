@@ -14,7 +14,7 @@ class PostMenu extends Component {
     render () {
         return (
             <div className="menuDiv">
-                <div classame="align">
+                <div className="align">
                     <Link to="" className="inlineButton AvImg">
                         <AvatarPost>{this.props.children}</AvatarPost>
                     </Link>
