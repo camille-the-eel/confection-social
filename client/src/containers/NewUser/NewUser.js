@@ -13,7 +13,7 @@ class Register extends Component {
                 primaryPage: "",
                 password: "",
                 password2: "",
-                avatar: "",
+                avatar: {},
                 files: [],
                 passwordMatch: false,
                 redirectTo: null
@@ -32,9 +32,13 @@ class Register extends Component {
 
     fileChanged(event) {
         const file = event.target.files[0];
+
+        console.log("onCHANGE", file);
+
         this.setState({
           avatar: file
-        });
+        }, () => { console.log(this.state.avatar) });
+
     }
 
     // Handles button click - primarily register button
@@ -58,14 +62,16 @@ class Register extends Component {
 
     uploadFile(event) {
         event.preventDefault();
-        let data = new FormData();
-        this.setState({ avatar: data });
 
-        console.log("UP",`${this.state.avatar}`);
+        console.log("STATE",`${this.state.avatar.name}`);
+
+        let data = new FormData();
+        data.append('file', this.state.avatar);
+        console.log("FAIL", data.get('file'));
 
         fetch('/api/users/avatars', {
             method: 'POST',
-            body: `${this.state.avatar}`
+            body: data
         })
         .then(res => res.json())
             .then(data => {
@@ -73,6 +79,7 @@ class Register extends Component {
                 alert('upload success');
             } else {
                 alert('Upload failed');
+               
             }
         });
     }
@@ -145,12 +152,11 @@ class Register extends Component {
                             >sign up</button>
                         </div>
                     </form> */}
-                    <form action="/api/users/avatars" method="POST" enctype="multipart/form-data">
+                    <form action="/api/users/avatars" method="POST" enctype="multipart/form-data" id="avatarForm">
                         <div className="custom-file">
                             <input type="file" name="avatarUp" onChange={this.fileChanged.bind(this)}/>
-                            <label for="file" className="custom-file-label">Upload Avatar</label>
+                            <input type="submit" value="Submit" className="avatarUpload" onClick={this.uploadFile.bind(this)}/>
                         </div>
-                        <input type="submit" value="Submit" className="avatarUpload" onClick={this.uploadFile.bind(this)}/>
                     </form>
                     <img src={Style} alt="deco" className="sticks"/>
                 </div>

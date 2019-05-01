@@ -4,7 +4,7 @@ const router    =   express.Router();
 const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
 const multer    =   require('multer');
-const { mongo} = require('mongoose');
+const { mongo } = require('mongoose');
 const GridFsStorage = require('multer-gridfs-storage') ;
 const Grid = require('gridfs-stream');
 Grid.mongo = mongo;
@@ -34,10 +34,6 @@ const storage = new GridFsStorage({
 const singleUpload = multer({ storage: storage }).single("avatarUp");
 
 
-// @route POST api/users/register
-// @desc Register userx
-// @access Public
-
 router.post('/avatars', singleUpload, (req, res) => {
 
     console.log("REQ", req.payload);
@@ -53,7 +49,9 @@ router.post('/avatars', singleUpload, (req, res) => {
     res.send({ success: false });
  });
 
-
+// @route POST api/users/register
+// @desc Register userx
+// @access Public
 router.post("/register", (req, res) => {
 
     console.log("BODY", req.body);
