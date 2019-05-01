@@ -49,6 +49,11 @@ export default {
     // Explore call 
     explorePosts: function() {
         return axios.get("/api/posts/explore/")
+    },
+
+    // Create a new page
+    addPage: function(pageData) {
+        return axios.post("/api/pages/addpage", pageData)
     }
 
 };

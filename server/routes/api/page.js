@@ -1,7 +1,9 @@
 // Set requires
 const router   = require("express").Router();
+
 const Page = require("../../database/models/page");
 const Post = require("../../database/models/post");
+const User = require("../../database/models/user");
 
 // Get route for retreiving a single post and pushing all of their posts to the client
 router.get("/:id", (req, res) => {
@@ -93,5 +95,22 @@ router.get("/basic/:id", (req, res) => {
     .catch(err => res.status(422).json(err));
     }
 )
+
+router.post("/addpage", (req, res) => {
+    
+    // Set data for new page
+    const newPage = new Page({
+        page_title: req.body.page_title,
+        userID: req.body.userID,
+        following: [
+            req.body.page_title
+        ]
+    });
+
+    newPage 
+        .save()
+        .catch(err => console.log(err));
+    
+})
 
 module.exports = router;

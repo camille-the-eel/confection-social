@@ -69,7 +69,7 @@ class Explore extends Component {
     render() {
         return (
             <div className="body">
-                {/* <Navbar/> */}
+                <Navbar/>
                 {!this.state.commentsHidden && <CommentSidebar refreshComments={this.openComments} closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 {!this.state.posts ? 
                     <div className="postMargin">

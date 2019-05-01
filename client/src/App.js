@@ -5,6 +5,7 @@ import LandingPage from "./containers/Landing/Landing";
 import Home from "./containers/Home/Home";
 import Page from './containers/Page/Page';
 import Explore from "./containers/Explore/Explore"
+import Settings from "./containers/Settings/Settings"
 
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -92,6 +93,10 @@ class App extends Component {
                     <Route 
                         exact path="/explore"
                         component={Explore}
+                    />
+                    <Route 
+                        exact path="/account-settings"
+                        component={Settings}
                     />
                     <Route 
                         exact path="/pages/:id"

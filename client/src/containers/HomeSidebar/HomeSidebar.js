@@ -42,8 +42,7 @@ class HomeSidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link>
-                            {/* <Link to="/accountSettings"> */}
+                            <Link to="/account-settings">
                                 <SettingsButton id="settingsButton" className="customButton"/>
                             </Link>
                         </li>
