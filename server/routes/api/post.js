@@ -119,36 +119,65 @@ router.post("/home", (req, res) => {
             })
             .catch(err => res.status(422).json(err));
 
-        // Pulling all posts by any followed page (queryed by id from postSource array)
-        await Post
-            .find({
-                source: {
-                    $in: postSource
-                }
-            })
-            .then(posts => {
-                for (post in posts) {
-                    postsForHome.unshift(posts[post])
-                }
-                return
-            })
-            .catch(err => res.status(422).json(err));
+        // // Pulling all posts by any followed page (queryed by id from postSource array)
+        // await Post
+        //     .find({
+        //         source: {
+        //             $in: postSource
+        //         }
+        //     })
+        //     .then(posts => {
+        //         for (post in posts) {
+        //             postsForHome.unshift(posts[post])
+        //         }
+        //         return
+        //     })
+        //     .catch(err => res.status(422).json(err));
             
 
-        await Post
-            .find({
-                isRepaged: true,
-                repaged_by: {
-                    $in: followedPages
+        // await Post
+        //     .find({
+        //         isRepaged: true,
+        //         repaged_by: {
+        //             $in: followedPages
+        //         }
+        //     })
+        //     .then(posts => {
+        //         for (post in posts) {
+        //             postsForHome.unshift(posts[post])
+        //         }
+        //         return
+        //     })
+        //     .catch(err => res.status(422).json(err));
+
+        await Post.find({
+            $or: [
+                {
+                    source: {
+                        $in: postSource
+                    }
+                },
+                {
+                    $and: [
+                        {
+                            isRepaged: true
+                        },
+                        {
+                            repaged_by: {
+                                $in: followedPages
+                            }
+                        }
+                    ]
                 }
-            })
-            .then(posts => {
-                for (post in posts) {
-                    postsForHome.unshift(posts[post])
-                }
-                return
-            })
-            .catch(err => res.status(422).json(err));
+            ]
+        })
+        .then(posts => {
+            for (post in posts) {
+                postsForHome.unshift(posts[post])
+            }
+            return
+        })
+        .catch(err => res.status(422).json(err));
 
         res.json(postsForHome)
     })

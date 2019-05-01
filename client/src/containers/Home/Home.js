@@ -38,13 +38,22 @@ class Home extends Component {
             _id: sessionStorage.user_id
         }
         API.getPosts(user_id)
-            .then(res => {                
-                this.setState({ 
+            .then(res => {    
+                console.log(res.data)            
+                this.setState({
                     posts: res.data
                 });
             })
             .catch(err => console.log(err));
     }
+
+    // sortPosts = posts => {
+    //     console.log(posts)
+    //     console.log(posts[0].dateCreate)
+    //     this.setState({
+    //         posts: posts.sort((a, b) => a.dateCreate > b.dateCreate) 
+    //     })
+    // }
 
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
     openComments = async (postId) => {
