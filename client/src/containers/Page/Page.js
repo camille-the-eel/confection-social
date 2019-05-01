@@ -42,7 +42,7 @@ class Page extends Component {
     }
 
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
-    openComments = async (postId) => {
+    openComments = async postId => {
         
         // Constant to have filled with data from database
         const postForComments = await 
@@ -75,7 +75,7 @@ class Page extends Component {
                 </Link>
                 <div className="contentContainer">    
                     {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                    {!this.state.commentsHidden && <CommentSidebar refreshComments={this.openComments} closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                     <div className="postWindow">
                         {this.state.posts.map(post => (
                             <PostFull key={post._id} openComments={this.openComments}>

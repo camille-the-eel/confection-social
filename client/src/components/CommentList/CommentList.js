@@ -3,9 +3,9 @@ import CommentItem from "../CommentItem/CommentItem";
 
 class CommentList extends Component {
 
-    componentDidMount() {
-        console.log(this)
-    }
+    // componentDidMount() {
+    //     console.log(this)
+    // }
     
     render() {
         return (

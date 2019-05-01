@@ -1,5 +1,5 @@
 import React, { Component }  from "react";
-import Navbar from "../Nav/Nav";
+import Navbar from "../Nav/Nav"
 import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PostFull from '../../components/PostFull/PostFull';
 import CurrentUser from "../../AppContext";
@@ -41,7 +41,7 @@ class Explore extends Component {
     }
 
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
-    openComments = async (postId) => {
+    openComments = async postId => {
         
         // Constant to have filled with data from database
         const postForComments = await 
@@ -69,8 +69,8 @@ class Explore extends Component {
     render() {
         return (
             <div className="body">
-                <Navbar/>
-                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                {/* <Navbar/> */}
+                {!this.state.commentsHidden && <CommentSidebar refreshComments={this.openComments} closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                 {!this.state.posts ? 
                     <div className="postMargin">
                         <h2>There are no posts to display. Follow someone to see their posts here</h2>

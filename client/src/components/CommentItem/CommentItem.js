@@ -5,13 +5,9 @@ import './style.css';
 
 class Comment extends Component {
 
-    componentDidMount() {
-        console.log(this)
-    }
-
-    localClick = () => {
-        console.log("local click - comment item")
-    }
+    // componentDidMount() {
+    //     console.log(this)
+    // }
 
     render () {
         return (

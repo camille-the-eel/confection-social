@@ -16,16 +16,14 @@ class CommentHeader extends Component {
     }
 
     componentDidMount() {
-        console.log(this)
+        // console.log(this)
         this.fetchPageInfo(this.props.children.source)
     } 
 
     // Take props and pass needed info into state
     fetchPageInfo = (pageID) => {
-        console.log(pageID)
         API.getPageBasic(pageID)
             .then(res => {
-                console.log(res);
                 this.setState({ 
                     image: res.data.avatar,
                     source: res.data._id,

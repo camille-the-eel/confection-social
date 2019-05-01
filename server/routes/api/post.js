@@ -190,8 +190,8 @@ router.post("/home", (req, res) => {
 router.get("/explore", (req, res) => {
     Post.find()
         .limit(25)
+        .sort({dateCreate: -1})
         .then(posts => {
-            console.log(posts)
             res.json(posts)
         })
         .catch(err => res.status(422).json(err));
