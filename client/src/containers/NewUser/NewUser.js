@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { registerUser } from "../../utils/authController";
-import { addAvatar } from "../../utils/authController";
 import Style from '../../img/landing-sticks-01.svg';
 import './style.css';
 
@@ -24,26 +23,15 @@ class Register extends Component {
     }
 
     // Changes state based on form inputs
-    handleChange(event) {
+    handleChange(e) {
         this.setState({
-            [event.target.name]: event.target.value
+            [e.target.name]: e.target.value
         })
     }  
 
-    fileChanged(event) {
-        const file = event.target.files[0];
-
-        console.log("onCHANGE", file);
-
-        this.setState({
-          avatar: file
-        }, () => { console.log(this.state.avatar) });
-
-    }
-
     // Handles button click - primarily register button
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault();
 
         // Creates a newUser based off of current state
         const newUser = {
@@ -56,33 +44,9 @@ class Register extends Component {
         // Pushes newUser const into register user function from authController
         // If registration is successful, callback function fires and user is redirected to the root(login page) 
         registerUser(newUser, () => {
-            this.setState({ redirectTo: "/" })
+            this.setState({ redirectTo: "/newuseravatar" })
         });
     };
-
-    uploadFile(event) {
-        event.preventDefault();
-
-        console.log("STATE",`${this.state.avatar.name}`);
-
-        let data = new FormData();
-        data.append('file', this.state.avatar);
-        console.log("FAIL", data.get('file'));
-
-        fetch('/api/users/avatars', {
-            method: 'POST',
-            body: data
-        })
-        .then(res => res.json())
-            .then(data => {
-            if (data.success) {
-                alert('upload success');
-            } else {
-                alert('Upload failed');
-               
-            }
-        });
-    }
 
     render() {
         if (this.state.redirectTo) {
@@ -91,7 +55,7 @@ class Register extends Component {
             return (
                 <div className="SignupForm">
                     <p className="header">welcome!</p>
-                    {/* <form className="form-horizontal formContainer">
+                        <form className="form-horizontal formContainer">
                         <div className="form-group">
                             <div className="col-3 col-mr-auto">
                                 <input className="form-input"
@@ -138,11 +102,6 @@ class Register extends Component {
                                 />
                             </div>
                         </div>
-                        <input type="file" onChange={this.fileChanged.bind(this)}/>
-                        <button onClick={this.uploadFile.bind(this)}>Upload Avatar</button>
-                        <div id="upload">
-                        <p className="avatarHead">page avatar</p>
-                        </div>
                         <div className="form-group">
                             <div className="col-7"></div>
                             <button
@@ -150,12 +109,6 @@ class Register extends Component {
                                 onClick={this.handleSubmit}
                                 type="submit"
                             >sign up</button>
-                        </div>
-                    </form> */}
-                    <form action="/api/users/avatars" method="POST" enctype="multipart/form-data" id="avatarForm">
-                        <div className="custom-file">
-                            <input type="file" name="avatarUp" onChange={this.fileChanged.bind(this)}/>
-                            <input type="submit" value="Submit" className="avatarUpload" onClick={this.uploadFile.bind(this)}/>
                         </div>
                     </form>
                     <img src={Style} alt="deco" className="sticks"/>
@@ -165,4 +118,4 @@ class Register extends Component {
     }
 }
 
-export default Register
+export default Register;
