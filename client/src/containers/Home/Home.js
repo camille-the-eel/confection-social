@@ -53,8 +53,6 @@ class Home extends Component {
         const postForComments = await 
             API.getComments(postId)
             .then(res => {
-                console.log("+++API GET COMMENTS CALLED+++")
-                console.log(res.data)
                 return res.data
             })
             .catch(err => console.log(err));

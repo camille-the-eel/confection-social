@@ -18,9 +18,9 @@ class CommentCreate extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    componentDidMount() {
-        console.log(this)
-    }
+    // componentDidMount() {
+    //     console.log(this)
+    // }
 
     handleChange(event) {
         this.setState({

@@ -9,9 +9,9 @@ import CurrentUser from '../../AppContext';
 
 class CommentSidebar extends Component {
 
-    componentDidMount() {
-        console.log(this);
-    }
+    // componentDidMount() {
+    //     console.log(this);
+    // }
 
     render () {
         return (
