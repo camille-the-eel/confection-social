@@ -119,36 +119,65 @@ router.post("/home", (req, res) => {
             })
             .catch(err => res.status(422).json(err));
 
-        // Pulling all posts by any followed page (queryed by id from postSource array)
-        await Post
-            .find({
-                source: {
-                    $in: postSource
-                }
-            })
-            .then(posts => {
-                for (post in posts) {
-                    postsForHome.unshift(posts[post])
-                }
-                return
-            })
-            .catch(err => res.status(422).json(err));
+        // // Pulling all posts by any followed page (queryed by id from postSource array)
+        // await Post
+        //     .find({
+        //         source: {
+        //             $in: postSource
+        //         }
+        //     })
+        //     .then(posts => {
+        //         for (post in posts) {
+        //             postsForHome.unshift(posts[post])
+        //         }
+        //         return
+        //     })
+        //     .catch(err => res.status(422).json(err));
             
 
-        await Post
-            .find({
-                isRepaged: true,
-                repaged_by: {
-                    $in: followedPages
+        // await Post
+        //     .find({
+        //         isRepaged: true,
+        //         repaged_by: {
+        //             $in: followedPages
+        //         }
+        //     })
+        //     .then(posts => {
+        //         for (post in posts) {
+        //             postsForHome.unshift(posts[post])
+        //         }
+        //         return
+        //     })
+        //     .catch(err => res.status(422).json(err));
+
+        await Post.find({
+            $or: [
+                {
+                    source: {
+                        $in: postSource
+                    }
+                },
+                {
+                    $and: [
+                        {
+                            isRepaged: true
+                        },
+                        {
+                            repaged_by: {
+                                $in: followedPages
+                            }
+                        }
+                    ]
                 }
-            })
-            .then(posts => {
-                for (post in posts) {
-                    postsForHome.unshift(posts[post])
-                }
-                return
-            })
-            .catch(err => res.status(422).json(err));
+            ]
+        })
+        .then(posts => {
+            for (post in posts) {
+                postsForHome.unshift(posts[post])
+            }
+            return
+        })
+        .catch(err => res.status(422).json(err));
 
         res.json(postsForHome)
     })
@@ -160,6 +189,7 @@ router.post("/home", (req, res) => {
 // Currently pulls all posts created. Will eventually pull all posts by current users followed blogs
 router.get("/explore", (req, res) => {
     Post.find()
+        .limit(25)
         .then(posts => {
             console.log(posts)
             res.json(posts)
