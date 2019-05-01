@@ -28,20 +28,6 @@ body {
     padding: 15px;
 }
 
-.avatarHead {
-    color: #D1D1D1;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 16px;
-    margin: 10px 20px 10px 0px;
-    display: inline-block;
-}
-
-.chooseFile {
-    display: inline-block;
-}
-
 .signUp {
     margin-top: 10px;
     margin-bottom: 7px;
@@ -56,4 +42,12 @@ body {
 .signUp:focus {
     background-color: #FDFCFB;
     color: #991A2A;
+}
+
+.avatarChoose {
+    margin-top: 7px;
+}
+
+.avatarUpload {
+    margin-top: 20px;
 }

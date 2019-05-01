@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Signup from "./containers/NewUser/NewUser";
+import Register from "./containers/NewUser/NewUser";
+import NewUserAvatar from "./containers/NewUser/NewUserAvatar";
 import LandingPage from "./containers/Landing/Landing";
 import Home from "./containers/Home/Home";
 import Page from './containers/Page/Page';
@@ -103,9 +104,13 @@ class App extends Component {
                         component={Page}
                     />
                     <Route 
-                        path="/signup"
+                        path="/register"
                         render={() => 
-                            <Signup />}
+                            <Register />}
+                    />
+                    <Route 
+                        exact path="/newuseravatar"
+                        component={NewUserAvatar}
                     />
                     </Switch>
                 </div>
