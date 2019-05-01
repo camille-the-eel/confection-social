@@ -189,6 +189,7 @@ router.post("/home", (req, res) => {
 // Currently pulls all posts created. Will eventually pull all posts by current users followed blogs
 router.get("/explore", (req, res) => {
     Post.find()
+        .limit(25)
         .then(posts => {
             console.log(posts)
             res.json(posts)
