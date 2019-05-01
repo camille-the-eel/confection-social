@@ -13,6 +13,7 @@ var PostSchema = new Schema({
 
     image_url: {
         type: String,
+        required: true
     },
 
     credit: {
@@ -32,13 +33,45 @@ var PostSchema = new Schema({
     },
 
     source: {
-        type: String
+        type: String, 
+        required: true
     },
 
     dateCreate: {
         type: Date,
         default: Date.now
     },
+
+    isRepaged: {
+        type: Boolean,
+        default: false
+    },
+
+    repaged_by: {
+        type: String 
+    },
+
+    // Comments made for this post
+    post_comments: [
+        {
+            comment_text: {
+                type: String
+            },
+            comment_author: {
+                type: String
+            },
+            cAuthor_id: {
+                type: String
+            },
+            cAuthor_avatar: {
+                type: String
+            },
+            cDateCreate: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
 
     // Post Tags associated with this post
     post_tags: {

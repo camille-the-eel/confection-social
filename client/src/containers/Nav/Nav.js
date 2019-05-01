@@ -13,7 +13,6 @@ class Navbar extends Component {
     }
 
     componentDidMount() {
-        console.log(this);
         this.mapPages();
     }
 
@@ -21,17 +20,12 @@ class Navbar extends Component {
     // !! Currently not actually changing the state of this component !!
     mapPages = () => {
         const pagesState = {...this.state};
-        console.log(pagesState);
-        console.log(this.context);
         let context = this.context
         let contextPages = context.pages.map(page => page);
-        console.log(contextPages);
         pagesState.pages = contextPages.map(page => page)
-        console.log(pagesState);
         this.setState({
             pages: contextPages.map(page => page)
         });
-        console.log(this.state);
     }
 
     render() {

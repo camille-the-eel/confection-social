@@ -8,18 +8,18 @@ import './style.css';
 class PostMenu extends Component {
 
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
     }
 
     render () {
         return (
             <div className="menuDiv">
-                <div classame="align">
+                <div className="align">
                     <Link to="" className="inlineButton AvImg">
                         <AvatarPost>{this.props.children}</AvatarPost>
                     </Link>
                     <div className="repage inlineButton">
-                        <RePageButton/>
+                        <RePageButton post_info={this.props.children}/>
                         <br/>
                         <LikeButton/>
                     </div>

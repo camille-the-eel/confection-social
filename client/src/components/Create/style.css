@@ -1,8 +1,9 @@
 #divBody {
     width: 55%;
     margin: auto;
-    position: relative;
-    top: 150px;
+    position: fixed;
+    top: 15%;
+    left: 15%;
     background: #FDFCFB;
     padding: 15px 25px;
     border: 7px solid #991A2A;
@@ -17,6 +18,7 @@ p {
     font-family: miller-text, serif;
     font-weight: 600;
     font-style: normal;
+    margin-top: 15px;
 }
 
 #photoHead {

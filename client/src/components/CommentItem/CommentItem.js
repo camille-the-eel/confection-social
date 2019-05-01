@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import AvatarComment from '../Avatar/Avatar_Comment';
 import './style.css';
 
 class Comment extends Component {
 
+    componentDidMount() {
+        console.log(this)
+    }
+
+    localClick = () => {
+        console.log("local click - comment item")
+    }
+
     render () {
         return (
-            <div clasName="creatorDiv">
-                <div className="pageLink" onClick="">
-                    <AvatarComment className="commentorAvatar"/>
-                    <p className="pageName">props.pageName</p>
-                </div>
+            <div className="creatorDiv">
+                <Link to={"/pages/" + this.props.children.comment_author}>
+                    <AvatarComment className="creatorAvatar">{this.props.children.cAuthor_avatar}</AvatarComment>
+                    <p className="pageName">{this.props.children.comment_author}</p>
+                </Link>
                 <div className="commentDiv">
-                    <p className="previousComment">props.comment  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    <p className="previousComment">
+                        {this.props.children.comment_text}
                     </p>
                 </div>
             </div>
@@ -21,4 +31,4 @@ class Comment extends Component {
 
 }
 
-export default Comment;
+export default Comment; 

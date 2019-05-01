@@ -18,39 +18,57 @@ router.get("/:id", (req, res) => {
         }
 
         // Set current page id to id received from data returned from database
-        let pageId = pageData._id
+        let pageId      = pageData._id
+        let page_title  = pageData.page_title;
 
         // Set up empty array to be filled by Post database call
-        let posts = [];
+        let postsToPage = [];
 
         // Find all posts where source = the pageId (post creator)
         await Post.find({
-            source: pageId
-        })
-        .then(post => {
+                $or: [
+                    {
+                        $and: [
+                            {
+                                source: pageId
+                            },
+                            {
+                                isRepaged: false
+                            }
+                        ]
+                    },
+                    {
+                        
+                        repaged_by: page_title
+                        
+                    }
+                ]
+            })
+            .then(posts => {
             
-            // Return an error of we return an empty post array
-            if (!post) {
-                return res.status(404).json({ emptyposts: "Page has not made any posts" });
-            }
+                // Return an error of we return an empty post array
+                if (!posts) {
+                    return res.status(404).json({ emptyposts: "Page has not made any posts" });
+                }
 
-            // Return a filled in posts array
-            posts = post.map(post => post);
-            return posts;
-        })
-        .catch(err => console.log(err));
+                // Return a filled in posts array
+                for (post in posts) {
+                    postsToPage.unshift(posts[post])
+                }
+                return
+            })
+            .catch(err => console.log(err));
 
         // Create page content object to carry page info and all created posts
         let pageContent = {
             pageInfo: pageData,
-            posts: posts
+            posts: postsToPage
         }
 
         res.json(pageContent);
     })
     .catch(err => res.status(422).json(err));
-    }
-);
+});
 
 // Get route to pull page title and avatar by using page id
 router.get("/basic/:id", (req, res) => {

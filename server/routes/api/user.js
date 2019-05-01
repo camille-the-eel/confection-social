@@ -91,7 +91,10 @@ router.post("/register", (req, res) => {
                                 const newPage = new Page({
                                     page_title: user.primaryPage,
                                     isPrimary: true,
-                                    userID: user._id
+                                    userID: user._id,
+                                    following:[
+                                        user.primaryPage
+                                    ]
                                 });
 
                                 newPage

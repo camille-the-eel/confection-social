@@ -5,7 +5,6 @@ import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import HomeSidebar from '../HomeSidebar/HomeSidebar';
 import PostFull from '../../components/PostFull/PostFull';
 import CurrentUser from "../../AppContext";
-
 import Create from '../../components/Create/Create';
 
 import API from "../../utils/API";
@@ -18,37 +17,63 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
-            posts:[],
+            posts: [],
+            postForComments: {},
             commentsHidden: true,
             menuHidden: false,
             createHidden: true,
             feedHidden: false
         }
+
     }
 
     componentDidMount() {
         console.log(this);
-        this.loadPosts();
+        this.loadPosts()
     }
 
+    // Loads all posts (will eventually call posts for followed pages)
     loadPosts = () => {
-        API.getPosts()
-            .then(res => {                
-                this.setState({ 
+        let user_id = {
+            _id: sessionStorage.user_id
+        }
+        API.getPosts(user_id)
+            .then(res => {    
+                console.log(res.data)            
+                this.setState({
                     posts: res.data
                 });
-                console.log(this.state)
             })
             .catch(err => console.log(err));
     }
 
-    openComments = () => {
+    // sortPosts = posts => {
+    //     console.log(posts)
+    //     console.log(posts[0].dateCreate)
+    //     this.setState({
+    //         posts: posts.sort((a, b) => a.dateCreate > b.dateCreate) 
+    //     })
+    // }
+
+    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
+    openComments = async (postId) => {
+        
+        // Constant to have filled with data from database
+        const postForComments = await 
+            API.getComments(postId)
+            .then(res => {
+                console.log(res.data);
+                return res.data
+            })
+            .catch(err => console.log(err));
+
+        // Update state based off of the returned post comments and then open comments and close sidebar
         this.setState({
+            postForComments: postForComments,
             commentsHidden: false,
-            menuHidden: true
+            sidebarHidden: true
         })
     }
-
 
     closeComments = () => {
         this.setState({
@@ -58,6 +83,7 @@ class Home extends Component {
     }
 
     toggleCreate = () => {
+        this.loadPosts()
         this.setState({
             createHidden: !this.state.createHidden
         })
@@ -71,15 +97,22 @@ class Home extends Component {
                 <div className="body">
                     <Navbar/>
                     {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                     {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
-                    <div className="postMargin">
-                        {this.state.posts.map(post => (
-                            <PostFull key={post._id} openComments={this.openComments}>
-                                {post}
-                            </PostFull>
-                        ))}
-                    </div>
+                    {!this.state.posts ? 
+                        <div className="postMargin">
+                            <h2>There are no posts to display. Follow someone to see their posts here</h2>
+                        </div>
+                        :
+                        <div className="postMargin">
+                            {this.state.posts.map(post => (
+                                <PostFull key={post._id} openComments={this.openComments}>
+                                    {post}
+                                </PostFull>
+                            ))}
+                        </div>
+
+                    }
                 </div>
             )
         }

@@ -16,18 +16,12 @@ class Create extends Component {
             tagForm: "",
             tags: [],
             photo: "",
+            url: ""
         }
 
         this.handleSubmit   = this.handleSubmit.bind(this)
         this.handleChange   = this.handleChange.bind(this)
         this.handleTags     = this.handleTags.bind(this)
-    }
-
-    componentDidMount() {
-        var x = document.createElement("input");
-        x.setAttribute("type", "file");
-        x.setAttribute("id", "chooseFile");
-        document.getElementById("upload").appendChild(x);
     }
 
     handleChange(event) {
@@ -48,19 +42,18 @@ class Create extends Component {
         event.preventDefault();
 
         const postData = {
-            source: sessionStorage.pageID,
+            source: this.context.pages[0]._id,
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,
-            photo: this.state.photo
+            photo: this.state.photo,
+            url: this.state.url
         };
 
         newPost(postData, () => {
             this.props.toggleCreate();
         });
     };
-
-
 
     render (props) {
         return (
@@ -72,6 +65,17 @@ class Create extends Component {
                             <img src={closeButton} alt="closeButton" id="close" onClick={this.props.toggleCreate}/>
                         </p>
                         <div id="upload">
+                            <input type="file" name="postUp" id="chooseFile" onChange={this.handleChange}/>
+                            <div className="input-field">
+                                <p id="urlHead">image url</p>
+                                <input className="form-input"
+                                    id="url"
+                                    type="text"
+                                    name="url"
+                                    value={this.state.url}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="form-group">
@@ -97,7 +101,7 @@ class Create extends Component {
                             />
                         </div>    
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <div className="input-field">
                             <p id="tagHead">tag</p>
                             <input className="form-input"
@@ -109,7 +113,7 @@ class Create extends Component {
                             />
                         </div>   
                         <button className="btn btn-small tag-button" onClick={this.handleTags}>Add Tag</button> 
-                    </div>
+                    </div> */}
 
                     <button className="postButton" onClick={this.handleSubmit}>post</button>
                 </div>

@@ -4,6 +4,7 @@ import CommentSidebar from '../CommentSidebar/CommentSidebar';
 import PageSidebar from '../PageSidebar/PageSidebar';
 import PostFull from "../../components/PostFull/PostFull";
 import PageNav from "../../components/PageNav/PageNav";
+
 import API from "../../utils/API"
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,8 +15,9 @@ class Page extends Component {
     constructor() {
         super()
         this.state = {
-            pageInfo: {},
             posts: [],
+            pageInfo: {},
+            postForComments: {},
             commentsHidden: true,
             sidebarHidden: false
         }
@@ -26,6 +28,7 @@ class Page extends Component {
         this.loadPosts();
     }
 
+    // Loads all posts
     loadPosts = () => {
         API.getPage(this.props.match.params.id)
             .then(res => {
@@ -38,8 +41,20 @@ class Page extends Component {
             .catch(err => console.log(err));
     }
 
-    openComments = () => {
+    // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
+    openComments = async (postId) => {
+        
+        // Constant to have filled with data from database
+        const postForComments = await 
+            API.getComments(postId)
+            .then(res => {
+                console.log(res.data);
+                return res.data
+            })
+            .catch(err => console.log(err));
+
         this.setState({
+            postForComments: postForComments,
             commentsHidden: false,
             sidebarHidden: true
         })
@@ -58,14 +73,16 @@ class Page extends Component {
                 <Link to="/home">
                     <PageNav/>
                 </Link>
-                {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
-                {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}/>}
-                <div className="postDiv">
-                    {this.state.posts.map(post => (
-                        <PostFull key={post._id} openComments={this.openComments}>
-                            {post}
-                        </PostFull>
-                    ))}
+                <div className="contentContainer">    
+                    {!this.state.menuHidden && <PageSidebar>{this.state.pageInfo}</PageSidebar>}
+                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                    <div className="postWindow">
+                        {this.state.posts.map(post => (
+                            <PostFull key={post._id} openComments={this.openComments}>
+                                {post}
+                            </PostFull>
+                        ))}
+                    </div>
                 </div>
             </div>
         )

@@ -1,55 +1,44 @@
 import React, { Component } from 'react';
-import AvatarComment from '../../components/Avatar/Avatar_Comment';
-import Caption from '../../components/Caption/Caption';
-// import Source from '../../components/Sources/Source';
-// import Credit from '../../components/Sources/Credit';
-import Comment from '../../components/CommentItem/CommentItem';
-import CommentButton from '../../components/CommentButton/CommentButton';
+import CommentHeader from "../../components/CommentHeader/CommentHeader";
+import CommentCreate from '../../components/CommentCreate/CommentCreate';
+import CommentList from "../../components/CommentList/CommentList";
 import './style.css';
 
 import closeButton from '../../img/closeButton.svg';
+import CurrentUser from '../../AppContext';
 
 class CommentSidebar extends Component {
+
+    componentDidMount() {
+        console.log(this);
+    }
+
+    localClick = () => {
+        console.log("local click");
+        console.log(this);
+    }
 
     render () {
         return (
             <div className="fixedDiv">
-            <div className="commentSidebarContainer">
-            <img src={closeButton} alt="closeButton" className="closeButton" onClick={this.props.closeComments}/>
-                <div className="commentSidebar">
-                    <div className="centeredDiv">
-                        <div className="creatorDiv">
-                            <div className="pageLink" onClick="">
-                                <AvatarComment className="creatorAvatar"/>
-                                <p className="pageName">props.pageName</p>
+                <div className="commentSidebarContainer">
+                    <img src={closeButton} alt="closeButton" className="closeButton" onClick={this.props.closeComments}/>
+                    <div className="commentSidebar">
+                        <div className="centeredDiv">
+                            <div className="creatorDiv">
+                                <CommentHeader>{this.props.children}</CommentHeader>
                             </div>
-                            <div className="pContent">
-                                <Caption/>
-                                {/* <Source/> */}
-                                {/* <Credit/> */}
+                            <div className="commentsDiv">
+                                <CommentList>{this.props.children.post_comments}</CommentList>
                             </div>
-                        </div>
-                        <div className="commentsDiv">
-                           <Comment/>
-                        </div>
-                        <div className="inputCommentDiv">
-                            <div className="pageLink" onClick="">
-                                <AvatarComment className="commentorAvator"/>
-                                <p className="activePageName">props.activePageName</p>
-                            </div>
-                            <textarea className="commentInput"/>
-                            <button className="addComment" onClick="">
-                                <p className="comment">ADD COMMENT</p>
-                                <CommentButton className="commentButton"/>
-                            </button>
+                            <CommentCreate>{this.props.children}</CommentCreate>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
         )
     }
-
 }
 
-export default CommentSidebar;
+CommentSidebar.contextType = CurrentUser;
+export default CommentSidebar; 

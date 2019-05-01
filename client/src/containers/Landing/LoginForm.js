@@ -31,7 +31,6 @@ class LoginForm extends Component {
         };
 
         loginUser(userData, () => {
-            console.log("+++Login form calling check user+++")
             let context = this.context;
             context.checkIfUser();
         });

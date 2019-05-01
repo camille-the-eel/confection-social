@@ -4,29 +4,56 @@ import rePageButton from '../../img/reblogButton.svg';
 import rePageButtonClicked from '../../img/reblogButtonClicked.svg';
 import './style.css';
 
+import CurrentUser from "../../AppContext";
+import API from "../../utils/API";
+
 class RePageButton extends Component {
 
-    static defaultProps = {
-        id: '',
-        onRePage: () => {},
-        src: rePageButton
-    };
+    state = {
+        isRepaged: false,
+    }
 
-    handleClick = e => {
-        if (!this.props.rePaged) {
-            this.props.onRePage({ id: this.props.id, repaged: this.props.rePaged, src: rePageButtonClicked });
-            // rePagePost(this.props.user.id, this.props.id);
+    componentDidMount = () => {
+        // console.log(this);
+    }
+
+    rePage = (sourcePost) => {
+        
+        // Pull post data from props and add currently active page to object to be used in repage creation
+        const rePageData = {
+            sourcePost: sourcePost,
+            rePagedBy: this.context.pages[0].page_title
+        }
+
+        console.log(rePageData);
+
+        API.rePage(rePageData)
+            .then(() => {
+                this.setState({ isRepaged: true })
+            })
+            .catch(err => console.log(err));
+    }
+
+    // Handles logic on whether to repage or alert user that they have already repaged the current post
+    handleClick = event => {
+        event.preventDefault()
+
+        if (this.state.isRepaged) {
+            alert("You have already Repaged this Post")
+        } else {
+            this.rePage(this.props.post_info)
         }
     };
 
     render() {
-        return <img src={this.props.src} alt="rePageButton" className="rePageButton" onClick={this.handleClick} />;
+        return <img 
+                src={this.state.isRepaged ? rePageButtonClicked : rePageButton} 
+                alt="rePageButton" 
+                className="rePageButton" 
+                onClick={this.handleClick} 
+                />
     }
 }
 
+RePageButton.contextType = CurrentUser
 export default RePageButton;
-
-
-//TO DO:
-//connect the User/state.User to this action
-//complete action in the Activity component
