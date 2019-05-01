@@ -28,7 +28,7 @@ class CommentCreate extends Component {
         })
     } 
 
-    handleSubmit(event) {
+    handleSubmit = async event => {
         event.preventDefault();
 
         const commentData = {
@@ -42,7 +42,7 @@ class CommentCreate extends Component {
         if (!commentData.comment_text) {
             alert("Please enter a comment")
         } else {
-            API.addComment(commentData)
+            await API.addComment(commentData)
                 .then(res => {
                     if (res) {
                         this.setState({
@@ -52,6 +52,8 @@ class CommentCreate extends Component {
                 })
                 .catch(err => console.log(err));
         }
+
+        this.props.refreshComments(this.props.children._id)    
 
     };
 

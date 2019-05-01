@@ -39,21 +39,12 @@ class Home extends Component {
         }
         API.getPosts(user_id)
             .then(res => {    
-                console.log(res.data)            
                 this.setState({
                     posts: res.data
                 });
             })
             .catch(err => console.log(err));
     }
-
-    // sortPosts = posts => {
-    //     console.log(posts)
-    //     console.log(posts[0].dateCreate)
-    //     this.setState({
-    //         posts: posts.sort((a, b) => a.dateCreate > b.dateCreate) 
-    //     })
-    // }
 
     // Fires when open comments button is clicked. Calls load comments button and passes through the post id of the comments button that was clicked
     openComments = async (postId) => {
@@ -62,7 +53,8 @@ class Home extends Component {
         const postForComments = await 
             API.getComments(postId)
             .then(res => {
-                console.log(res.data);
+                console.log("+++API GET COMMENTS CALLED+++")
+                console.log(res.data)
                 return res.data
             })
             .catch(err => console.log(err));
@@ -97,7 +89,7 @@ class Home extends Component {
                 <div className="body">
                     <Navbar/>
                     {!this.state.menuHidden && <HomeSidebar toggleCreate={this.toggleCreate}/>}
-                    {!this.state.commentsHidden && <CommentSidebar closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
+                    {!this.state.commentsHidden && <CommentSidebar refreshComments={this.openComments} closeComments={this.closeComments}>{this.state.postForComments}</CommentSidebar>}
                     {!this.state.createHidden && <Create toggleCreate={this.toggleCreate}/>}
                     {!this.state.posts ? 
                         <div className="postMargin">

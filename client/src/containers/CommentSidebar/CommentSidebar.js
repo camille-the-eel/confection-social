@@ -13,11 +13,6 @@ class CommentSidebar extends Component {
         console.log(this);
     }
 
-    localClick = () => {
-        console.log("local click");
-        console.log(this);
-    }
-
     render () {
         return (
             <div className="fixedDiv">
@@ -31,7 +26,7 @@ class CommentSidebar extends Component {
                             <div className="commentsDiv">
                                 <CommentList>{this.props.children.post_comments}</CommentList>
                             </div>
-                            <CommentCreate>{this.props.children}</CommentCreate>
+                            <CommentCreate refreshComments={this.props.refreshComments}>{this.props.children}</CommentCreate>
                         </div>
                     </div>
                 </div>
