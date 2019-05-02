@@ -30,20 +30,19 @@ class HomeSidebar extends Component {
                 <div className="centeredButtons">
                     <div className="buttonMenu">
                         <li>
-                            <Link>
+                            <div>
                             {/* <Link to="/messageInbox"> */}
                                 <MessagesButton id="messagesButton" className="customButton"/>
-                            </Link>
+                            </div>
                         </li>
                         <li>
                             {/* <Link to="/notificationCenter"> */}
-                            <Link>
+                            <div>
                                 <NotificationButton id="notificationButton" className="customButton"/>
-                            </Link>
+                            </div>
                         </li>
                         <li>
-                            <Link>
-                            {/* <Link to="/accountSettings"> */}
+                            <Link to="/account-settings">
                                 <SettingsButton id="settingsButton" className="customButton"/>
                             </Link>
                         </li>

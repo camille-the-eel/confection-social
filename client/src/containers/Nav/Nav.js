@@ -7,26 +7,17 @@ import './style.css';
 import CurrentUser from "../../AppContext";
 
 class Navbar extends Component {
-    
+    // constructor(context, props) {
+
+    // }
+
     state = {
         pages: []    
     }
 
-    componentDidMount() {
-        this.mapPages();
-    }
-
-    // Mapping the current users pages into 
-    // !! Currently not actually changing the state of this component !!
-    mapPages = () => {
-        const pagesState = {...this.state};
-        let context = this.context
-        let contextPages = context.pages.map(page => page);
-        pagesState.pages = contextPages.map(page => page)
-        this.setState({
-            pages: contextPages.map(page => page)
-        });
-    }
+    // componentDidMount() {
+    //     console.log(this);
+    // }
 
     render() {
         return (
@@ -37,9 +28,13 @@ class Navbar extends Component {
                             confection
                         </Link>
                         <ul>
-                            <li className="avatars">
-                                <AvatarNavbar>{this.context.pages[0]}</AvatarNavbar>
-                            </li>
+                            {this.context.pages.map(page => (
+                                <li className="avatars">
+                                    <AvatarNavbar key={page._id}>  
+                                        {page}
+                                    </AvatarNavbar>
+                                </li>
+                            ))}
                         </ul>
                         <Link to="/explore" className="right">
                              <SearchButton className="searchButton" alt="searchIcon"/>
