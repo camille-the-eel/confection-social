@@ -49,6 +49,19 @@ export default {
     // Explore call 
     explorePosts: function() {
         return axios.get("/api/posts/explore/")
+    },
+
+    // Create a new page
+    addPage: function(pageData) {
+        return axios.post("/api/pages/addpage", pageData)
+    },
+
+    updatePages: function(userId) {
+        return axios.get("/api/pages/updatepages/" + userId)
+    },
+
+    updateActive: function(switchData) {
+        return axios.put("/api/pages/updateactive", switchData)
     }
 
 };

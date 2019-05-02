@@ -34,7 +34,7 @@ const singleUpload = multer({ storage: storage }).single("file");
 
 router.post('/avatars', singleUpload, (req, res) => {
 
-    console.log("REQ", req);
+    console.log("REQ", req.payload);
     console.log("BODY", req.body);
     console.log("FILE", req.file);
 

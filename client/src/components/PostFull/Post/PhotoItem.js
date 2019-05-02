@@ -26,14 +26,15 @@ class PhotoItem extends Component {
                             <Credit className="credit">
                                 {this.props.children.credit}
                             </Credit> :
-                            <br></br>
+                            <br/>
                         }
                         {
                             this.props.children.isRepaged ? 
                             <Link to={"/pages/" + this.props.children.repaged_by}>
                                 <p className="credit">REPAGED BY</p>
                                 <p className="creditContent">{this.props.children.repaged_by}</p>
-                            </Link> :
+                            </Link> 
+                            :
                             null
                         }
                     </div>

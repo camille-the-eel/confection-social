@@ -5,8 +5,10 @@ import NewUserAvatar from "./containers/NewUser/NewUserAvatar";
 import LandingPage from "./containers/Landing/Landing";
 import Home from "./containers/Home/Home";
 import Page from './containers/Page/Page';
-import Explore from "./containers/Explore/Explore"
+import Explore from "./containers/Explore/Explore";
+import Settings from "./containers/Settings/Settings";
 
+import API from "./utils/API";
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import CurrentUser from "./AppContext";
@@ -20,7 +22,8 @@ class App extends Component {
             user: null,
             pages: [],
             logOut: this.logoutUser,
-            checkIfUser: this.checkIfUser
+            checkIfUser: this.checkIfUser,
+            updatePages: this.updatePages
       };
     };
 
@@ -67,6 +70,24 @@ class App extends Component {
         this.setState({ isUser: true });
     }
 
+    // Function to run to update context and session token on page add
+    updatePages = userId => {
+
+        API.updatePages(userId)
+            .then(res => {
+                
+                // Pushes user and related pages into state to be accessed with context in other components
+                this.setState({
+                    user: userId,
+                    pages: res.data
+                })  
+
+            })
+            .catch(err => console.log(err));
+    }
+
+
+    // Logout function by clearing session token, removing the AuthToken, and rechecking if the user is logged in.
     logoutUser = () => {
         sessionStorage.clear();
         setAuthToken(false);
@@ -93,6 +114,10 @@ class App extends Component {
                     <Route 
                         exact path="/explore"
                         component={Explore}
+                    />
+                    <Route 
+                        exact path="/account-settings"
+                        component={Settings}
                     />
                     <Route 
                         exact path="/pages/:id"
