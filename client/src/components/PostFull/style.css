@@ -9,10 +9,18 @@
 
 .postMenu {
     max-width: 50px;
+    float: left;
+    margin-right: 15px;
 }
 
 .postContainer {
     display: inline-block;
     overflow: hidden;
     width: 80%;
+}
+
+.clearfix::after {
+    content: “”;
+    display: block;
+    clear: both;
 }
