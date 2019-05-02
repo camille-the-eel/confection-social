@@ -39,7 +39,6 @@ class Settings extends Component {
             userID: this.context.user
         }
 
-        console.log(newPage)
 
         await API.addPage(newPage)
             .then(res => {
@@ -47,6 +46,7 @@ class Settings extends Component {
                     this.setState({
                         newPageTitle: ""
                     })
+
                 }
             })
             .catch(err => console.log(err));
@@ -81,6 +81,15 @@ class Settings extends Component {
                             >
                                 add page
                             </button>
+                            <br />
+                            <Link to="/home">
+                                <button
+                                    className="col-1 col-mr-auto addPage"
+                                    type="submit"
+                                >
+                                    done
+                                </button>
+                            </Link>
                         </div>
                     </form>
                 </div>
