@@ -12,7 +12,7 @@ class LandingPage extends Component {
                 <h4 className="appName">confection</h4>
                 <div className="loginForm">
                     <LoginForm updateUser={this.props.updateUser}/>
-                    <Link to={"/register"}>
+                    <Link to={"/signup/"}>
                         <button className="register">not registered? sign up here</button>
                     </Link>
                 </div>
