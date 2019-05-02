@@ -18,6 +18,22 @@
     margin-left: 30px;
 }
 
+.accountMenu {
+    width: 200px;
+}
+
+.divList {
+    width: 200px;
+}
+
+ul {
+    width: 200px;
+}
+
+li {
+    width: 200px;
+}
+
 .activePage {
     display: inline-block;
     font-size: 20px;
