@@ -131,5 +131,50 @@ router.get("/updatepages/:id", (req, res) => {
     .catch(err => res.status(422).json(err));
 })
 
+// @ UPDATE api/pages/changeprimary
+// Query pages by user id and change the page with isPrimary as true to false and change the clicked page to isPrimary is true
+router.put("/updateactive", (req, res) => {
+
+    Page
+        .updateOne(
+            // Query for primary page for current user
+            {
+                $and: [
+                    {
+                        userID: req.body.userID
+                    },
+                    {
+                        isPrimary: true
+                    }
+                ]
+            },
+            // Change isPrimary to false
+            {
+                $set: {
+                    isPrimary: false
+                }
+            }
+        )
+        .then (
+            // After changing previous primary blog to false, query for current page that we clicked and change the isPrimary key to true
+            Page.updateOne(
+
+                // Query for current page
+                {
+                    _id: req.body.currentPage
+                },
+                // Change isPrimary to true
+                {
+                    $set: {
+                        isPrimary: true
+                    }
+                }
+            )
+            .then(pages => res.send(pages))
+            .catch(err => res.status(422).json(err))
+        )
+        .catch(err => res.status(422).json(err));
+})
+
 
 module.exports = router;

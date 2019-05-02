@@ -58,6 +58,10 @@ export default {
 
     updatePages: function(userId) {
         return axios.get("/api/pages/updatepages/" + userId)
+    },
+
+    updateActive: function(switchData) {
+        return axios.put("/api/pages/updateactive", switchData)
     }
 
 };

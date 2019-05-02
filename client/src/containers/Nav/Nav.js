@@ -11,14 +11,13 @@ class Navbar extends Component {
 
     // }
 
-
     state = {
         pages: []    
     }
 
-    componentDidMount() {
-        console.log(this);
-    }
+    // componentDidMount() {
+    //     console.log(this);
+    // }
 
     render() {
         return (
