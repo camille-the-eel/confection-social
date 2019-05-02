@@ -108,7 +108,7 @@ textarea {
 
 .postButton:focus {
     background-color: #fdfcfb !important;
-    color: #991A2A;
+    color: #991A2A; 
 }
 
 .tag-button {
