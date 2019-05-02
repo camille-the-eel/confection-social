@@ -105,7 +105,7 @@ class Create extends Component {
                     <div className="photoDiv">
                         <h1 className="steps">
                             1.
-                            <img src={closeButton} alt="closeButton" id="close" onClick={this.props.toggleCreate}/>
+                            <img src={closeButton} alt="closeBtn" id="closeDiv" onClick={this.props.toggleCreate}/>
                         </h1>
                         <p id="photoHead">
                             photo
