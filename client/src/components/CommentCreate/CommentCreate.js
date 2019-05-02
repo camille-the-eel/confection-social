@@ -21,12 +21,12 @@ class CommentCreate extends Component {
 
     componentDidMount() {
         console.log(this)
-        this.checkActive()
+        // this.checkActive()
     }
 
-    checkActive = () => {
-        this.context.pages.findIndex()
-    }
+    // checkActive = () => {
+    //     this.context.pages.findIndex()
+    // }
 
     handleChange(event) {
         this.setState({
