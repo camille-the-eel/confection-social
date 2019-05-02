@@ -86,7 +86,6 @@ class Create extends Component {
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,
-            photo: this.state.photo,
             url: this.state.url
         };
 
@@ -122,7 +121,7 @@ class Create extends Component {
                     </div>
                     <h1 className="steps">2.</h1>
                     <div className="form-group">
-                        <div className="input-field">
+                        <div className={this.state.formClass}>
                             <p id="urlHead">image url</p>
                             <input className="form-input"
                                 id="url"
