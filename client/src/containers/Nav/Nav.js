@@ -7,12 +7,17 @@ import './style.css';
 import CurrentUser from "../../AppContext";
 
 class Navbar extends Component {
-    
+    // constructor(context, props) {
+
+    // }
+
+
     state = {
         pages: []    
     }
 
     componentDidMount() {
+        console.log(this);
         this.mapPages();
     }
 
@@ -37,9 +42,13 @@ class Navbar extends Component {
                             confection
                         </Link>
                         <ul>
-                            <li className="avatars">
-                                <AvatarNavbar>{this.context.pages[0]}</AvatarNavbar>
-                            </li>
+                            {this.context.pages.map(page => (
+                                <li className="avatars">
+                                    <AvatarNavbar key={page._id}>  
+                                        {page}
+                                    </AvatarNavbar>
+                                </li>
+                            ))}
                         </ul>
                         <Link to="/explore" className="right">
                              <SearchButton className="searchButton" alt="searchIcon"/>

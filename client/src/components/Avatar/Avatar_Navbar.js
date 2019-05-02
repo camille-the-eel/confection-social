@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 import CurrentUser from "../../AppContext"
 
 class AvatarNavbar extends Component {
-    constructor(context) {
-        super(context)
+    constructor(context, props) {
+        super(context, props)
         this.state = {
             image: "",
             source: "",
@@ -14,15 +14,16 @@ class AvatarNavbar extends Component {
     }
 
     componentDidMount() {
+        console.log(this);
         this.loadData();
     }
 
     // Push context data into state
     loadData = () => {
         this.setState({
-            image: this.context.pages[0].avatar,
-            source: this.context.pages[0]._id,
-            page_title: this.context.pages[0].page_title,
+            image: this.props.children.avatar,
+            source: this.props.children._id,
+            page_title: this.props.children.page_title,
         });
     }
 
