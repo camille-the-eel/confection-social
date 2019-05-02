@@ -9,6 +9,8 @@
     border: 7px solid #991A2A;
     box-shadow: 0 0 200px #3B3A3A;;
     z-index: 10;
+    max-height: 70%;
+    overflow: scroll;
 }
 
 p {
@@ -36,7 +38,7 @@ p {
     margin: 10px;
 }
 
-.postForm {
+#postForm {
     border-bottom: 5px dotted #991A2A;
     padding-bottom: 20px;
     margin-bottom: 20px;
