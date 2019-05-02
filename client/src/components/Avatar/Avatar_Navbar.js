@@ -4,17 +4,17 @@ import { Link } from "react-router-dom"
 import CurrentUser from "../../AppContext"
 
 class AvatarNavbar extends Component {
-    constructor(context, props) {
-        super(context, props)
+    constructor(context) {
+        super(context)
         this.state = {
             image: "",
             source: "",
-            page_title: ""
+            page_title: "",
+            isPrimary: false
         }
     }
 
     componentDidMount() {
-        console.log(this);
         this.loadData();
     }
 
@@ -24,18 +24,30 @@ class AvatarNavbar extends Component {
             image: this.props.children.avatar,
             source: this.props.children._id,
             page_title: this.props.children.page_title,
+            isPrimary: this.props.children.isPrimary
         });
     }
 
     render () {
         return (
-            <Link to={"/pages/" + this.state.page_title}>
-                <img
-                    src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
-                    alt="page-avatar" 
-                    style={{width:45}} 
-                />
-            </Link>
+            <div>
+                {
+                    this.props.children.isPrimary ?  
+                    <Link to={"/pages/" + this.state.page_title}>
+                        <img
+                            src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
+                            alt="page-avatar" 
+                            style={{width:45}} 
+                        />
+                    </Link> 
+                    :
+                    <img
+                        src={this.state.image || "https://i.imgur.com/G5D1q3e.png"} 
+                        alt="page-avatar" 
+                        style={{width:45, opacity:0.25}} 
+                    />
+                }
+            </div>
         )
     }
 }

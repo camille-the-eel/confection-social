@@ -18,19 +18,6 @@ class Navbar extends Component {
 
     componentDidMount() {
         console.log(this);
-        this.mapPages();
-    }
-
-    // Mapping the current users pages into 
-    // !! Currently not actually changing the state of this component !!
-    mapPages = () => {
-        const pagesState = {...this.state};
-        let context = this.context
-        let contextPages = context.pages.map(page => page);
-        pagesState.pages = contextPages.map(page => page)
-        this.setState({
-            pages: contextPages.map(page => page)
-        });
     }
 
     render() {
