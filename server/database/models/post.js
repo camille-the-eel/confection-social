@@ -12,7 +12,8 @@ var PostSchema = new Schema({
     },
 
     image_url: {
-        type: String
+        type: String,
+        required: true
     },
 
     credit: {

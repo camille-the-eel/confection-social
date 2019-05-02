@@ -38,7 +38,7 @@ p {
     margin: 10px;
 }
 
-.postForm {
+#postForm {
     border-bottom: 5px dotted #991A2A;
     padding-bottom: 20px;
     margin-bottom: 20px;
