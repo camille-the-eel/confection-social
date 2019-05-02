@@ -8,10 +8,11 @@ import AvatarComment from "../Avatar/Avatar_Comment";
 import './style.css';
 
 class CommentCreate extends Component {
-    constructor() {
-        super()
+    constructor(context, props) {
+        super(context, props)
         this.state= {
-            newComment: ""
+            newComment: "",
+            activePageIndex: 0
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,12 +32,13 @@ class CommentCreate extends Component {
     handleSubmit = async event => {
         event.preventDefault();
 
+
         const commentData = {
             post_id: this.props.children._id,
             comment_text: this.state.newComment,
-            comment_author: this.context.pages[0].page_title,
-            cAuthor_id: this.context.pages[0]._id,
-            cAuthor_avatar: this.context.pages[0].avatar
+            comment_author: this.context.pages[this.state.activePageIndex].page_title,
+            cAuthor_id: this.context.pages[this.state.activePageIndex]._id,
+            cAuthor_avatar: this.context.pages[this.state.activePageIndex].avatar
         };
 
         if (!commentData.comment_text) {
@@ -61,8 +63,8 @@ class CommentCreate extends Component {
         return (
             <div className="inputCommentDiv">
                 <div className="currentPage">
-                    <AvatarComment className="currentPageAvatar">{this.context.pages[0].avatar}</AvatarComment>
-                    <p className="pageName">{this.context.pages[0].page_title}</p>
+                    <AvatarComment className="currentPageAvatar">{this.context.pages[this.state.activePageIndex].avatar}</AvatarComment>
+                    <p className="pageName">{this.context.pages[this.state.activePageIndex].page_title}</p>
                 </div>
                 <div >
                     <textarea className="form-input commentInput"
