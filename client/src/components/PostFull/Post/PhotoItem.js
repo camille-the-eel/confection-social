@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import deleteButton from '../../../img/closeButton.svg';
 import Caption from '../../Caption/Caption';
 import Source from '../../Sources/source';
 import Credit from '../../Sources/credit';
@@ -18,7 +18,6 @@ class PhotoItem extends Component {
             <div className="containPost">
                 <img src={this.props.children.image_url || "https://via.placeholder.com/350"} alt="post" className="postImg"/>
                 <div className="postDetails">
-                
                     <div>
                         <Source className="source">{this.props.children.source}</Source>
                         {

@@ -39,9 +39,10 @@ Current Features:
 - commenting
 - explore all posts
 - live commenting
+- register multiple Pages on singular account
 
 Features to Come: 
-- multiple Pages by one account
+- functionality of additional registered Pages
 - live notifications of activity, likes, rePaged conten
 - creating text posts
 - search by multiple tags
@@ -81,9 +82,7 @@ If you were to view her Photography Page, you would see in the sidebar a link to
 
 **Home Page Mockup** 
 
-You can see the avatars of each Page this account has in the navbar. The active Page is full opacity while the rest of faded out. To switch which Page you are acting under, merely click the avatar you wish to act as.
-
-(This feature is not currenlty available in the deployed app).
+You can see the avatars of each Page this account has in the navbar. The active Page is full opacity while the rest of faded out. To switch which Page you are acting under, merely click the avatar you wish to act as. Clicking the active Page avatar will take you to that Page.
 
 ![Mockup: Home Page](assets/wireframes/Dashboard.jpg)
 
