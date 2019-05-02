@@ -86,7 +86,6 @@ class Create extends Component {
             caption: this.state.caption,
             credit: this.state.credit,
             tags: this.state.tags,
-            photo: this.state.photo,
             url: this.state.url
         };
 

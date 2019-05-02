@@ -124,7 +124,7 @@ class App extends Component {
                         component={Page}
                     />
                     <Route 
-                        path="/register"
+                        path="/signup"
                         render={() => 
                             <Register />}
                     />
