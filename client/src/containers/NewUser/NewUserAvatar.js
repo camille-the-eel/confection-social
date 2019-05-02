@@ -12,7 +12,7 @@ class NewUserAvatar extends Component {
             }
     }
 
-    //on choosing file from computer, state is updated with file data
+    //ON CHOOSING FILE FROM COMPUTER, STATE IS UPDATED WITH FILE DATA
     fileChanged(e) {
         const file = e.target.files[0];
         this.setState({
@@ -20,17 +20,17 @@ class NewUserAvatar extends Component {
         });
     }
 
-    //on submitting file
+    //ON SUBMITTING FILE
     uploadFile(e) {
         e.preventDefault();
 
-        //creating empy formdata object
+        //CREATING EMPY FORMDATA OBJECT
         let data = new FormData();
 
-        //appending key/value pair file/state to data object
+        //APPENDING KEY/VALUE PAIR FILE/STATE TO DATA OBJECT
         data.append('file', this.state.avatar);
 
-        //posting populated formdata to route as json
+        //POSTING POPULATED FORMDATA TO ROUTE
         fetch('/api/users/avatars', {
             method: 'POST',
             body: data

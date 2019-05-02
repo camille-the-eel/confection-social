@@ -38,11 +38,11 @@ Current Features:
 - aggregated feed
 - commenting
 - explore all posts
+- live commenting
 
 Features to Come: 
 - multiple Pages by one account
-- live commenting
-- live notifications of activity, likes, rePaged content
+- live notifications of activity, likes, rePaged conten
 - creating text posts
 - search by multiple tags
 - explore trending posts
