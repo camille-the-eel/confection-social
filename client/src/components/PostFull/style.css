@@ -2,7 +2,8 @@
     box-sizing: content-box;
     position: relative;
     top: 55px;
-    max-width: 80%;
+    max-width: 90%;
+    /* max-width: 80%; */
     margin-left: 10%;
     margin-bottom: 50px;
 }
