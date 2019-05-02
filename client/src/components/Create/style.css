@@ -19,6 +19,45 @@ p {
     font-weight: 600;
     font-style: normal;
     margin-top: 15px;
+    display: inline-block;
+}
+
+.checkSuccess {
+    margin-left: 10px;
+    width: 20px;
+    display: inline-block;
+}
+
+.hiddenCheck {
+    display: none;
+}
+
+.steps {
+    margin: 10px;
+}
+
+.postForm {
+    border-bottom: 5px dotted #991A2A;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.hiddenForm {
+    display: none;
+}
+
+.postChoose {
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.postUpload {
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #photoHead {
@@ -26,8 +65,8 @@ p {
 }
 
 #close {
-    display: inline-block;
-    margin-left: 80%;
+    position: fixed;
+    left: 65%;
     width: 25px;
 }
 

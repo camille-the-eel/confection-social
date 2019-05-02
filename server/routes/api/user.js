@@ -5,11 +5,9 @@ const bcrypt    =   require("bcryptjs");
 const jwt       =   require("jsonwebtoken");
 const multer    =   require('multer');
 const { mongo } = require('mongoose');
-const GridFsStorage = require('multer-gridfs-storage') ;
+const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 Grid.mongo = mongo;
-// const dbConfig  =   require("../../../dbconfig");
-// var gfs = new Grid(dbConfig.db);
 
 // Load input validation
 const validateRegisterInput =   require("../../validation/register");
@@ -21,13 +19,13 @@ const Page  =   require("../../database/models/page");
 
 //set up connection to db for file storage
 const storage = new GridFsStorage({
-    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`
-    // file: (req) => {    
-    //     return {      
-    //          bucketName: 'avatar',       
-    //          //Setting collection name, default name is fs
-    //   }  
-// }
+    url: `mongodb+srv://${process.env.MONGO_UN}:${process.env.MONGO_PW}@confection-db-npp3q.mongodb.net/test?retryWrites=true/users`,
+    file: (req) => {    
+        return {      
+             bucketName: 'avatar',       
+             //Setting collection name, default name is fs
+        }  
+    }
 });
 
 //Set multer storage engine to storage object ^ and file input to single file

@@ -46,8 +46,14 @@ body {
 
 .avatarChoose {
     margin-top: 7px;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .avatarUpload {
     margin-top: 20px;
+    font-family: miller-text, serif;
+    font-weight: 400;
+    font-style: normal;
 }
