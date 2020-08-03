@@ -1,8 +1,7 @@
 
 # <a href="https://confection-social.herokuapp.com/">Confection</a> Social App
-<br>
 Use frank@gmail.com / hellofrank, or create your own user to check out the site.
-<br>
+
 **Goal**
 
 To create an application with an emphasis on community interactivity, artistic liberty, chronological feed, ease of use between accounts, and striking visual content.
