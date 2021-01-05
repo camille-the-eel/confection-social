@@ -8,7 +8,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "getstream": "^4.2.1",
     "jwt-decode": "^2.2.0",
     "npm-install-peers": "^1.2.1",
